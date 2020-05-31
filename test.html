@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>YoungjaeJang 20180555</title>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <link href="./capital_game.css" rel="stylesheet" />
+    <script src="jquery/js/jquery-1.9.0.min.js"></script>
+    <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="./capital_game.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+  </head>
+  <body>
+    <!--Your HTML here-->
+    <header>
+      <h1> Do you know the capital of this country? </h1>
+    </header>
+    <p align="middle">
+    <div id="mapdiv" align="middle">
+      <iframe
+        id="mymap"
+        width="600"
+        height="450"
+        frameborder="3"
+        style="border: 3px solid transparent"
+        src="https://www.google.com/maps/embed/v1/search?key=AIzaSyA_oeLny0S9UTMgCCrdRN8W6WpcHCDWE50&maptype=roadmap&language=EN" allowfullscreen>
+      </iframe> </div></p>
+
+
+    <table id='resultTable'>
+      <thead>
+        <tr>
+          <th> Country </th>
+          <th> Capital </th>
+          <th> Answer </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hd">
+          <td class="QcountryName" id="pr2__question">  </td>
+          <td> <input type="text" id="pr2__answer" placeholder="Your Answer" size="30"></input> </td>
+          <td> <button id="pr2__submit">See Answer</button> </td>
+        </tr>
+        <tr class="hd">
+          <td colspan="3">
+          <input type="radio" value="All" name="chk" checked="checked">All</input>
+          <input type="radio" value="CO" name="chk">Correct Only</input>
+          <input type="radio" value="WO" name="chk">Wrong Only</input><br>
+          <button id="pr3__undo">Undo</button>
+          <button id="pr3__clear">Clear</button>
+          <button id="pr3__restart">Restart</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </body>
+</html>
