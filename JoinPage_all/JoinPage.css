@@ -1,0 +1,43 @@
+#join_page_title{
+    margin-top: 30px
+}
+
+#logo{
+    width: 400px
+}
+
+#join_us {
+
+width: 244px;
+height: 44px;
+background-color: #F3A45A;
+font-size: 30px
+}
+#table_div{
+    margin-bottom: 50px;
+}
+#write_name{
+    width:300px;
+    height:50px;
+    font-size:30px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+
+#write_place{
+    width:300px;
+    height:50px;
+    font-size:30px;
+}
+
+#enter_name{
+    margin-bottom: 30px;
+    font-size:25px;
+    background-color: #F3A45A;
+    border: 1px solid black;
+}
+#enter_place{
+    font-size:25px;
+    background-color: #F3A45A;
+    border: 1px solid black;
+}
