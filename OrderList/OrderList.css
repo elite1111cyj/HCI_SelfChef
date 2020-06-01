@@ -10,8 +10,9 @@ li{
 }
 
 .frame {
-  width: 1000px;
-  margin: 0 auto;
+  max-width: 1500px;
+  padding-left: 30px;
+  margin: 50px 50px;
   border: 1px solid #aaa;
 }
 
