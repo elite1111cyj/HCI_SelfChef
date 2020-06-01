@@ -4,7 +4,7 @@ body {
 
 a:link { color: black; text-decoration: none;}
 a:visited { color: black; text-decoration: none;}
-a:hover { color: blue; text-decoration: underline;}
+a:hover { color: black; text-decoration: none;}
 li{
   list-style:none;
 }
@@ -16,13 +16,43 @@ li{
   border: 1px solid #aaa;
 }
 
-#logo{
-  font-size: large;
+.logo{
+  font-size: x-large;
+  font-weight: bold;
+  display: inline;
+  width: 150px;
+}
+.nav{
+  display: inline;
+}
+.nav-list{
+  display: inline;
+}
+.nav-item{
+  float: right;
+  width: 100px;
 }
 
-
-img{
+.with-bg-size{
   width: 300px;
+  height: 300px;
+  background-position: center;
+  background-image: url("src/img/carrot1.jpg");
+  /* Make the background image cover the area of the <div>, and clip the excess */
+  background-size: cover;
+  border-radius: 7px 7px 0 0;
+}
+
+.image {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.image img {
+    width: 300px;
+    height: 300px;
+    margin: -75px 0 0 -100px;
 }
 
 ul{
@@ -31,16 +61,72 @@ ul{
   background-color: white;
 }
 
-.nav-item{
-  float: right;
-  width: 100px;
+dd{
+  margin-inline-start: 20px;
 }
+
+dl{
+  margin: 0;
+}
+
+
+.progress-container {
+    background: #b3bce7;
+    width:100%;
+    margin: 0;
+    padding:0;
+    height:20px;
+}
+.progressbar{
+  background-color: #556EE6;
+  width:200px;
+  max-width: 100%;
+  height:20px;
+  margin:0;
+}
+.progressPercent{
+  display: inline;
+  position: relative;
+  color: #556EE6;
+  size: 12px;
+  font-weight: bold;
+  font-family: noto sans;
+  margin-left: 10px;
+}
+.progressNote{
+  display: inline;
+  position: relative;
+  color: #afafaf;
+  size: 12px;
+  font-weight: bold;
+  font-family: noto sans;
+  float: right;
+  margin: 0;
+  margin-right: 10px;
+}
+
+
+.deleteBtn{
+  background-color: #556EE6;
+  font-weight: 700;
+  text-align: center;
+  display: table;
+  vertical-align: middle;
+  color: #fff;
+  height: 25px;
+  width: 70px;
+  margin: 3px;
+  border-radius: 7px;
+  cursor:pointer;
+  float: right;
+}
+
 
 .ongoingProduct{
   width: 300px;
-  margin-right: 10px;
+  margin-right: 20px;
   float: left;
-  box-shadow: 1px 1px 1px 0.1px gray ;
+  border-radius: 7px;
 }
 
 .name{
