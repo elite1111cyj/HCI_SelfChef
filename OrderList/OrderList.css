@@ -24,13 +24,21 @@ li{
 }
 .nav{
   display: inline;
+  width: 1000px;
+  margin: 0 auto;
 }
 .nav-list{
   display: inline;
+  vertical-align: middle;
 }
 .nav-item{
   float: right;
-  width: 100px;
+  text-align: center;
+  font-size: large;
+  width: 130px;
+  height:50px;
+  vertical-align: middle;
+  border: 1px solid black;
 }
 
 .with-bg-size{
