@@ -1,0 +1,5 @@
+// When the user clicks on <div>, open the popup
+function dealCancel() {
+  var dealCancelPopup = document.getElementById("dealCancelPopup");
+  dealCancelPopup.classList.toggle("showPopup");
+}

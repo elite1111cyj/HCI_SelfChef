@@ -1,0 +1,80 @@
+/* Show Popup when clicked */
+.clickForPopup {
+	position: absolute;
+	cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.clickForPopup .inPopup { /* this means for elements with both showPopup and inPopup */
+  visibility: hidden;
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  border-style: solid;
+  z-index: 1;
+  text-align: left;
+  display: inline-block;
+  padding: 20px;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.clickForPopup .showPopup {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+}
+
+/* Popup fades in: -webkit- means for chrome */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* center div */
+.center-div {
+	margin: 0 auto;
+	width: 600px;
+}
+
+.headerDealSuccess {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.bodyDealSuccess1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.bodyDealSuccess2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.fullScreen {
+	width: 100vw;
+	position: relative;
+	margin-left: -50vw;
+	height: 100px;
+	margin-top: 0px;
+	left: 50%;
+	text-align: center;
+}
+.imageRight { 
+            width: 250px; 
+            height: 200px; 
+            float: right; 
+            background-color: black;
+  margin-right: 50px;
+}
+.linkButton{
+  margin-left: 10px;
+}
+.submitButton {
+  width: 250px;
+  height: 60px;
+  float: right;
+  margin-right: 50px;
+  font-size: 36px;
+}
