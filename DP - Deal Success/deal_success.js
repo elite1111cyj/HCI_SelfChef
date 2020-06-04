@@ -24,18 +24,18 @@ firebase.initializeApp(firebaseConfig);
 
 var groupKeyRef;
 var groupKey;
-atStart(); //°¡Àå Ã³À½¿¡ ½ÇÇàµÊ
+atStart(); //ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 function atStart(){
-	//databaseÀÇ ÇØ´çÇÏ´Â group°ú ¿¬°á
-	//ÀÏ´ÜÀº exampleÀÇ key¸¦ ¹Þ¾Ò´Ù°í °¡Á¤
+	//databaseï¿½ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ groupï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	//ï¿½Ï´ï¿½ï¿½ï¿½ exampleï¿½ï¿½ keyï¿½ï¿½ ï¿½Þ¾Ò´Ù°ï¿½ ï¿½ï¿½ï¿½ï¿½
 	groupKeyRef = firebase.database().ref("groups").child("example"); //this is the reference
 	groupKey = groupKeyRef.getKey(); //this is "example"
-	
+
 }
 
 $( document ).ready(function() {
-	
+
 	//getElementByIds
 	var linkButton = document.getElementById("linkBtn");
 	var submitButton = document.getElementById("submitBtn");
@@ -62,10 +62,9 @@ $( document ).ready(function() {
 		providedImageUrl = myValue.imageurl; //url for image
 		image.setAttribute("src", providedImageUrl);
 		image.setAttribute("width", "250");
-		image.setAttribute("height", "200"); 
+		image.setAttribute("height", "200");
 		//image.setAttribute("float", right);
 		//image.setAttribute("margin-right", 50px);
 		imageDiv.appendChild(image);
 	});
 });
-
