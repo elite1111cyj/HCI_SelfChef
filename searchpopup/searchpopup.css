@@ -33,12 +33,97 @@
     background-color: black;
 }
 
-#productname {
+#info {
     position: absolute;
     left: 400px;
     top: 60px;
+    width: 600px;
+}
+
+#productname {
+    position: absolute;
+    left: 0px;
+    top: 0px;
     width: 590px;
     word-break: break-all;
     font-size: 40px;
+    font-weight: bold;
+}
+
+#progress {
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    width: 500px;
+    height: 30px;
+    background-color: black;
+}
+
+#pickupplace {
+    position: absolute;
+    left: 0px;
+    top: 150px;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+#dayleft {
+    position: absolute;
+    left: 0px;
+    top: 200px;
+    font-size: 24px;
+    font-weight: normal;
+    color: red;
+}
+
+#price {
+    position: absolute;
+    left: 0px;
+    top: 250px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+#control {
+    position: absolute;
+    right: 380px;
+    bottom: 120px;
+}
+
+#amount {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 60px;
+    width: 110px;
+    background-color: #c4c4c4;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.controller {
+    position: absolute;
+    left: 130px;
+    height: 29px;
+    width: 29px;
+    background-color: #c4c4c4;
+}
+
+#up {
+    top: 0px;
+}
+
+#down {
+    top: 35px;
+}
+
+#add {
+    position: absolute;
+    left: 180px;
+    height: 65px;
+    width: 110px;
+    background-color: #F3A45A;
+    font-size: 32px;
     font-weight: bold;
 }

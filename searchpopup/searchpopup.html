@@ -16,9 +16,19 @@
         <button id='close' onclick='close()'>
         </button>
         <img id='productimg' />
-        <div id='productname'>this is my product~~~~~!! !!!!!!!! !!!!</div>
-
-
+        <div id='info'>
+            <div id='productname'>this is my product~~~~~!! !!!!!!!! !!!!</div>
+            <div id='progress'></div>
+            <div id='pickupplace'>Eo-eun dong</div>
+            <div id='dayleft'>3 days left</div>
+            <div id='price'>620won/ piece</div>
+        </div>
+        <div id='control'>
+            <input type='text' id='amount'></input>
+            <input type='button' class='controller' id='up' onclick='up()'></input>
+            <input type='button' class='controller' id='down' onclick='down()'></input>
+            <input type='button' id='add' value='Add'></input>
+        </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>
     <link rel="stylesheet" href="../jquery-ui-1.12.1/jquery-ui.min.css">
