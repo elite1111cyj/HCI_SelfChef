@@ -1,11 +1,10 @@
 /* Show Popup when clicked */
 .clickForPopup {
-	position: absolute;
 	cursor: pointer;
 }
 
 /* The actual popup (appears on top) */
-.clickForPopup .inPopup { /* this means for elements with both showPopup and inPopup */
+.inPopup {
   visibility: hidden;
   width: 800px;
   height: 520px;
@@ -18,7 +17,7 @@
 }
 
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
-.clickForPopup .showPopup {
+.showPopup {
   visibility: visible;
   -webkit-animation: fadeIn 1s;
 }
@@ -71,13 +70,30 @@
             background-color: black;
   margin-right: 50px;
 }
+
 .linkButton{
   margin-left: 10px;
+  cursor: pointer;
 }
+
 .submitButton {
   width: 250px;
   height: 60px;
   float: right;
   margin-right: 50px;
   font-size: 36px;
+  cursor: pointer;
+}
+
+.topLine {
+}
+.closeButton:after {
+	float: right;
+	color: black;
+	text-align: center;
+	content: "\d7";
+	font-weight: bold;
+	font-size: 30px;
+	padding-right: 10px;
+	cursor: pointer;
 }

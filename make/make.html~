@@ -21,7 +21,7 @@
             <input type="text" placeholder="Hash Tags" id="tag"></input>
             <input type="text" placeholder="Product Link" id="url"></input>
             <input type="file" accept="img/*" id='imageholder'></input>
-	    <img id='image' src="#" />
+            <img id='image' src="#" />
         </div>
         <div id='select'>
             <input type="checkbox" name='endselect' value='Date' id='dateselect' checked>

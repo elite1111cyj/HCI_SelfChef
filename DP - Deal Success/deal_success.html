@@ -14,22 +14,23 @@
     <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>   
     <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase.js"></script>
     <script src="./deal_success.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
     <div class="center-div">
       <h1> Deal Success </h1>
-      <div class="clickForPopup" onclick="dealSuccess()">Click me!
-        <div class="fullScreen">
-        <span class="inPopup" id="dealSuccessPopup">
-          <p class="headerDealSuccess">[Online Traditional Market]<br>Broccoli</br></p>
-        <div class="imageRight"></div>
-        <p class="bodyDealSuccess1">1. Purchase product <button class="linkButton">The link you provided</button> </p>
-        <p class="bodyDealSuccess2">Make sure you buy the exact product, exact amount.<br>The participants are anticipating!</br></p>
-    <p class="bodyDealSuccess1">2. Share link for group chat</pr><p><input id="textInput1" type="text" placeholder="link"></p>
-  <p class="bodyDealSuccess1">3. Share your bank account</pr>
-<p><input id="textInput2" type="text" placeholder="Bank name"><input id="textInput3" type="text" placeholder="Account"></p>
-<p class="bodyDealSuccess1">4. Fix the sharing place and time<button class="submitButton">Submit</button></pr>
-<p><input id="textInput4" type="text" placeholder="Place"><input id="textInput5" type="text" placeholder="Time"></p>
-</span></div>
-          </div>
-    </div>
+      <div class="clickForPopup" onclick="dealSuccess()">Click me!</div>
+      <div class="fullScreen">
+        <div class="inPopup" id="dealSuccessPopup">
+		<div class="topLine"><div class="closeButton" onclick="clickClose()"></div></div>
+		<p class="headerDealSuccess">[Online Traditional Market]<br>Broccoli</br></p>
+		<div class="imageRight" id="imageDiv"></div>
+		<p class="bodyDealSuccess1">1. Purchase product <button class="linkButton" id="linkBtn">The link you provided</button> </p>
+		<p class="bodyDealSuccess2">Make sure you buy the exact product, exact amount.<br>The participants are anticipating!</br></p>
+		<p class="bodyDealSuccess1">2. Share link for group chat</pr><p><input id="textInput1" type="text" placeholder="link"></p>
+		<p class="bodyDealSuccess1">3. Share your bank account</pr>
+		<p><input id="textInput2" type="text" placeholder="Bank name"><input id="textInput3" type="text" placeholder="Account"></p>
+		<p class="bodyDealSuccess1">4. Fix the sharing place and time<button class="submitButton" id="submitBtn">Submit</button></pr>
+		<p><input id="textInput4" type="text" placeholder="Place"><input id="textInput5" type="text" placeholder="Time"></p>
+	</div></div>
+    </div> <!--div for center-div-->
   </body>
 </html>
