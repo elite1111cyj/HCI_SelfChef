@@ -14,6 +14,7 @@ var storageRef = firebase.storage().ref('/images/');
 
 window.onload = function() {
     initialize()
+    getInfo()
 }
 
 function initialize() {
@@ -30,4 +31,25 @@ function up() {
 function down() {
     cval = Number($('#amount').val());
     if (cval > 1) $('#amount').val(cval - 1);
+}
+
+function getInfo() {
+    return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
+        var myValue = snapshot.val();
+        var keyList = Object.keys(myValue);
+        var myKey = keyList[0]
+        var myInfo = myValue[myKey]
+        var name = myInfo.name
+        var enddate = myInfo.enddate
+        var endamount = myInfo.endamount
+        var pickupplace = myInfo.pickupplace
+        var price = myInfo.price
+        var unit = myInfo.unit
+        var imageurl = myInfo.imageurl
+
+        $('#productname').html(name)
+        $('#pickupplace').html(pickupplace)
+        $('#price').html(price + '/' + unit)
+    })
+
 }
