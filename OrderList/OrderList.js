@@ -10,9 +10,9 @@ var firebaseConfig = {
     appId: "1:774674175555:web:fcf3a66700feb62352a6f6"
 };
 
-firebase.initializeApp(firebaseConfig);
-groupKeyRef = firebase.database().ref("groups").child("example"); //this is the reference
-consoe.log(groupKeyRef);
+//firebase.initializeApp(firebaseConfig);
+//groupKeyRef = firebase.database().ref("groups").child("example"); //this is the reference
+//consoe.log(groupKeyRef);
 
 
 // ======================
