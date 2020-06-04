@@ -24,18 +24,18 @@ firebase.initializeApp(firebaseConfig);
 
 var groupKeyRef;
 var groupKey;
-atStart(); //가장 처음에 실행됨
+atStart(); //starts first
 
 function atStart(){
-	//database의 해당하는 group과 연결
-	//일단은 example의 key를 받았다고 가정
-	groupKeyRef = firebase.database().ref("groups").child("example"); //this is the reference
+	//connects with the correct group in database
+	//for now, got key for the example
+	groupKeyRef = firebase.database().ref("groups").child("-M8ywY0Ui2yOOLRt-CT3"); //this is the example reference
 	groupKey = groupKeyRef.getKey(); //this is "example"
-	
+
 }
 
 $( document ).ready(function() {
-	
+
 	//getElementByIds
 	var linkButton = document.getElementById("linkBtn");
 	var submitButton = document.getElementById("submitBtn");
@@ -62,10 +62,9 @@ $( document ).ready(function() {
 		providedImageUrl = myValue.imageurl; //url for image
 		image.setAttribute("src", providedImageUrl);
 		image.setAttribute("width", "250");
-		image.setAttribute("height", "200"); 
+		image.setAttribute("height", "200");
 		//image.setAttribute("float", right);
 		//image.setAttribute("margin-right", 50px);
 		imageDiv.appendChild(image);
 	});
 });
-
