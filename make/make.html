@@ -19,9 +19,25 @@
         <div id='info'><b>Information</b>
             <input type="text" placeholder="Product Name" id="name"></input>
             <input type="text" placeholder="Hash Tags" id="tag"></input>
-            <input type="text" placeholder="Product Link" id="url"></input>
+            <input type="text" placeholder="Product Link (optional)" id="url"></input>
             <input type="file" accept="img/*" id='imageholder'></input>
-	    <img id='image' src="#" />
+            <img id='image' src="#" />
+            <select id='categorysearch' name='category'>
+                <option value='default'>Select category</option>
+                <option value='fruit'>fruit</option>
+                <option value='bread'>bread</option>
+                <option value='beef'>beef</option>
+                <option value='rice'>rice</option>
+                <option value='dairy'>dairy</option>
+                <option value='health'>health</option>
+                <option value='fish'>fish</option>
+            </select>
+            <div id='price'>
+                <div id='pricetext'>Price info: </div>
+                <input type='text' placeholder='price ex)6000 won' id='priceper'></input>
+                <div id='slash'>/</div>
+                <input type='text' placeholder='unit ex)kg' id='unit'></input>
+            </div>
         </div>
         <div id='select'>
             <input type="checkbox" name='endselect' value='Date' id='dateselect' checked>

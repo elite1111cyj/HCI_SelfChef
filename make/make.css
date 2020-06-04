@@ -1,7 +1,7 @@
 #box {
     /* Rectangle */
     position: absolute;
-    height: 570px;
+    height: 630px;
     width: 1080px;
     left: 50%;
     margin-left: -540px;
@@ -129,10 +129,92 @@
     background: transparent;
 }
 
+#categorysearch {
+    position: absolute;
+    top: 230px;
+    left: 0px;
+    height: 37px;
+    /* Colors / White */
+    background: #FFFFFF;
+    /* Shadow */
+    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-radius: 4px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+#price {
+    position: absolute;
+    top: 230px;
+    left: 250px;
+}
+
+#pricetext {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 200px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 41px;
+}
+
+#priceper {
+    position: absolute;
+    top: 0px;
+    left: 114px;
+    height: 37px;
+    width: 200px;
+    /* Colors / White */
+    background: #FFFFFF;
+    /* Shadow */
+    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-radius: 4px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+#slash {
+    position: absolute;
+    top: 10px;
+    left: 328px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 38px;
+    line-height: 24px;
+}
+
+#unit {
+    position: absolute;
+    top: 0px;
+    left: 348px;
+    width: 90px;
+    height: 37px;
+    /* Colors / White */
+    background: #FFFFFF;
+    /* Shadow */
+    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-radius: 4px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+}
+
 #select {
     position: absolute;
     left: 76px;
-    top: 320px;
+    top: 380px;
 }
 
 #dateselect {
@@ -212,7 +294,7 @@
     width: 430px;
     height: 45px;
     left: 76px;
-    top: 430px;
+    top: 490px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -264,7 +346,7 @@
     height: 38px;
     width: 90px;
     left: 900px;
-    top: 473px;
+    bottom: 60px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
