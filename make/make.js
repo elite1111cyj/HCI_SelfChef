@@ -80,6 +80,9 @@ function onclicked() {
             var endamount = $('#amountselectinput').val()
             var pickupdate = $('#setdate').val()
             var pickupplace = $('#setplace').val()
+            var category = $('#categorysearch').val()
+            var price = $('#priceper').val()
+            var unit = $('#unit').val()
                 //need to check if there is any blank!
             newKey.set({
                 name: name,
@@ -89,7 +92,10 @@ function onclicked() {
                 endamount: endamount,
                 pickupdate: pickupdate,
                 pickupplace: pickupplace,
-                imageurl: imageurl
+                imageurl: imageurl,
+                category: category,
+                price: price,
+                unit: unit
             });
 
             alert("You successfully made a new group buying!")
