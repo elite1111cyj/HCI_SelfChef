@@ -24,12 +24,12 @@ firebase.initializeApp(firebaseConfig);
 
 var groupKeyRef;
 var groupKey;
-atStart(); //���� ó���� ������
+atStart(); //starts first
 
 function atStart(){
-	//database�� �ش��ϴ� group�� ����
-	//�ϴ��� example�� key�� �޾Ҵٰ� ����
-	groupKeyRef = firebase.database().ref("groups").child("example"); //this is the reference
+	//connects with the correct group in database
+	//for now, got key for the example
+	groupKeyRef = firebase.database().ref("groups").child("-M8ywY0Ui2yOOLRt-CT3"); //this is the example reference
 	groupKey = groupKeyRef.getKey(); //this is "example"
 
 }
