@@ -1,4 +1,4 @@
-#box {
+#searchpopup {
     /* Rectangle */
     position: absolute;
     height: 570px;
@@ -22,6 +22,8 @@
     position: absolute;
     right: 15px;
     top: 15px;
+    content: "\d7";
+    color: white;
 }
 
 #productimg {

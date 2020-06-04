@@ -8,6 +8,7 @@ var firebaseConfig = {
     messagingSenderId: "774674175555",
     appId: "1:774674175555:web:fcf3a66700feb62352a6f6"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var storageRef = firebase.storage().ref('/images/');
@@ -128,3 +129,7 @@ var fileButton = document.getElementById("imageholder");
 fileButton.addEventListener('change', function(e) {
     curfile = e.target.files[0];
 });
+
+function makepopup() {
+
+}

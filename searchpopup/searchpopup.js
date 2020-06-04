@@ -14,12 +14,11 @@ var storageRef = firebase.storage().ref('/images/');
 
 window.onload = function() {
     initialize()
-    getInfo()
+    getInfo("-M8ywY0Ui2yOOLRt-CT3")
 }
 
 function initialize() {
     var d = new Date()
-
     $('#amount').val(1);
 }
 
@@ -33,12 +32,10 @@ function down() {
     if (cval > 1) $('#amount').val(cval - 1);
 }
 
-function getInfo() {
+function getInfo(key) {
     return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
         var myValue = snapshot.val();
-        var keyList = Object.keys(myValue);
-        var myKey = keyList[0]
-        var myInfo = myValue[myKey]
+        var myInfo = myValue[key]
         var name = myInfo.name
         var enddate = myInfo.enddate
         var endamount = myInfo.endamount
@@ -51,5 +48,4 @@ function getInfo() {
         $('#pickupplace').html(pickupplace)
         $('#price').html(price + '/' + unit)
     })
-
 }
