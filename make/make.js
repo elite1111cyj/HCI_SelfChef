@@ -72,7 +72,7 @@ function initialize() {
     $('#setdate').attr('placeholder', s)
 }
 
-function onclicked() {
+function makeclicked() {
 
     //need to talk more about the DB structure..
     //this code is just pushing into the 'full' list. need to push into 'user' list too.
@@ -82,7 +82,6 @@ function onclicked() {
     task = storageRef.put(curfile);
     task.then(function() {
         storageRef.getDownloadURL().then(function(imageurl) {
-            console.log(imageurl)
             var name = $("#name").val()
             var tag = $("#tag").val()
             var url = $("#url").val()
@@ -108,7 +107,8 @@ function onclicked() {
                 unit: unit,
                 currentamount: 0
             });
-
+            var userKey = firebase.database().ref('/user/' + now_ID + '/make/').push();
+            userKey.set({ value: newKey.key })
             alert("You successfully made a new group buying!")
             close_makenewgroup();
         })
