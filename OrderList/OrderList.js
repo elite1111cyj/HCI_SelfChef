@@ -45,6 +45,7 @@ $( document ).ready(function() {
   var groupKey;
   groupKeyRef.once('value', function(snapshot) {
 	  var myValue = snapshot.val();
+    console.log(myValue);
 	  groupKey = myValue.groupKey; //access groupKey under user
 	  var groupRef = firebase.database().ref("groups").child(groupKey);
 	  groupRef.once('value', function(snapshot) {
@@ -69,7 +70,7 @@ $( document ).ready(function() {
 			  '<div class="progressbar" style="width: 20%;"></div></div>' +
 			  '<dd class="descriptions">' +
 			  '<div class="badges">' +
-			  '<p class="progressPercent">' + ((myValue2.currentamount/myValue2.endamount)*100).toFixed(1) + '%  ' + '</p>' +
+			  '<p class="progressPercent">' + ((myValue2.currentamount/myValue2.endamount)*100).toFixed(1) + '%' + '</p>' +
 			  '<p class="progressPercent"><i class="fas fa-user"></i>' + myValue2.currentamount + ' joined' + '</p>' +
 			  '<p class="progressNote">' + myValue2.enddate +'</p></div>' +
         '<p class="progressNote">' + duedate +'</p></div>' +
