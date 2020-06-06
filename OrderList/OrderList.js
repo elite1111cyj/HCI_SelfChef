@@ -102,15 +102,9 @@ $(document).ready(function() {
         '<span class="cost">' + price + '</span></div></dd></dl></a>' +
         '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
       //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
-<<<<<<< HEAD
-    }
-    $( ".loader" ).remove();
-  });
-=======
->>>>>>> eefb78d99cee22213aca03fa97f1e7316ea03726
-
 	}); //end of groupRef.once
     } //end of for loop
+	$( ".loader" ).remove();
   }); //end of firebase ref on
   //del button click events
   $(document).on("click", ".deleteBtn", function() { //del button click events

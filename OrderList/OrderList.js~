@@ -21,6 +21,19 @@ function parseDate(input) {
   // new Date(year, month, day)
   return new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
 }
+
+/*
+now_ID=location.href.split("?",2)[1];
+console.log(now_ID);
+document.getElementById("My_Name").innerHTML = now_ID
+function go_mainpage(){
+    location.href = "../MainPage_all/MainPage.html?" + now_ID
+}
+function go_myorderlist() {
+    location.href = "../OrderList/OrderList.html?" + now_ID
+}
+*/
+
 var daysLeft = function(input) {
   var inputDate = parseDate(input);
   var today = new Date();
@@ -41,6 +54,8 @@ var preorderProList;
 // ==========================
 
 $(document).ready(function() {
+  $('<div class="loader"></div>').appendTo("#ongoingList");
+
   firebase.initializeApp(firebaseConfig);
   firebase.database().ref('/user').child("KSW").child("join").on('value', function(snapshot) {
     var myValue = snapshot.val();
@@ -52,20 +67,19 @@ $(document).ready(function() {
 	var groupKey = myValue[keyList[i]].groupKey; //access groupKey under user
 	var groupRef = firebase.database().ref("groups").child(groupKey);
 	groupRef.once('value', function(snapshot) {
-
 	//from here, youngjae
-      var cur = snapshot.val(); //keyList[i] is the key, cur is the object
+      		var cur = snapshot.val(); //keyList[i] is the key, cur is the object
 		console.log(cur);
 
-      var originPrice = parseFloat(cur.price);
-      var price = formatter.format(originPrice);
+      		var originPrice = parseFloat(cur.price);
+      		var price = formatter.format(originPrice);
 
-      var duedate = daysLeft(cur.enddate);
-      if (duedate <= 0) {
-        duedate = "Finished!";
-      } else {
-        duedate += " days left";
-      }
+      		var duedate = daysLeft(cur.enddate);
+      		if (duedate <= 0) {
+        	duedate = "Finished!";
+      		} else {
+        	duedate += " days left";
+      		}
       //add item according to firebase
       $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
         '<a class="ongoingProductLink" href=' + cur.url + '>' +
@@ -88,7 +102,6 @@ $(document).ready(function() {
         '<span class="cost">' + price + '</span></div></dd></dl></a>' +
         '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
       //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
-
 	}); //end of groupRef.once
     } //end of for loop
   }); //end of firebase ref on
@@ -116,6 +129,9 @@ $(document).ready(function() {
   $(document).on("mouseleave", ".ongoingProduct", function() {
     $(this).css("box-shadow", "0px 0px 0px 0px gray");
   });
+
+  now_ID=location.href.split("?",2)[1]
+
 
 
 

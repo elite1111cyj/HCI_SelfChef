@@ -4,30 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <link href="../make/make.css" rel="stylesheet" />
-    <link href="MainPage.css" rel="stylesheet" />
+    <link href="SearchResult.css" rel="stylesheet" />
 
     <link href="../jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
 
 </head>
 
 <body>
-    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="../jquery/js/jquery-1.9.0.min.js"></script>
     <script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-    <script src="./MainPage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
-        <!-- [start]default upper bar! -->
-        <table id="default">
-            <tr>
-               <td><img id="logo" src="../MainPage_all/MainPage/small_logo.png" onclick="go_mainpage()"></td> 
-                <td id="default_pad1"> </td>
-                <td id="Main_Page" onclick="go_mainpage()">Main Page</td>
-                <td id="My_Order_List" onclick="go_myorderlist()">My Order List</td>
-                <td id="My_Name">Name here</td>
-                <td id="default_pad2"></td>
-            </tr>
-        </table>
+    <script src="./SearchResult.js"></script>
+
+    <!-- [start]default upper bar! -->
+    <table id="default">
+        <tr>
+            <td><img id="logo" src="../src/logo.png" width="100px" onclick="go_mainpage()"></td>
+            <td id="default_pad1"> </td>
+            <td id="Main_Page" onclick="go_mainpage()">Main Page</td>
+            <td id="My_Order_List" onclick="go_myorderlist()">My Order List</td>
+            <td id="My_Name">Name here</td>
+            <td id="default_pad2"></td>
+        </tr>
+    </table>
 
     <!-- [end]default upper bar! -->
 
@@ -35,8 +39,9 @@
     <p style="clear:both;">&nbsp;</p>
     <center>
         <table id="centerbar">
+
             <tr>
-                <td id="s_1"><img src="MainPage/search.png" id="dotbogi"></td>
+                <td id="s_1"><img src="../src/search.png" id="dotbogi"></td>
                 <td id="s_2"><input type="text" placeholder="What do you need?" id="search" onKeypress="javascript:if(event.keyCode==13) {go_search}"></td>
                 <td id="s_3"><input type="button" value="Search" id="button_search" onclick="go_search()"></td>
                 <td id="popular">
@@ -45,26 +50,10 @@
                 </td>
             </tr>
         </table>
-        <div id=category_div>
-            <h2>Category</h2>
-            <table>
-                <tr>
-                    <td class="icon"><img class="pic" id="fruit" src="MainPage/fruit.png"><br>fruit</td>
-                    <td class="pad"> </td>
-                    <td class="icon"><img class="pic" src="MainPage/vegetable.png"><br>vegetable</td>
-                    <td class="pad"> </td>
-                    <td class="icon"><img class="pic" src="MainPage/fish.png"><br>fish</td>
-                    <td class="pad"> </td>
-                    <td class="icon"><img class="pic" src="MainPage/meat.png"><br>meat</td>
-                    <td class="pad"> </td>
-                    <td class="icon"><img class="pic" src="MainPage/dairy.png"><br>dairy</td>
-                    <td class="pad"> </td>
-                    <td class="icon"><img class="pic" src="MainPage/health.png"><br>health</td>
-                    <td class="pad"> </td>
-                    <td class="icon"><img class="pic" src="MainPage/rice.png"><br>rice</td>
-                </tr>
-            </table>
-        </div>
+        <ul class="ongoingList" id="ongoingList"> <!-- Product List -->
+
+        </ul>
+
         <!-- <table id="popular_long">
             <tr>
                 <td>1. Salmon</td>
