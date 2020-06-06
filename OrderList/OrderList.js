@@ -67,7 +67,7 @@ $( document ).ready(function() {
 			  '<dl>' +
 			  '<div class="with-bg-size" style="background-image: url(' + myValue2.imageurl + ');"></div>' +
 			  '<div class="progress-container">' +
-			  '<div class="progressbar" style="width: 20%;"></div></div>' +
+			  '<div class="progressbar" style="width:'+((myValue2.currentamount/myValue2.endamount)*100).toFixed(1)+'%"></div></div>' +
 			  '<dd class="descriptions">' +
 			  '<div class="badges">' +
 			  '<p class="progressPercent">' + ((myValue2.currentamount/myValue2.endamount)*100).toFixed(1) + '%' + '</p>' +
@@ -105,21 +105,16 @@ $( document ).ready(function() {
 
   });
 
-  $(".ongoingProduct").mouseover(function(){$(this).css("box-shadow", "0px 0px 22px -6px gray");}); //
-  $(".ongoingProduct").mouseleave(function(){$(this).css("box-shadow", "0px 0px 0px 0px gray");});
+  //$(".ongoingProduct").mouseover(function(){$(this).css("box-shadow", "0px 0px 22px -6px gray");}); //
+  //$(".ongoingProduct").mouseleave(function(){$(this).css("box-shadow", "0px 0px 0px 0px gray");});
+  $(document).on("mouseover", ".ongoingProduct", function(){$(this).css("box-shadow", "0px 0px 22px -6px gray");});
+  $(document).on("mouseleave", ".ongoingProduct", function(){$(this).css("box-shadow", "0px 0px 0px 0px gray");});
 
 
 
   // ==========================
   // �����ؾ��� ��: ������ ���͸�
   // ==========================
-
-
-
-  // ==========================
-  // �����ؾ��� ��: remaining time �������� �ȵ��ȵ� ���°� ����?
-  // ==========================
-
 
 
 
