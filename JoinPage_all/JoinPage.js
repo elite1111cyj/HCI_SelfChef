@@ -17,7 +17,6 @@ function move_to_create(){
 function check_info(){
     var typed_id=document.getElementById("write_id").value
     var typed_pw=document.getElementById("write_password").value
-    console.log(typed_id,typed_pw)
     if (!typed_id || !typed_pw){
 
         var errme=document.getElementById("err_message")
@@ -28,8 +27,9 @@ function check_info(){
     return firebase.database().ref('/user/').once('value',function(snapshot){
         var myValue = snapshot.val();
         if(myValue[typed_id] && myValue[typed_id].password==typed_pw){
-                now_ID=typed_id
-                location.href="../MainPage_all/MainPage.html"
+                //now_ID=typed_id
+                get_id(typed_id)
+                location.href="../MainPage_all/MainPage.html?"+typed_id
         }
         else {
             console.log("case3")

@@ -9,6 +9,13 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+var okay=false;
+function go_main(){
+    var check=document.getElementById("write_id")
+    if (okay){
+    location.href="../MainPage_all/MainPage.html?"+check.value
+    }
+}
 
 $(document).on('click','#join_us', function(){
 
@@ -32,10 +39,9 @@ $(document).on('click','#join_us', function(){
                 {password:document.getElementById("write_password").value}
             )
             var message=document.getElementById("status")
-            message.outerHTML=
-            
-            "Nice to Meet you, "+idi+". Let's Start!"
+            message.innerHTML="Nice to Meet you, "+idi+". Click to Start!"
             message.style.color="blue";
+            okay=true
         }
     }
     });

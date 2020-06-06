@@ -10,13 +10,18 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
+//[start] upper bar//
+now_ID=location.href.split("?",2)[1]
 
-//[start] now popular
+document.getElementById("My_Name").innerHTML=now_ID
 
-$(document).on('mouseenter','#popular', function(){
-    
-    // ="<td id=\"popular\"><div id=\"popular_title\">Now Popular</div><div id=\"popular_product\">1. Salmon<br>2. Cabbage<br>3. Octopus<br>4. Apple</div></td>"
+function go_mainpage(){
+    location.href="/MainPage_all/MainPage.html?"+now_ID
+}
+function go_myorderlist(){
+    location.href="/OrderList/OrderList.html?"+now_ID
+}
 
-})
-
-//[end] now popular
+function go_search(){
+    return
+}
