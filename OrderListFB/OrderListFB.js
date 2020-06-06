@@ -11,13 +11,18 @@ var firebaseConfig = {
     appId: "1:774674175555:web:fcf3a66700feb62352a6f6"
 };
 
+var formatter = new Intl.NumberFormat('ko-KR', {
+  style: 'currency',
+  currency: 'KRW',
+});
+
 //firebase.initializeApp(firebaseConfig);
 //groupKeyRef = firebase.database().ref("groups").child("example"); //this is the reference
 //console.log(groupKeyRef);
 
 
 // ======================
-// ±¸ÇöÇØ¾ßÇÒ °Í: Ã³À½¿¡ firebase¿¡¼­ orderList ¹Þ¾Æ¿À±â
+// ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½: Ã³ï¿½ï¿½ï¿½ï¿½ firebaseï¿½ï¿½ï¿½ï¿½ orderList ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 // ==========================
 
 $( document ).ready(function() {
@@ -32,6 +37,9 @@ $( document ).ready(function() {
 	  var groupRef = firebase.database().ref("groups").child(groupKey);
 	  groupRef.once('value', function(snapshot) {
 		  var myValue2 = snapshot.val();
+      var originPrice = parseFloat(myValue2.price);
+      var price = formatter.format(originPrice);
+
 		  //add item according to firebase
 		  $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
 			  '<a class="ongoingProductLink" href=' +myValue2.url +'>' +
@@ -41,7 +49,7 @@ $( document ).ready(function() {
 			  '<div class="progressbar" style="width: 20%;"></div></div>' +
 			  '<dd class="descriptions">' +
 			  '<div class="badges">' +
-			  '<p class="progressPercent">' + (myValue2.currentamount/myValue2.endamount)*100 + '%' + '</p>' +
+			  '<p class="progressPercent">' + ((myValue2.currentamount/myValue2.endamount)*100).toFixed(1) + '%' + '</p>' +
 			  '<p class="progressPercent"><i class="fas fa-user"></i>' + myValue2.currentamount + ' people' + '</p>' +
 			  '<p class="progressNote">' + myValue2.enddate +'</p></div>' +
 			  '<div class="name">' + myValue2.name + '</div>' +
@@ -49,12 +57,12 @@ $( document ).ready(function() {
 			  '<i class="fas fa-map-marker-alt"></i>' +' '+ myValue2.pickupplace + '</div>' +
 			  '<div class="price-area">' +
 			  '<div class="price-wrap">' +
-			  '<span class="prev-cost">' + 'previous cost' + '</span>' +
-			  '<span class="cost">' + myValue2.price+ ' won' + '</span></div></dd></dl></a>' +
+			  '<span class="prev-cost">' + 'now the price is' + '</span>' +
+			  '<span class="cost">' + price+ '</span></div></dd></dl></a>' +
 			  '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
 		});
   });
-    
+
 
   //del button click events
   $(document).on("click", ".deleteBtn", function() { //del button click events
@@ -69,25 +77,25 @@ $( document ).ready(function() {
     }
 
     // ==========================
-    // ±¸ÇöÇØ¾ßÇÒ °Í: Ã³À½¿¡ firebase¿¡¼­ ¾ÆÀÌÅÛ »èÁ¦
+    // ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½: Ã³ï¿½ï¿½ï¿½ï¿½ firebaseï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     // ==========================
-	
+
 
   });
 
-  $(".ongoingProduct").mouseover(function(){$(this).css("box-shadow", "0px 0px 22px -6px gray");}); // 
+  $(".ongoingProduct").mouseover(function(){$(this).css("box-shadow", "0px 0px 22px -6px gray");}); //
   $(".ongoingProduct").mouseleave(function(){$(this).css("box-shadow", "0px 0px 0px 0px gray");});
 
 
 
   // ==========================
-  // ±¸ÇöÇØ¾ßÇÒ °Í: ¾ÆÀÌÅÛ ÇÊÅÍ¸µ
+  // ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½
   // ==========================
 
 
 
   // ==========================
-  // ±¸ÇöÇØ¾ßÇÒ °Í: remaining time µ¿ÀûÀ¸·Î ¶Èµü¶Èµü °¡´Â°Å ±¸Çö?
+  // ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ ï¿½ï¿½: remaining time ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Èµï¿½ï¿½Èµï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½?
   // ==========================
 
 
