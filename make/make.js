@@ -18,6 +18,15 @@ window.onload = function() {
     initialize()
 }
 
+function go_makenewgroup() {
+    console.log('popup')
+    document.getElementById("makepopup").style.display = 'inline'
+}
+
+function close_makenewgroup() {
+    console.log('close')
+    document.getElementById("makepopup").style.display = 'none'
+}
 
 $(function() {
     $('#dateselectinput').datepicker({
@@ -96,17 +105,14 @@ function onclicked() {
                 imageurl: imageurl,
                 category: category,
                 price: price,
-                unit: unit
+                unit: unit,
+                currentamount: 0
             });
 
             alert("You successfully made a new group buying!")
-            close();
+            close_makenewgroup();
         })
     })
-}
-
-function close() {
-    //close the popup window and go back to the original state
 }
 
 function readURL(input) {
