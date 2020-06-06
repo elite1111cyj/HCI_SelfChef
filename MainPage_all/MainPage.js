@@ -9,3 +9,14 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
+
+//[start] now popular
+
+$(document).on('mouseenter','#popular', function(){
+    
+    // ="<td id=\"popular\"><div id=\"popular_title\">Now Popular</div><div id=\"popular_product\">1. Salmon<br>2. Cabbage<br>3. Octopus<br>4. Apple</div></td>"
+
+})
+
+//[end] now popular

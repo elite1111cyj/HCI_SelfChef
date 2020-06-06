@@ -2,13 +2,43 @@
 #default{
     width:100%;
     height:40px;
-    background-color:#b491c8;
     margin-bottom: 40px;
+    border-bottom: 2px solid #999999;
+    text-align:center;
+    
+    
 }
 
 #logo{
-    height:40px
+    height:50px;
+    margin-left: 20px;
+    cursor:pointer;
 }
+
+/* [Start}MainPage */
+#Main_Page{
+    border-bottom:3px solid #6E41E2;
+    cursor:pointer;
+}
+
+#My_Order_List{
+    cursor:pointer;
+}
+
+#Help{
+    cursor:pointer;
+}
+
+/* [End]MainPage */
+
+
+/* [Start}MyOrderList */
+/* #My_Order_List{
+    border-bottom:3px solid #6E41E2;
+} */
+
+/* [End]MyOrderList */
+
 
 #default_pad1{
     width:55%;
@@ -27,11 +57,15 @@
 
 }
 
-#popular{
-    padding-left:10px;
-    padding-right:30px;
-
+#s_1{
+    width:10%
 }
+#s_2{
+    width:55%
+}
+ #s_3{width:20%}
+
+
 
 #popular_product{
     font-size:20px;
@@ -41,28 +75,51 @@
 #popular_title{
     font-size:10px;
 }
+
+#popular_long{
+    position:absolute;
+    left: 63.75%;
+    top: 35%;
+    border: 1px solid red;
+}
 #centerbar{
-    margin-bottom:150px;
     border-collapse:collapse;
     border: 1px solid black;
+    margin-bottom: 5%;
+    width:50%;
+
+    /* position:absolute;
+    left: 20%;
+    top: 35% */
 }
 
 #button_makegb{
     height:50px;
     font-size: 30px;
-    background-color:#F3A45A;
+    color:white;
+    background-color:#6E41E2;
+    border-radius: 4px;
+    cursor:pointer;
 }
 #button_search{
     height:55px;
     font-size:25px;
+    cursor:pointer;
 }
 #search{
-    width:300px;
+    width:100%;
     height:50px;
     font-size:30px;
     border:none
 }
 
+/* #category_div{
+    position:absolute;
+    top:55%;
+    width: 80%;
+    margin-left:10%
+    
+} */
 .icon{
     background-color:#B3B3B3;
     border-radius: 50%; 
@@ -71,8 +128,8 @@
     height: 100px;
     margin-right: 100px;
     margin-left: 20px;
-    text-align: center
-
+    text-align: center;
+    cursor:pointer
 }
 .pic{
     width: 50px

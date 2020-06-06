@@ -3,34 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <link href="JoinPage.css" rel="stylesheet" />
+        <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script src="../jquery/js/jquery-1.9.0.min.js"></script>
+        <script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+        <link href="../jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" /> 
 
     </head>
     <body>
-        <center>
-            <h1 id="join_page_title">
-                Join with Us
-            </h1>
+        <div id="identity">   
+        <!-- <h1 id="join_page_title">
+                Find shopping mate for food!
+            </h1> -->
 
-            <div>
                 <img id="logo" src="JoinPage/large_logo.png">
             </div>
-
+        <div id="welcome">
+            <h1 id="welcome_back">
+                Welcome back.
+            </h1>
+            <h3 id="new_here" onclick="move_to_create()">Is this your first time?</h3>
             <div id="table_div">
                 <table id="join_table">
                     <tr id="row_name">
-                        <td><input type="text" placeholder='Your name' id="write_name" ></td>
-                        <td><input type="button" value="Enter" id="enter_name"></td>
+                        <td><input type="text" placeholder='ID' id="write_id" ></td>
+                        <!-- <td><input type="button" value="Enter" id="enter_name"></td> -->
                     </tr>
                     <tr id="row_place">
-                        <td><input type="text" placeholder='Your place' id="write_place" ></td>
-                        <td><input type="button" value="Enter" id="enter_place"></td>
+                        <td><input type="text" placeholder='Password' id="write_password" ></td>
+                        <!-- <td><input type="button" value="Enter" id="enter_place"></td> -->
                     </tr>
                 </table>
             </div>
             <div>
-                <input type="button" value="Start" id="join_us"></td>
+                <input type="button" value="Sign In" id="join_us" onclick="check_info()"></td>
             </div>
-        </center>
-     <script src="JoinPage.js"></script>   
+            <div id='err_message'></div>
+        </div>
+    <script src="../DP4_all.js"></script>    
+    <script src="JoinPage.js"></script>   
     </body>
 </html>
