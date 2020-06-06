@@ -10,7 +10,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-//[start] upper bar//
+//[start] upper bar
 now_ID=location.href.split("?",2)[1]
 
 document.getElementById("My_Name").innerHTML=now_ID
@@ -22,6 +22,7 @@ function go_myorderlist(){
     location.href="/OrderList/OrderList.html?"+now_ID
 }
 
+//[end] upper bar
 function go_search(){
     return
 }
