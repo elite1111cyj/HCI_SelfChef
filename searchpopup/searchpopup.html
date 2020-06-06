@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>product_info</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../jquery-ui-1.12.1/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <link href="./searchpopup.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+
+<body>
+    <h1>Search popup</h1>
+    <div id='click' onclick='searchpopup()'>click me!</div>
+    <div id='searchpopup'>
+        <button id='close' onclick='close()'>
+        </button>
+        <img id='productimg' />
+        <div id='info'>
+            <div id='productname'></div>
+            <div id='progress'></div>
+            <div id='pickupplace'></div>
+            <div id='dayleft'>3 days left</div>
+            <div id='price'></div>
+        </div>
+        <div id='control'>
+            <input type='text' id='amount'></input>
+            <input type='button' class='controller' id='up' onclick='up()'></input>
+            <input type='button' class='controller' id='down' onclick='down()'></input>
+            <input type='button' id='add' value='Add'></input>
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>
+    <link rel="stylesheet" href="../jquery-ui-1.12.1/jquery-ui.min.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="./searchpopup.js"></script>
+
+
+
+
+</body>
+
+</html>

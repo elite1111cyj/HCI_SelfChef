@@ -1,0 +1,69 @@
+/* Show Popup when clicked */
+.clickForPopup {
+	cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.inPopup {
+  visibility: hidden;
+  width: 800px;
+  height: 400px;
+  background-color: white;
+  border-style: solid;
+  z-index: 1;
+  text-align: center;
+  display: inline-block;
+  cursor: default
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.showPopup {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+}
+
+/* Popup fades in: -webkit- means for chrome */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* center div */
+.center-div {
+	margin: 0 auto;
+	width: 600px;
+}
+
+.headerDealCancel {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.bodyDealCancel {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+}
+
+.fullScreen {
+	width: 100vw;
+	position: relative;
+	margin-left: -50vw;
+	height: 100px;
+	margin-top: 0px;
+	left: 50%;
+	text-align: center;
+}
+
+.topLine {
+}
+.closeButton:after {
+	float: right;
+	color: black;
+	text-align: center;
+	content: "\d7";
+	font-weight: bold;
+	font-size: 30px;
+	padding-right: 10px;
+	cursor: pointer;
+}
