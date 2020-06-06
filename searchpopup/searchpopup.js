@@ -48,6 +48,10 @@ function getInfo(key) {
         var unit = myInfo.unit
         var imageurl = myInfo.imageurl
         var url = myInfo.url
+        var currentamount = myInfo.currentamount
+
+        var w = (currentamount / endamount) * 500
+        console.log(w)
 
         $('#productname').html(name)
         $('#pickupplace').html(pickupplace)
@@ -55,6 +59,9 @@ function getInfo(key) {
         $('#date').html('End date: ' + enddate)
         $('#url').html(url)
         $('#productimg').attr('src', imageurl);
+        $('#bar').css('width', w);
+        $('#progress').html(endamount);
+        $('#bar').html(currentamount);
     })
 }
 
