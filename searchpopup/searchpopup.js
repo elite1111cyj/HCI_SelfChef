@@ -55,8 +55,18 @@ function getInfo(key) {
 }
 
 function addProduct(key) {
-    var amount = $('#amount').val()
+    var amount = Number($('#amount').val())
     var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
     userKey.set({ value: key, amount: amount })
-    alert("You successfully joined a group buying!")
+    return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
+        var myValue = snapshot.val();
+        var myInfo = myValue[key];
+        var currentamount = Number(myInfo.currentamount);
+        console.log(currentamount);
+        var ref = firebase.database().ref('/groups/' + key)
+        currentamount = currentamount + amount
+        console.log(currentamount)
+        ref.update({ currentamount: currentamount })
+        alert("You successfully joined a group buying!")
+    })
 }
