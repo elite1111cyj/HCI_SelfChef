@@ -52,19 +52,20 @@ $(document).ready(function() {
 	var groupKey = myValue[keyList[i]].groupKey; //access groupKey under user
 	var groupRef = firebase.database().ref("groups").child(groupKey);
 	groupRef.once('value', function(snapshot) {
+
 	//from here, youngjae
-      		var cur = snapshot.val(); //keyList[i] is the key, cur is the object
+      var cur = snapshot.val(); //keyList[i] is the key, cur is the object
 		console.log(cur);
 
-      		var originPrice = parseFloat(cur.price);
-      		var price = formatter.format(originPrice);
+      var originPrice = parseFloat(cur.price);
+      var price = formatter.format(originPrice);
 
-      		var duedate = daysLeft(cur.enddate);
-      		if (duedate <= 0) {
-        	duedate = "Finished!";
-      		} else {
-        	duedate += " days left";
-      		}
+      var duedate = daysLeft(cur.enddate);
+      if (duedate <= 0) {
+        duedate = "Finished!";
+      } else {
+        duedate += " days left";
+      }
       //add item according to firebase
       $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
         '<a class="ongoingProductLink" href=' + cur.url + '>' +
