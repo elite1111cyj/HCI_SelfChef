@@ -47,10 +47,14 @@ function getInfo(key) {
         var price = myInfo.price
         var unit = myInfo.unit
         var imageurl = myInfo.imageurl
+        var url = myInfo.url
 
         $('#productname').html(name)
         $('#pickupplace').html(pickupplace)
         $('#price').html(price + '/' + unit)
+        $('#date').html('End date: ' + enddate)
+        $('#url').html(url)
+        $('#productimg').attr('src', imageurl);
     })
 }
 
