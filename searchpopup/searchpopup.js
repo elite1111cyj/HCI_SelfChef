@@ -36,13 +36,15 @@ function down() {
     if (cval > 1) $('#amount').val(cval - 1);
 }
 
+var endamount;
+
 function getInfo(key) {
     return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
         var myValue = snapshot.val();
         var myInfo = myValue[key]
         var name = myInfo.name
         var enddate = myInfo.enddate
-        var endamount = myInfo.endamount
+        endamount = myInfo.endamount
         var pickupplace = myInfo.pickupplace
         var price = myInfo.price
         var unit = myInfo.unit
@@ -73,11 +75,21 @@ function addProduct(key) {
         var myValue = snapshot.val();
         var myInfo = myValue[key];
         var currentamount = Number(myInfo.currentamount);
-        console.log(currentamount);
         var ref = firebase.database().ref('/groups/' + key)
         currentamount = currentamount + amount
-        console.log(currentamount)
-        ref.update({ currentamount: currentamount })
-        alert("You successfully joined a group buying!")
+        if (currentamount > endamount) {
+            alert("Exceed the available amount")
+            close_searchpopup();
+        } else {
+            ref.update({ currentamount: currentamount })
+            if (currentamount == endamount) {
+                // move the key to previous category
+            }
+            alert("You successfully joined a group buying!")
+        }
     })
+}
+
+function close_searchpopup() {
+
 }
