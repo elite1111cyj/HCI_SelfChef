@@ -60,7 +60,6 @@ $( document ).ready(function() {
       else{
         duedate+=" days left";
       }
-
 		  //add item according to firebase
 		  $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
 			  '<a class="ongoingProductLink" href=' +myValue2.url +'>' +
