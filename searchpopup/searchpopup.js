@@ -12,9 +12,13 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var storageRef = firebase.storage().ref('/images/');
 
+//test values
+var productKey = '-M8ywY0Ui2yOOLRt-CT3'
+var now_ID = 'Hyejin'
+
 window.onload = function() {
     initialize()
-    getInfo("-M8ywY0Ui2yOOLRt-CT3")
+    getInfo(productKey)
 }
 
 function initialize() {
@@ -43,9 +47,37 @@ function getInfo(key) {
         var price = myInfo.price
         var unit = myInfo.unit
         var imageurl = myInfo.imageurl
+        var url = myInfo.url
+        var currentamount = myInfo.currentamount
+
+        var w = (currentamount / endamount) * 500
+        console.log(w)
 
         $('#productname').html(name)
         $('#pickupplace').html(pickupplace)
         $('#price').html(price + '/' + unit)
+        $('#date').html('End date: ' + enddate)
+        $('#url').html(url)
+        $('#productimg').attr('src', imageurl);
+        $('#bar').css('width', w);
+        $('#progress').html(endamount);
+        $('#bar').html(currentamount);
+    })
+}
+
+function addProduct(key) {
+    var amount = Number($('#amount').val())
+    var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
+    userKey.set({ value: key, amount: amount })
+    return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
+        var myValue = snapshot.val();
+        var myInfo = myValue[key];
+        var currentamount = Number(myInfo.currentamount);
+        console.log(currentamount);
+        var ref = firebase.database().ref('/groups/' + key)
+        currentamount = currentamount + amount
+        console.log(currentamount)
+        ref.update({ currentamount: currentamount })
+        alert("You successfully joined a group buying!")
     })
 }

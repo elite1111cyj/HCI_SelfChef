@@ -10,25 +10,30 @@
   <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
   <link href="./OrderList.css" rel="stylesheet" />
   <link href="jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
-  <script src="jquery/js/jquery-1.9.0.min.js"></script>
-  <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-  <script src="./OrderList.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.5/firebase.js"></script>
-  
 </head>
 
 <body>
+  <script src="jquery/js/jquery-1.9.0.min.js"></script>
+  <script src="jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+  <script src="./OrderList.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+
   <div class="frame">
     <div class="header">
-      <div class="logo"><img id="logo" src="../src/logo2.png" width="150px"></div>
-      <div class="nav">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="" class="nav-link"><i class="far fa-user-circle"></i></a></li>
-          <li class="nav-item"><a href="" class="nav-link">Help</a></li>
-          <li class="nav-item"><a href="" class="nav-link">My OrderList</a></li>
-          <li class="nav-item"><a href="../MainPage_all/MainPage.html" class="nav-link">Main Page</a></li>
-        </ul>
-      </div>
+      <table id="default">
+          <tr>
+              <td><img id="logo" src="../src/logo.png" onclick="go_mainpage()" width="100px"></td>
+              <td id="default_pad1"> </td>
+              <td id="Main_Page"><a href="../MainPage_all/MainPage.html" class="nav-link">Main Page</a></td>
+              <td id="My_Order_List" onclick="go_myorderlist()"><a href="../OrderList/OrderList.html" class="nav-link">My Order List</a></td>
+              <td id="My_Name"><a href="../MainPage_all/MainPage.html" class="nav-link"><i class="far fa-user-circle"></i> yourname</a></td>
+              <td id="default_pad2"></td>
+          </tr>
+      </table>
+
     </div>
     <!-- //header -->
     <div class="container">
@@ -39,7 +44,7 @@
         <!-- Text -->
         <section>
           <h2>Ongoing</h2>
-          <ul class="ongoingList">
+          <ul class="ongoingList" id="ongoingList">
             <li class="ongoingProduct" id="p1">
               <a class="ongoingProductLink" href="productpage.html">
                 <dl>

@@ -12,8 +12,6 @@
 </head>
 
 <body>
-    <h1>Search popup</h1>
-    <div id='click' onclick='searchpopup()'>click me!</div>
     <div id='searchpopup'>
         <button id='close' onclick='close()'>
         </button>
@@ -21,15 +19,17 @@
         <div id='info'>
             <div id='productname'></div>
             <div id='progress'></div>
+            <div id='bar'></div>
             <div id='pickupplace'></div>
-            <div id='dayleft'>3 days left</div>
+            <div id='date'>3 days left</div>
             <div id='price'></div>
+            <div id='url'>default url</div>
         </div>
         <div id='control'>
             <input type='text' id='amount'></input>
             <input type='button' class='controller' id='up' onclick='up()'></input>
             <input type='button' class='controller' id='down' onclick='down()'></input>
-            <input type='button' id='add' value='Add'></input>
+            <input type='button' id='add' value='Add' onclick='addProduct(productKey)'></input>
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>
