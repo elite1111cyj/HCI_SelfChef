@@ -14,6 +14,7 @@ li{
   padding-left: 30px;
   margin: 50px 50px;
   border: 1px solid #aaa;
+  display: inline-block;
 }
 #default {
     width: 100%;
