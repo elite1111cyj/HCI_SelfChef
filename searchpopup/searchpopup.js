@@ -12,9 +12,13 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var storageRef = firebase.storage().ref('/images/');
 
+//test values
+var productKey = '-M8ywY0Ui2yOOLRt-CT3'
+var now_ID = 'Hyejin'
+
 window.onload = function() {
     initialize()
-    getInfo("-M8ywY0Ui2yOOLRt-CT3")
+    getInfo(productKey)
 }
 
 function initialize() {
@@ -48,4 +52,11 @@ function getInfo(key) {
         $('#pickupplace').html(pickupplace)
         $('#price').html(price + '/' + unit)
     })
+}
+
+function addProduct(key) {
+    var amount = $('#amount').val()
+    var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
+    userKey.set({ value: key, amount: amount })
+    alert("You successfully joined a group buying!")
 }
