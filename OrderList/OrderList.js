@@ -118,13 +118,6 @@ $( document ).ready(function() {
 
 
 
-  // ==========================
-  // �����ؾ��� ��: remaining time �������� �ȵ��ȵ� ���°� ����?
-  // ==========================
-
-
-
-
 
 /*
   $(document).on('mouseenter', '.ongoingProduct', function(e) {
