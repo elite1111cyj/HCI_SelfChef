@@ -21,19 +21,20 @@
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
 
-  <div class="frame">
+  <!--<div class="frame">-->
     <div class="header">
       <table id="default">
-          <tr>
-              <td><img id="logo" src="../src/logo.png" onclick="go_mainpage()" width="100px"></td>
-              <td id="default_pad1"> </td>
-              <td id="Main_Page"><a href="../MainPage_all/MainPage.html" class="nav-link">Main Page</a></td>
-              <td id="My_Order_List" onclick="go_myorderlist()"><a href="../OrderList/OrderList.html" class="nav-link">My Order List</a></td>
-              <td id="My_Name"><a href="../MainPage_all/MainPage.html" class="nav-link"><i class="far fa-user-circle"></i> yourname</a></td>
-              <td id="default_pad2"></td>
-          </tr>
+            <tr>
+               <td><img id="logo" src="../MainPage_all/MainPage/small_logo.png" width="100px" onclick="go_mainpage()"></td>
+                <td class="topmenu" id="default_pad1"> </td>
+                <td class="topmenu" id="Main_Page" onclick="go_mainpage()">Main Page</td>
+                <td class="topmenu" id="My_Order_List" onclick="go_myorderlist()">My Order List</td>
+                <td class="topmenu" id="My_Name">Guest</td>
+                <td class="topmenu" id="default_pad2"></td>
+            </tr>
       </table>
     </div>
+
     <!-- //header -->
     <div class="container">
 
@@ -209,7 +210,6 @@
 
 
           <hr />
-
       </div>
     </div>
     <!-- //container -->
@@ -217,7 +217,6 @@
       <p class="copyright">Team SelfChef</p>
     </div>
     <!-- //footer -->
-  </div>
 
 </body>
 

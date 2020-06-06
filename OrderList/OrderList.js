@@ -21,6 +21,19 @@ function parseDate(input) {
   // new Date(year, month, day)
   return new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
 }
+
+/*
+now_ID=location.href.split("?",2)[1];
+console.log(now_ID);
+document.getElementById("My_Name").innerHTML = now_ID
+function go_mainpage(){
+    location.href = "../MainPage_all/MainPage.html?" + now_ID
+}
+function go_myorderlist() {
+    location.href = "../OrderList/OrderList.html?" + now_ID
+}
+*/
+
 var daysLeft = function(input) {
   var inputDate = parseDate(input);
   var today = new Date();
@@ -41,6 +54,8 @@ var preorderProList;
 // ==========================
 
 $(document).ready(function() {
+  $('<div class="loader"></div>').appendTo("#ongoingList");
+
   firebase.initializeApp(firebaseConfig);
   firebase.database().ref('/groups').on('value', function(snapshot) {
     var myValue = snapshot.val();
@@ -83,6 +98,7 @@ $(document).ready(function() {
         '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
       //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
     }
+    $( ".loader" ).remove();
   });
 
   //del button click events
@@ -109,6 +125,9 @@ $(document).ready(function() {
   $(document).on("mouseleave", ".ongoingProduct", function() {
     $(this).css("box-shadow", "0px 0px 0px 0px gray");
   });
+
+  now_ID=location.href.split("?",2)[1]
+
 
 
 
