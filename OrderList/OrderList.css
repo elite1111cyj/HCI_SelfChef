@@ -36,8 +36,16 @@ li{
     text-align: center;
     font-size: 20px;
 }
+#My_Name{
+  color:#6E41E2;
+}
+#default_pad1 {
+  width: 60%;
+}
 
-
+#default_pad2 {
+  width:3%;
+}
 .logo{
   font-size: x-large;
   font-weight: bold;

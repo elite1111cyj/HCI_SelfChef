@@ -1,4 +1,6 @@
 //[start] upper bar//
+
+
 function go_mainpage() {
     location.href = "/MainPage_all/MainPage.html?" + now_ID
 }
@@ -75,7 +77,7 @@ function firebaseLoad(searchedKey){
       console.log("nothing to show");
       $('<div class="nothing"><img id="hmm" src="../src/nothing.png" width="150px">'+
         '<p style="align:center; font-size:x-large; margin:5px;">Nothing Found!<br></p>'+
-        '<p style="align:center; font-size:large; font-color:grey;margin:5px;">Why don you make a new group?</p></div>').appendTo("#ongoingList");
+        '<p style="align:center; font-size:large; font-color:grey;margin:5px;">Why don\'t you make a new group?</p></div>').appendTo("#ongoingList");
     }
 
     // case2 : There is something exist

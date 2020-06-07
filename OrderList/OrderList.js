@@ -22,13 +22,9 @@ function parseDate(input) {
   return new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
 }
 
-function go_mainpage() {
-    location.href = "../MainPage_all/MainPage.html?" + now_ID
-}
 
-function go_myorderlist() {
-    location.href = "../OrderList/OrderList.html?" + now_ID
-}
+
+
 
 /*
 now_ID=location.href.split("?",2)[1];
@@ -49,6 +45,15 @@ var daysLeft = function(input) {
   return Math.ceil(timeDiff / (1000 * 3600 * 24));
 };
 
+
+var now_ID=location.href.split("?",2)[1];
+function go_mainpage() {
+  location.href = "../MainPage_all/MainPage.html?" + now_ID
+}
+
+function go_myorderlist() {
+  location.href = "../OrderList/OrderList.html?" + now_ID
+}
 var orderProList;
 var preorderProList;
 
@@ -62,6 +67,10 @@ var preorderProList;
 // ==========================
 
 $(document).ready(function() {
+  
+  document.getElementById("My_Name").innerHTML=now_ID
+
+  
   $('<div class="loader"></div>').appendTo("#ongoingList");
 
   firebase.initializeApp(firebaseConfig);
