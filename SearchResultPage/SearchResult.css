@@ -111,13 +111,6 @@
     border: none
 }
 
-
-li{
-  list-style:none;
-}
-
-
-
 .icon {
     background-color: #B3B3B3;
     border-radius: 50%;
@@ -139,6 +132,68 @@ li{
 }
 
 
+body {
+  font:14px/1.8 Arial, Helvetica, sans-serif;
+}
+
+a:link { color: black; text-decoration: none;}
+a:visited { color: black; text-decoration: none;}
+a:hover { color: black; text-decoration: none;}
+li{
+  list-style:none;
+}
+
+.frame {
+  max-width: 1500px;
+  min-width: 700px;
+  padding-left: 30px;
+  margin: 50px 50px;
+  border: 1px solid #aaa;
+}
+
+.topmenu{
+  cursor: pointer;
+}
+
+#My_Order_List {
+    border-bottom: 3px solid #6E41E2;
+    cursor: pointer;
+}
+
+#default {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #999999;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.logo{
+  font-size: x-large;
+  font-weight: bold;
+  display: inline;
+  width: 150px;
+}
+.nav{
+  display: inline;
+  width: 1000px;
+  margin: 0 auto;
+}
+.nav-list{
+  display: inline;
+  vertical-align: middle;
+}
+.nav-item{
+  float: right;
+  text-align: center;
+  font-size: large;
+  width: 130px;
+  height:50px;
+  vertical-align: middle;
+  border: 1px solid black;
+}
 
 .with-bg-size{
   width: 300px;
