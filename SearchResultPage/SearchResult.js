@@ -72,11 +72,14 @@ function firebaseLoad(searchedKey){
     var itemsKey = searchedKey //this is the array of keys searched
     console.log(itemsKey.length);
     console.log(itemsKey);
-    if(itemsKey.length==0){
+    if(itemsKey.length==0){ // case1: Nothing
       console.log("nothing to show");
-      $('<p>Nothing Found!</p>').appendTo("#ongoingList");
+      $('<div class="nothing"><img id="hmm" src="../src/nothing.png" width="200px">'+
+        '<p style="align:center; font-size:x-large;">Nothing Found!<br></p>'+
+        '<p style="align:center; font-color:gray;">Why don you make a new group?</p></div>').appendTo("#ongoingList");
     }
 
+    // case2 : There is something exist
     ans_list = [];
     for (var i = 0; i < itemsKey.length; i++) {
 	    //console.log(myValue); //this is the list of keys in 'groups'
@@ -115,10 +118,23 @@ function firebaseLoad(searchedKey){
 	         $( ".loader" ).remove();
   });
 }
-
 function clearPage() {
   $("#ongoingList").html("");
 }
+
+function searchAction(){
+  var searchButton = document.getElementById("button_search");
+  var searchInput = document.getElementById("search");
+  var searchedText = searchInput.value; //this is the text searched
+	var returnedKeys = keySearched(searchedText); //return the keys that were searched
+	//console.log(returnedKeys);
+	clearPage(); //clear the page
+	firebaseLoad(returnedKeys); //load the keys that were searched
+
+	searchInput.value = ""; //clear out the input space
+	searchInput.focus(); //focus on the search input
+}
+
 
 $(document).ready(function() {
   now_ID = location.href.split("?", 2)[1];
@@ -144,22 +160,6 @@ $(document).ready(function() {
   firebaseLoad(searchedKey); //load all they keys
 
 
-  //del button click events
-  $(document).on("click", ".deleteBtn", function() { //del button click events
-
-    var n = this.parentNode.id; //the id is the key to delete; for now: exampleKey2
-    console.log("delete", n);
-    var check = confirm("Are you sure to cancel " + n + "?");
-    if (check) {
-      $("#" + n).remove();
-      //remove item from firebase
-      firebase.database().ref("user").child("KSW").child("join").child(n).remove();
-    }
-    // ==========================
-    // >>> Delete element in firebase db
-    // ==========================
-  });
-
   $(document).on("mouseover", ".ongoingProduct", function() {
     $(this).css("box-shadow", "0px 0px 22px -6px gray");
   });
@@ -169,50 +169,18 @@ $(document).ready(function() {
 
   now_ID=location.href.split("?",2)[1]
 
+  $("#button_search").click(function() { // click button event
+      console.log("search:btn");
+      searchAction();
+      $("#search").focus();
+  });
+  $("#search").keyup(function(e) { // enter event
+      if (e.keyCode == 13 && this.value != '') {
+        console.log("search:enter");
+        searchAction();
+        $("#search").focus();
+      }
+  });
 
-  //search button event handler
-  var searchButton = document.getElementById("button_search");
-  var searchInput = document.getElementById("search");
-  searchButton.onclick = function() {
-	var searchedText = searchInput.value; //this is the text searched
-	var returnedKeys = keySearched(searchedText); //return the keys that were searched
-	//console.log(returnedKeys);
-	clearPage(); //clear the page
-	firebaseLoad(returnedKeys); //load the keys that were searched
-
-	searchInput.value = ""; //clear out the input space
-	searchInput.focus(); //focus on the search input
-  }
-
-  //function that returns the keys searched
-/*
-  function keySearched(searchedText) {
-	  var returnKeyList = []; //list of keys that will be returned
-	  firebase.database().ref('/groups').on('value', function(snapshot) {
-		if(snapshot.exists()){
-			var myValue = snapshot.val();
-			var keyList = Object.keys(myValue); //these are the keys in 'groups'
-			for (var i = 0; i < keyList.length; i++) {
-				var myGroup = myValue[keyList[i]];
-				//nameCompare: true means name contains searchedText
-				var nameCompare = myGroup.name.toUpperCase().includes(searchedText.toUpperCase());
-				//tagCompare: true means at least one tag contains searchedText
-				var tagArray = myGroup.tag.split(" "); //array of tags (with #)
-				var tagCompare = false;
-				for(var k=0; k < tagArray.length; k++){
-					if(tagArray[k].toUpperCase().includes(searchedText.toUpperCase())){
-						tagCompare = true;
-						break;
-					}
-				}
-				if(nameCompare || tagCompare){
-					returnKeyList.push(keyList[i]);
-				}
-			}
-		}
-	  });
-	  return returnKeyList;
-  }
-*/
 
 });

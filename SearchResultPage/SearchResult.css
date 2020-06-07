@@ -156,7 +156,6 @@ li{
 }
 
 #My_Order_List {
-    border-bottom: 3px solid #6E41E2;
     cursor: pointer;
 }
 
@@ -323,6 +322,13 @@ dl{
   animation: spin 2s linear infinite;
   margin-left: 100px;
 }
+
+
+.nothing{
+  width:100%;
+  text-align: center;
+}
+
 
 @keyframes spin {
   0% { transform: rotate(0deg); }
