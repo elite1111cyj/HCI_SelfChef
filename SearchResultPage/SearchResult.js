@@ -136,7 +136,7 @@ function searchAction(){
 }
 
 var now_ID
-
+var category
 $(document).ready(function() {
   var firebaseConfig = {
     apiKey: "AIzaSyBjFa6ITtLwyYNPwAt9YWZx0crJviZYj8g",

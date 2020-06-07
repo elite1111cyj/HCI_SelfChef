@@ -22,10 +22,26 @@ function go_search(){
 }
 
 
+function fruit(){
+    location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:fruit"
+}
 
+function vegetable(){
+    location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:vegetable"
+}
+function fish(){
+    location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:fish"
+}
 
-$("#search").keyup(function(e) { // enter event
-    if (e.keyCode == 13 && this.value != '') {
-      $("#search").focus();
-    }
-});
+function meat(){
+    location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:meat"
+}
+function dairy(){
+    location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:dairy"
+}
+function health(){
+    location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:health"
+}
+function rice(){
+    location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:rice"
+}
