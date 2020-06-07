@@ -52,12 +52,10 @@ function keySearched(searchedText) {
           break;
         }
       }
-
       if(nameCompare || tagCompare){
         returnKeyList.push(keyList[i]);
       }
     }
-
   }
   });
   console.log("in the Function : ",returnKeyList);
@@ -72,7 +70,8 @@ function firebaseLoad(){
     var keyList = Object.keys(myValue); //this is exampleKey, exampleKey3, ...
     console.log("myValue", keyList);
 
-    var itemsKey = keySearched("carrot");
+    var itemsKey = keySearched("test");
+    console.log(itemsKey.length);
     console.log(itemsKey);
     if(itemsKey.length==0){
       console.log("nothing to show");
