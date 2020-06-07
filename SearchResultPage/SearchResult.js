@@ -62,15 +62,14 @@ function keySearched(searchedText) {
   return returnKeyList;
 }
 
-function firebaseLoad(){
+function firebaseLoad(searchedKey){
   $('<div class="loader"></div>').appendTo("#ongoingList");
-  firebase.database().ref('/user').child("KSW").child("join").on('value', function(snapshot) {
+  firebase.database().ref('/groups').on('value', function(snapshot) {
     var myValue = snapshot.val();
-    console.log("myValue", keyList);
-    var keyList = Object.keys(myValue); //this is exampleKey, exampleKey3, ...
-    console.log("myValue", keyList);
+    var keyList = Object.keys(myValue);
+    console.log("keyList", keyList); //this is the list of keys in 'groups'
 
-    var itemsKey = keySearched("test");
+    var itemsKey = searchedKey //this is the array of keys searched
     console.log(itemsKey.length);
     console.log(itemsKey);
     if(itemsKey.length==0){
@@ -80,21 +79,17 @@ function firebaseLoad(){
 
     ans_list = [];
     for (var i = 0; i < itemsKey.length; i++) {
-            var groupKey = myValue[itemsKey[i]].groupKey; //access groupKey under user
-            var groupRef = firebase.database().ref("groups").child(groupKey);
-            groupRef.once('value', function(snapshot) {
-            //from here, youngjae
-                		var cur = snapshot.val(); //keyList[i] is the key, cur is the object
-
-                		var originPrice = parseFloat(cur.price);
-                		var price = formatter.format(originPrice);
-
-                		var duedate = daysLeft(cur.enddate);
-                		if (duedate <= 0) {
-                  	duedate = "Finished!";
-                		} else {
-                  	duedate += " days left";
-                		}
+	    //console.log(myValue); //this is the list of keys in 'groups'
+	    //console.log(myValue[itemsKey[i]]); //this is each item
+            var cur = myValue[itemsKey[i]];
+	    var originPrice = parseFloat(cur.price);
+	    var price = formatter.format(originPrice);
+            var duedate = daysLeft(cur.enddate);
+            if (duedate <= 0) {
+		    duedate = "Finished!";
+            } else {
+		    duedate += " days left";
+            }
                 //add item according to firebase
                 $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
                   '<a class="ongoingProductLink" href=' + cur.url + '>' +
@@ -116,10 +111,13 @@ function firebaseLoad(){
                   '<span class="prev-cost">' + 'now the price is' + '</span>' +
                   '<span class="cost">' + price + '</span></div></dd></dl></a></li>').appendTo("#ongoingList");
                 //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
-            }); //end of groupRef.once
           } //end of for loop
 	         $( ".loader" ).remove();
   });
+}
+
+function clearPage() {
+  $("#ongoingList").html("");
 }
 
 $(document).ready(function() {
@@ -141,8 +139,9 @@ $(document).ready(function() {
     firebase.initializeApp({});
   }
 
-  firebaseLoad();
-
+  //var searchedKey = keySearched("carrot"); //this is the array of keys searched
+  var searchedKey = keySearched(""); //this is the array of keys searched: at the start, all keys
+  firebaseLoad(searchedKey); //load all they keys
 
 
   //del button click events
@@ -178,6 +177,9 @@ $(document).ready(function() {
 	var searchedText = searchInput.value; //this is the text searched
 	var returnedKeys = keySearched(searchedText); //return the keys that were searched
 	//console.log(returnedKeys);
+	clearPage(); //clear the page
+	firebaseLoad(returnedKeys); //load the keys that were searched
+
 	searchInput.value = ""; //clear out the input space
 	searchInput.focus(); //focus on the search input
   }
@@ -190,7 +192,6 @@ $(document).ready(function() {
 		if(snapshot.exists()){
 			var myValue = snapshot.val();
 			var keyList = Object.keys(myValue); //these are the keys in 'groups'
-
 			for (var i = 0; i < keyList.length; i++) {
 				var myGroup = myValue[keyList[i]];
 				//nameCompare: true means name contains searchedText
@@ -204,12 +205,10 @@ $(document).ready(function() {
 						break;
 					}
 				}
-
 				if(nameCompare || tagCompare){
 					returnKeyList.push(keyList[i]);
 				}
 			}
-
 		}
 	  });
 	  return returnKeyList;

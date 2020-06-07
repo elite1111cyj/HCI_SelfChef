@@ -9,15 +9,7 @@ function go_search() {
     return
 }
 
-var firebaseConfig = {
-    apiKey: "AIzaSyBjFa6ITtLwyYNPwAt9YWZx0crJviZYj8g",
-    authDomain: "cs374-d.firebaseapp.com",
-    databaseURL: "https://cs374-d.firebaseio.com",
-    projectId: "cs374-d",
-    storageBucket: "cs374-d.appspot.com",
-    messagingSenderId: "774674175555",
-    appId: "1:774674175555:web:fcf3a66700feb62352a6f6"
-};
+
 
 var formatter = new Intl.NumberFormat('ko-KR', {
   style: 'currency',
@@ -40,69 +32,113 @@ var daysLeft = function(input) {
 var orderProList;
 var preorderProList;
 
+function keySearched(searchedText) {
+  var returnKeyList = []; //list of keys that will be returned
+  firebase.database().ref('/groups').on('value', function(snapshot) {
+  if(snapshot.exists()){
+    var myValue = snapshot.val();
+    var keyList = Object.keys(myValue); //these are the keys in 'groups'
 
-
-//firebase.initializeApp(firebaseConfig);
-//if (!firebase.apps.length) {
-//	firebase.initializeApp(firebaseConfig);
-//}
-
-$(document).ready(function() {
-
-  now_ID = location.href.split("?", 2)[1];
-
-  document.getElementById("My_Name").innerHTML = now_ID;
-
-  $('<div class="loader"></div>').appendTo("#ongoingList");
-
-  //firebase.initializeApp(firebaseConfig);
-  if (!firebase.apps.length) {
-	firebase.initializeApp(firebaseConfig);
+    for (var i = 0; i < keyList.length; i++) {
+      var myGroup = myValue[keyList[i]];
+      //nameCompare: true means name contains searchedText
+      var nameCompare = myGroup.name.toUpperCase().includes(searchedText.toUpperCase());
+      //tagCompare: true means at least one tag contains searchedText
+      var tagArray = myGroup.tag.split(" "); //array of tags (with #)
+      var tagCompare = false;
+      for(var k=0; k < tagArray.length; k++){
+        if(tagArray[k].toUpperCase().includes(searchedText.toUpperCase())){
+          tagCompare = true;
+          break;
+        }
+      }
+      if(nameCompare || tagCompare){
+        returnKeyList.push(keyList[i]);
+      }
+    }
   }
-	
+  });
+  console.log("in the Function : ",returnKeyList);
+  return returnKeyList;
+}
+
+function firebaseLoad(searchedKey){
+  $('<div class="loader"></div>').appendTo("#ongoingList");
   firebase.database().ref('/groups').on('value', function(snapshot) {
     var myValue = snapshot.val();
-    console.log("myValue", keyList);
     var keyList = Object.keys(myValue);
-    console.log("myValue", keyList);
-    ans_list = [];
-    for (var i = 0; i < keyList.length; i++) {
-      var cur = myValue[keyList[i]];
+    console.log("keyList", keyList); //this is the list of keys in 'groups'
 
-      var originPrice = parseFloat(cur.price);
-      var price = formatter.format(originPrice);
-
-      var duedate = daysLeft(cur.enddate);
-      if (duedate <= 0) {
-        duedate = "Finished!";
-      } else {
-        duedate += " days left";
-      }
-      //add item according to firebase
-      $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
-        '<a class="ongoingProductLink" href=' + cur.url + '>' +
-        '<dl>' +
-        '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
-        '<div class="progress-container">' +
-        '<div class="progressbar" style="width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
-        '<dd class="descriptions">' +
-        '<div class="badges">' +
-        '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%' + '</p>' +
-        '<p class="progressPercent"><i class="fas fa-user"></i>' + cur.currentamount + ' joined' + '</p>' +
-        '<p class="progressNote">' + cur.enddate + '</p></div>' +
-        '<p class="progressNote">' + duedate + '</p></div>' +
-        '<div class="name">' + cur.name + '</div>' +
-        '<div class="location">' +
-        '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
-        '<div class="price-area">' +
-        '<div class="price-wrap">' +
-        '<span class="prev-cost">' + 'now the price is' + '</span>' +
-        '<span class="cost">' + price + '</span></div></dd></dl></a>' +
-        '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
-      //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
+    var itemsKey = searchedKey //this is the array of keys searched
+    console.log(itemsKey.length);
+    console.log(itemsKey);
+    if(itemsKey.length==0){
+      console.log("nothing to show");
+      $('<p>Nothing Found!</p>').appendTo("#ongoingList");
     }
-    $( ".loader" ).remove();
+
+    ans_list = [];
+    for (var i = 0; i < itemsKey.length; i++) {
+	    //console.log(myValue); //this is the list of keys in 'groups'
+	    //console.log(myValue[itemsKey[i]]); //this is each item
+            var cur = myValue[itemsKey[i]];
+	    var originPrice = parseFloat(cur.price);
+	    var price = formatter.format(originPrice);
+            var duedate = daysLeft(cur.enddate);
+            if (duedate <= 0) {
+		    duedate = "Finished!";
+            } else {
+		    duedate += " days left";
+            }
+                //add item according to firebase
+                $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
+                  '<a class="ongoingProductLink" href=' + cur.url + '>' +
+                  '<dl>' +
+                  '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
+                  '<div class="progress-container">' +
+                  '<div class="progressbar" style="width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
+                  '<dd class="descriptions">' +
+                  '<div class="badges">' +
+                  '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%' + '</p>' +
+                  '<p class="progressPercent"><i class="fas fa-user"></i>' + cur.currentamount + ' joined' + '</p>' +
+                  '<p class="progressNote">' + cur.enddate + '</p></div>' +
+                  '<p class="progressNote">' + duedate + '</p></div>' +
+                  '<div class="name">' + cur.name + '</div>' +
+                  '<div class="location">' +
+                  '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
+                  '<div class="price-area">' +
+                  '<div class="price-wrap">' +
+                  '<span class="prev-cost">' + 'now the price is' + '</span>' +
+                  '<span class="cost">' + price + '</span></div></dd></dl></a></li>').appendTo("#ongoingList");
+                //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
+          } //end of for loop
+	         $( ".loader" ).remove();
   });
+}
+
+$(document).ready(function() {
+  now_ID = location.href.split("?", 2)[1];
+  searchfor= location.href.split("?", 2);
+
+  document.getElementById("My_Name").innerHTML = now_ID;
+  var firebaseConfig = {
+    apiKey: "AIzaSyBjFa6ITtLwyYNPwAt9YWZx0crJviZYj8g",
+    authDomain: "cs374-d.firebaseapp.com",
+    databaseURL: "https://cs374-d.firebaseio.com",
+    projectId: "cs374-d",
+    storageBucket: "cs374-d.appspot.com",
+    messagingSenderId: "774674175555",
+    appId: "1:774674175555:web:fcf3a66700feb62352a6f6"
+  };
+  //firebase.initializeApp(firebaseConfig);
+  if (!firebase.apps.length) {
+    firebase.initializeApp({});
+  }
+
+  //var searchedKey = keySearched("carrot"); //this is the array of keys searched
+  var searchedKey = keySearched(""); //this is the array of keys searched: at the start, all keys
+  firebaseLoad(searchedKey); //load all they keys
+
 
   //del button click events
   $(document).on("click", ".deleteBtn", function() { //del button click events
@@ -129,7 +165,6 @@ $(document).ready(function() {
 
   now_ID=location.href.split("?",2)[1]
 
-  
 
   //search button event handler
   var searchButton = document.getElementById("button_search");
@@ -138,18 +173,20 @@ $(document).ready(function() {
 	var searchedText = searchInput.value; //this is the text searched
 	var returnedKeys = keySearched(searchedText); //return the keys that were searched
 	//console.log(returnedKeys);
+	firebaseLoad(returnedKeys); //load the keys that were searched
+
 	searchInput.value = ""; //clear out the input space
 	searchInput.focus(); //focus on the search input
   }
 
   //function that returns the keys searched
+/*
   function keySearched(searchedText) {
 	  var returnKeyList = []; //list of keys that will be returned
 	  firebase.database().ref('/groups').on('value', function(snapshot) {
 		if(snapshot.exists()){
 			var myValue = snapshot.val();
 			var keyList = Object.keys(myValue); //these are the keys in 'groups'
-			
 			for (var i = 0; i < keyList.length; i++) {
 				var myGroup = myValue[keyList[i]];
 				//nameCompare: true means name contains searchedText
@@ -163,16 +200,14 @@ $(document).ready(function() {
 						break;
 					}
 				}
-
 				if(nameCompare || tagCompare){
 					returnKeyList.push(keyList[i]);
 				}
 			}
-
 		}
 	  });
 	  return returnKeyList;
   }
-
+*/
 
 });
