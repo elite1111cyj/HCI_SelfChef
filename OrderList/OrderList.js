@@ -22,6 +22,14 @@ function parseDate(input) {
   return new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
 }
 
+function go_mainpage() {
+    location.href = "../MainPage_all/MainPage.html?" + now_ID
+}
+
+function go_myorderlist() {
+    location.href = "../OrderList/OrderList.html?" + now_ID
+}
+
 /*
 now_ID=location.href.split("?",2)[1];
 console.log(now_ID);

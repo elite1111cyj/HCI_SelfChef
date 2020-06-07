@@ -1,4 +1,7 @@
 /* [start]default upper bar */
+body {
+  font:12px/1.8 Arial, Helvetica, sans-serif;
+}
 
 #default {
     width: 100%;
@@ -118,7 +121,7 @@
     top:55%;
     width: 80%;
     margin-left:10%
-    
+
 } */
 
 .icon {

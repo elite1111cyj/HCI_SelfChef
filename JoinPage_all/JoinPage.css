@@ -1,51 +1,55 @@
-#welcome{
-    height:100%
-}
-
-#welcome_back{
-    margin-top:5%;
-    font-size: 50px;
-}
-
-#new_here{
-    margin-bottom:5%;
-    color:gray;
-    text-decoration:underline;
-    cursor:pointer;
-
-}
-
-#logo{
-    width: 80%;
+body {
+  font:14px/1.8 Arial, Helvetica, sans-serif;
 }
 
 #identity{
-    float:left;
     margin-left:5%;
     text-align:center
 }
 
-#join_us {
+#welcome{
+    height:100%
+    text-align: center;
+}
 
-width: 244px;
-height: 44px;
-background-color: #6E41E2;
-color:white;
-font-size: 30px;
-margin-left:2%;
-cursor:pointer;
+#welcome_back{
+    font-size: 30px;
+}
+
+#new_here{
+    margin-bottom:10px;
+    color:gray;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+#join_us {
+  width: 244px;
+  height: 44px;
+  background-color: #6E41E2;
+  color:white;
+  font-size: 30px;
+  border-radius: 7px;
+  cursor:pointer;
 }
 #table_div{
-    margin-bottom: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
+#join_table{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 #write_id{
     width:300px;
     height:50px;
     font-size:30px;
-    margin-right: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
-
 #write_password{
     width:300px;
     height:50px;
@@ -56,11 +60,12 @@ cursor:pointer;
     margin-bottom: 30px;
     font-size:25px;
     background-color: #6E41E2;
-color:white;
+    color:white;
 }
+
 #enter_place{
     font-size:25px;
     background-color: #6E41E2;
-color:white;
+    color:white;
 
 }

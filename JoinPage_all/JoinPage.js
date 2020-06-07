@@ -41,3 +41,10 @@ function check_info(){
     });
 }
 }
+
+$("#write_password").keyup(function(e) { // enter event
+    if (e.keyCode == 13 && this.value != '') {
+      console.log("enter");
+      check_info();
+    }
+});

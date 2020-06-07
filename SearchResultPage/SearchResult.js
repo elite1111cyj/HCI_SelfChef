@@ -58,7 +58,6 @@ function keySearched(searchedText) {
     }
   }
   });
-  console.log("in the Function : ",returnKeyList);
   return returnKeyList;
 }
 
@@ -74,13 +73,14 @@ function firebaseLoad(searchedKey){
     console.log(itemsKey);
     if(itemsKey.length==0){ // case1: Nothing
       console.log("nothing to show");
-      $('<div class="nothing"><img id="hmm" src="../src/nothing.png" width="200px">'+
-        '<p style="align:center; font-size:x-large;">Nothing Found!<br></p>'+
-        '<p style="align:center; font-color:gray;">Why don you make a new group?</p></div>').appendTo("#ongoingList");
+      $('<div class="nothing"><img id="hmm" src="../src/nothing.png" width="150px">'+
+        '<p style="align:center; font-size:x-large; margin:5px;">Nothing Found!<br></p>'+
+        '<p style="align:center; font-size:large; font-color:grey;margin:5px;">Why don you make a new group?</p></div>').appendTo("#ongoingList");
     }
 
     // case2 : There is something exist
     ans_list = [];
+    $('<div>There is '+itemsKey.length+' items nearby!</div>').appendTo(".resultText");
     for (var i = 0; i < itemsKey.length; i++) {
 	    //console.log(myValue); //this is the list of keys in 'groups'
 	    //console.log(myValue[itemsKey[i]]); //this is each item
@@ -120,6 +120,7 @@ function firebaseLoad(searchedKey){
 }
 function clearPage() {
   $("#ongoingList").html("");
+  $(".resultText").html("");
 }
 
 function searchAction(){
