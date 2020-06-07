@@ -18,5 +18,14 @@ function go_myorderlist() {
 
 //[end] upper bar
 function go_search(){
-    return
+    location.href="../SearchResultPage/SearchResult.html?"+now_ID+":key:"+document.getElementById("search").value
 }
+
+
+
+
+$("#search").keyup(function(e) { // enter event
+    if (e.keyCode == 13 && this.value != '') {
+      $("#search").focus();
+    }
+});

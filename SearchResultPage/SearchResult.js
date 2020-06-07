@@ -2,13 +2,10 @@
 
 
 function go_mainpage() {
-    location.href = "/MainPage_all/MainPage.html?" + now_ID
+    location.href = "../MainPage_all/MainPage.html?" + now_ID
 }
 function go_myorderlist() {
-    location.href = "/OrderList/OrderList.html?" + now_ID
-}
-function go_search() {
-    return
+    location.href = "../OrderList/OrderList.html?" + now_ID
 }
 
 
@@ -138,12 +135,9 @@ function searchAction(){
 	searchInput.focus(); //focus on the search input
 }
 
+var now_ID
 
 $(document).ready(function() {
-  now_ID = location.href.split("?", 2)[1];
-  searchfor= location.href.split("?", 2);
-
-  document.getElementById("My_Name").innerHTML = now_ID;
   var firebaseConfig = {
     apiKey: "AIzaSyBjFa6ITtLwyYNPwAt9YWZx0crJviZYj8g",
     authDomain: "cs374-d.firebaseapp.com",
@@ -158,8 +152,30 @@ $(document).ready(function() {
     firebase.initializeApp({});
   }
 
-  //var searchedKey = keySearched("carrot"); //this is the array of keys searched
   var searchedKey = keySearched(""); //this is the array of keys searched: at the start, all keys
+
+  tempo = location.href.split("?", 2)[1];
+  tempo1=tempo.split(":")
+  if(tempo1.length==1)
+  {console.log("case1")
+    now_ID=tempo
+  }
+  else if(tempo1[1]=="key"){
+    now_ID=tempo1[0]
+    // document.getElementById("search").value=tempo1[2]
+    searchedKey=keySearched(tempo1[2])
+  }
+  else if (tempo1[1]=="category"){
+    now_ID=tempo1[0]
+    category==tempo1[2]
+
+  }
+  document.getElementById("My_Name").innerHTML=now_ID
+  
+  
+  
+  //var searchedKey = keySearched("carrot"); //this is the array of keys searched
+  
   firebaseLoad(searchedKey); //load all they keys
 
 
@@ -170,7 +186,6 @@ $(document).ready(function() {
     $(this).css("box-shadow", "0px 0px 0px 0px gray");
   });
 
-  now_ID=location.href.split("?",2)[1]
 
   $("#button_search").click(function() { // click button event
       console.log("search:btn");
