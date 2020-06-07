@@ -103,9 +103,9 @@ $(document).ready(function() {
         '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
       //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
 	}); //end of groupRef.once
-    } //end of for loop
+  } //end of for loop
 	$( ".loader" ).remove();
-  }); //end of firebase ref on
+}); //end of firebase ref on
   //del button click events
   $(document).on("click", ".deleteBtn", function() { //del button click events
 
