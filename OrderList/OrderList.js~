@@ -98,7 +98,14 @@ $(document).ready(function() {
     console.log("keyList", keyList);
     ans_list = [];
     for (var i = 0; i < keyList.length; i++) {
-	var groupKey = myMake[keyList[i]].value; //access groupKey under user
+	console.log(keyList[i]);
+	if(i<keyListMake.length){
+		var groupKey = myMake[keyList[i]].value; //access groupKey under user
+	}
+	else{
+		var groupKey = myJoin[keyList[i]].value; //access groupKey under user
+	}
+	console.log(groupKey);
 	var groupRef = firebase.database().ref("groups").child(groupKey);
 	groupRef.once('value', function(snapshot) {
 	//from here, youngjae
