@@ -74,14 +74,31 @@ $(document).ready(function() {
   $('<div class="loader"></div>').appendTo("#ongoingList");
 
   firebase.initializeApp(firebaseConfig);
-  firebase.database().ref('/user').child("KSW").child("join").on('value', function(snapshot) {
-    var myValue = snapshot.val();
-    console.log("myValue", keyList);
-    var keyList = Object.keys(myValue); //this is exampleKey, exampleKey3, ...
-    console.log("myValue", keyList);
+  firebase.database().ref('/user').child(now_ID).on('value', function(snapshot) {
+    var mySnapshot = snapshot.val();
+    var myMake = [];
+    var myJoin = [];
+    console.log(mySnapshot);
+    if('make' in mySnapshot){
+	myMake = mySnapshot.make;
+    }
+    if('join' in mySnapshot){
+	myJoin = mySnapshot.join;
+    }
+    //var myMake = mySnapshot.make;
+    //var myJoin = mySnapshot.join;
+    console.log("myMake", myMake);
+    console.log("myJoin", myJoin);
+    var keyListMake = Object.keys(myMake); //this is exampleKey, exampleKey3, ...
+    var keyListJoin = Object.keys(myJoin);
+    console.log("keyListMake", keyListMake);
+    console.log("keyListJoin", keyListJoin);
+    var keyList = []; //keyList is keyListMake + keyListJoin
+    keyList = keyListMake.concat(keyListJoin);
+    console.log("keyList", keyList);
     ans_list = [];
     for (var i = 0; i < keyList.length; i++) {
-	var groupKey = myValue[keyList[i]].groupKey; //access groupKey under user
+	var groupKey = myMake[keyList[i]].value; //access groupKey under user
 	var groupRef = firebase.database().ref("groups").child(groupKey);
 	groupRef.once('value', function(snapshot) {
 	//from here, youngjae
