@@ -114,7 +114,18 @@ function firebaseLoad(searchedKey) {
 
         // case2 : There is something exist
         ans_list = [];
-        $('<div>There are ' + itemsKey.length + ' items nearby!</div>').appendTo(".resultText");
+
+	//number of ongoing items
+	var numOngoingItems=0;
+	for (var n=0; n<itemsKey.length; n++){
+		var curN = myValue[itemsKey[n]];
+		if(!curN.complete){
+			numOngoingItems++;
+		}
+	}
+        $('<div>There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
+
+
         for (var i = 0; i < itemsKey.length; i++) {
             //console.log(myValue); //this is the list of keys in 'groups'
             //console.log(myValue[itemsKey[i]]); //this is each item
@@ -127,9 +138,10 @@ function firebaseLoad(searchedKey) {
             } else {
                 duedate += " days left";
             }
+		if(!cur.complete){
             //add item according to firebase
-            $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
-                '<a class="ongoingProductLink" href=' + cur.url + '>' +
+            $('<li class="ongoingProduct" id="' + itemsKey[i] + '"' + 'onclick=makesearchpopup(this.id)>' +
+                //'<a class="ongoingProductLink" href=' + cur.url + '>' +
                 '<dl>' +
                 '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
                 '<div class="progress-container">' +
@@ -148,6 +160,7 @@ function firebaseLoad(searchedKey) {
                 '<span class="prev-cost">' + 'now the price is' + '</span>' +
                 '<span class="cost">' + price + '</span></div></dd></dl></a></li>').appendTo("#ongoingList");
             //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
+		} //end of if loop
         } //end of for loop
         $(".loader").remove();
     });

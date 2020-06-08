@@ -133,7 +133,3 @@
   margin-left:auto;
   margin-right:auto;
 }
-
-.ongoingProduct{
-	cursor: pointer;
-}
