@@ -30,13 +30,17 @@
 }
 
 #close {
-    background-color: #6E41E2;
+    background-image: url("../src/closeBtn.png");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
     width: 36px;
     height: 36px;
     border-radius: 18px;
     position: absolute;
     right: 15px;
     top: 15px;
+    cursor: pointer;
 }
 
 #info {
@@ -352,4 +356,5 @@
     font-style: normal;
     font-weight: normal;
     font-size: 17px;
+    cursor: pointer;
 }
