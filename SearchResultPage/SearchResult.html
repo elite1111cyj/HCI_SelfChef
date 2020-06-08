@@ -2,86 +2,87 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <link href="../make/make.css" rel="stylesheet" />
-  <link href="SearchResult.css" rel="stylesheet" />
-  <link href="../OrderList/OrderList.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <link href="../make/make.css" rel="stylesheet" />
+    <link href="SearchResult.css" rel="stylesheet" />
+    <link href="../OrderList/OrderList.css" rel="stylesheet" />
+    <link href="../searchpopup/searchpopup.css" rel="stylesheet" />
 
-  <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <script src="../jquery/js/jquery-1.9.0.min.js"></script>
-  <script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-  <link href="../jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="../jquery/js/jquery-1.9.0.min.js"></script>
+    <script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <link href="../jquery/css/ui-lightness/jquery-ui-1.10.0.custom.css" rel="stylesheet" />
 
 </head>
 
 <body>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  <script src="../jquery/js/jquery-1.9.0.min.js"></script>
-  <script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
-  <!--<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="../jquery/js/jquery-1.9.0.min.js"></script>
+    <script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-analytics.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>-->
 
-  <script src="./SearchResult.js"></script>
+    <script src="./SearchResult.js"></script>
 
-  <!-- [start]default upper bar! -->
-  <table id="default">
-    <tr>
-      <td><img id="logo" src="../src/logo3_1.png" onclick="go_mainpage()"></td>
-      <td id="default_pad1"> </td>
-      <td id="Main_Page" onclick="go_mainpage()">Main Page</td>
-      <td id="My_Order_List" onclick="go_myorderlist()">My Order List</td>
-      <td id="My_Name">Name here</td>
-      <td id="default_pad2"></td>
-    </tr>
-  </table>
-
-  <!-- [end]default upper bar! -->
-
-  <div id="div_makegb"> <input id="button_makegb" type="button" value="Make group buyng" onclick="go_makenewgroup()"></div>
-  <p style="clear:both;">&nbsp;</p>
-  <center>
-    <table id="centerbar">
-
-      <tr>
-        <td id="s_1"><img src="../src/search.png" id="dotbogi"></td>
-        <td id="s_2"><input type="text" placeholder="What do you need?" id="search"></td>
-        <td id="s_3"><input type="button" value="Search" id="button_search"></td>
-        <td id="popular">
-          <div id="popular_title">Now Popular</div>
-          <div id="popular_product">1. Salmon</div>
-        </td>
-      </tr>
+    <!-- [start]default upper bar! -->
+    <table id="default">
+        <tr>
+            <td><img id="logo" src="../src/logo3_1.png" onclick="go_mainpage()"></td>
+            <td id="default_pad1"> </td>
+            <td id="Main_Page" onclick="go_mainpage()">Main Page</td>
+            <td id="My_Order_List" onclick="go_myorderlist()">My Order List</td>
+            <td id="My_Name">Name here</td>
+            <td id="default_pad2"></td>
+        </tr>
     </table>
-  </center>
-  <div class="resultText">
-  </div>
-  <ul class="ongoingList" id="ongoingList">
-    <!-- Product List -->
 
-  </ul>
+    <!-- [end]default upper bar! -->
 
-  <!-- <table id="popular_long">
+    <div id="div_makegb"> <input id="button_makegb" type="button" value="Make group buyng" onclick="go_makenewgroup()"></div>
+    <p style="clear:both;">&nbsp;</p>
+    <center>
+        <table id="centerbar">
+
+            <tr>
+                <td id="s_1"><img src="../src/search.png" id="dotbogi"></td>
+                <td id="s_2"><input type="text" placeholder="What do you need?" id="search"></td>
+                <td id="s_3"><input type="button" value="Search" id="button_search"></td>
+                <td id="popular">
+                    <div id="popular_title">Now Popular</div>
+                    <div id="popular_product">1. Salmon</div>
+                </td>
+            </tr>
+        </table>
+    </center>
+    <div class="resultText">
+    </div>
+    <ul class="ongoingList" id="ongoingList">
+        <!-- Product List -->
+
+    </ul>
+
+    <!-- <table id="popular_long">
             <tr>
                 <td>1. Salmon</td>
             </tr>
         </table> -->
 
-  <!-- popup layer-->
-  <div id='makepopup'>
-    <div id='title'>Make a new Group Buying</div>
-    <button id='close' onclick='close_makenewgroup()'>
+    <!-- popup layer-->
+    <div id='makepopup'>
+        <div id='title'>Make a new Group Buying</div>
+        <button id='close' onclick='close_makenewgroup()'>
     </button>
-    <div id='info'><b>Information</b>
-      <input type="text" placeholder="Product Name" id="name"></input>
-      <input type="text" placeholder="Hash Tags" id="tag"></input>
-      <input type="text" placeholder="Product Link (optional)" id="url"></input>
-      <input type="file" accept="img/*" id='imageholder'></input>
-      <img id='image' src="#" />
-      <select id='categorysearch' name='category'>
+        <div id='info'><b>Information</b>
+            <input type="text" placeholder="Product Name" id="name"></input>
+            <input type="text" placeholder="Hash Tags" id="tag"></input>
+            <input type="text" placeholder="Product Link (optional)" id="url"></input>
+            <input type="file" accept="img/*" id='imageholder'></input>
+            <img id='image' src="#" />
+            <select id='categorysearch' name='category'>
         <option value='default'>Select category</option>
         <option value='fruit'>fruit</option>
         <option value='bread'>bread</option>
@@ -91,35 +92,36 @@
         <option value='health'>health</option>
         <option value='fish'>fish</option>
       </select>
-      <div id='price'>
-        <div id='pricetext'>Price info: </div>
-        <input type='text' placeholder='price ex)6000 won' id='priceper'></input>
-        <div id='slash'>/</div>
-        <input type='text' placeholder='unit ex)kg' id='unit'></input>
-      </div>
+            <div id='price'>
+                <div id='pricetext'>Price info: </div>
+                <input type='text' placeholder='price ex)6000 won' id='priceper'></input>
+                <div id='slash'>/</div>
+                <input type='text' placeholder='unit ex)kg' id='unit'></input>
+            </div>
+        </div>
+        <div id='select'>
+            <input type="checkbox" name='endselect' value='Date' id='dateselect' checked>
+            <div id='dateselecttext'><b>Ends with due date</b></div>
+            <input type="checkbox" name='endselect' value='Amount' id='amountselect'>
+            <div id='amountselecttext'><b>Ends with num of target amount</b></div>
+            <input type="text" placeholder="" id="dateselectinput"></input>
+            <input type="text" placeholder="ex) 10" id="amountselectinput" disabled='true'></input>
+        </div>
+        <div id='set'>Set the pick up information
+            <input type="text" placeholder="" id="setdate"></input>
+            <input type="text" placeholder="ex) Eo-eun dong" id="setplace"></input>
+        </div>
+        <button type='submit' id='submit' onclick='makeclicked()'>Submit</button>
+
     </div>
-    <div id='select'>
-      <input type="checkbox" name='endselect' value='Date' id='dateselect' checked>
-      <div id='dateselecttext'><b>Ends with due date</b></div>
-      <input type="checkbox" name='endselect' value='Amount' id='amountselect'>
-      <div id='amountselecttext'><b>Ends with num of target amount</b></div>
-      <input type="text" placeholder="" id="dateselectinput"></input>
-      <input type="text" placeholder="ex) 10" id="amountselectinput" disabled='true'></input>
-    </div>
-    <div id='set'>Set the pick up information
-      <input type="text" placeholder="" id="setdate"></input>
-      <input type="text" placeholder="ex) Eo-eun dong" id="setplace"></input>
-    </div>
-    <button type='submit' id='submit' onclick='makeclicked()'>Submit</button>
-
-  </div>
 
 
-  <script src="../DP4_all.js"></script>
-  <script src="../make/make.js"></script>
-  <!-- <script src="../MainPage_all/MainPage.js"></script> -->
+    <script src="../DP4_all.js"></script>
+    <script src="../make/make.js"></script>
+    <script src="../searchpopup/searchpopup.js"></script>
+    <!-- <script src="../MainPage_all/MainPage.js"></script> -->
 
 
-  <body>
+    <body>
 
 </html>

@@ -13,10 +13,36 @@ firebase.initializeApp(firebaseConfig);
 var storageRef = firebase.storage().ref('/images/');
 
 //test values
-var productKey = '-M8ywY0Ui2yOOLRt-CT3'
+//var productKey = '-M8ywY0Ui2yOOLRt-CT3'
 var now_ID = 'Hyejin'
 
-window.onload = function() {
+
+function makesearchpopup(pkey) {
+    console.log('click')
+    var productKey = pkey
+    popup = document.createElement('div')
+    popup.setAttribute('id', 'searchpopup')
+    document.body.appendChild(popup)
+    $('#searchpopup').append("\
+    <button id='close' onclick='close_searchpopup()'>\
+    </button>\
+    <img id='productimg' />\
+    <div id='info'>\
+        <div id='productname'></div>\
+        <div id='progress'></div>\
+        <div id='bar'></div>\
+        <div id='pickupplace'></div>\
+        <div id='date'>3 days left</div>\
+        <div id='price'></div>\
+        <div id='url'>default url</div>\
+    </div>\
+    <div id='control'>\
+        <input type='text' id='amount'></input>\
+        <input type='button' class='controller' id='up' onclick='up()'></input>\
+        <input type='button' class='controller' id='down' onclick='down()'></input>\
+        <input type='button' id='add' value='Add' onclick='addProduct(productKey)'></input>\
+    </div>\
+    ")
     initialize()
     getInfo(productKey)
 }
@@ -91,5 +117,6 @@ function addProduct(key) {
 }
 
 function close_searchpopup() {
-
+    var element = document.getElementById('searchpopup');
+    element.parentNode.removeChild(element);
 }
