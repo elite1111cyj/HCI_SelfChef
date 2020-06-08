@@ -61,7 +61,7 @@ var preorderProList;
 
 
 // ======================
-// �����ؾ��� ��: ó���� firebase���� orderList �޾ƿ���
+// ????????? ??: o???? firebase???? orderList ??????
 // ==========================
 
 $(document).ready(function() {
@@ -70,6 +70,7 @@ $(document).ready(function() {
 
 
   $('<div class="loader"></div>').appendTo("#ongoingList");
+  $('<div class="loader"></div>').appendTo("#prevList");
 
   firebase.initializeApp(firebaseConfig);
   firebase.database().ref('/user').child(now_ID).on('value', function(snapshot) {
@@ -119,6 +120,11 @@ $(document).ready(function() {
       		} else {
         	duedate += " days left";
       		}
+
+	//check if cur.complete is "false"
+	if(!cur.complete){
+
+
       //add item according to firebase
       $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
         '<a class="ongoingProductLink" href=' + cur.url + '>' +
@@ -141,6 +147,36 @@ $(document).ready(function() {
         '<span class="cost">' + price + '</span></div></dd></dl></a>' +
         '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
       //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
+
+
+
+		} //end of "check if complete is false"
+		else{ //if cur.complete is "true"
+			
+	//add item according to firebase
+      $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
+        '<a class="ongoingProductLink" href=' + cur.url + '>' +
+        '<dl>' +
+        '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
+        '<div class="progress-container">' +
+        '<div class="progressbar" style="width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
+        '<dd class="descriptions">' +
+        '<div class="badges">' +
+        '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%' + '</p>' +
+        '<p class="progressPercent"><i class="fas fa-user"></i>' + cur.currentamount + ' joined' + '</p>' +
+        '<p class="progressNote">' + cur.enddate + '</p></div>' +
+        '<p class="progressNote">' + duedate + '</p></div>' +
+        '<div class="name">' + cur.name + '</div>' +
+        '<div class="location">' +
+        '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
+        '<div class="price-area">' +
+        '<div class="price-wrap">' +
+        '<span class="prev-cost">' + 'now the price is' + '</span>' +
+        '<span class="cost">' + price + '</span></div></dd></dl></a>' +
+        '<div class="deleteBtn">Cancel</div></li>').appendTo("#prevList");
+
+		} //end of "if cur.complete is true"
+
 	}); //end of groupRef.once
   } //end of for loop
 	$( ".loader" ).remove();
@@ -176,7 +212,7 @@ $(document).ready(function() {
 
 
   // ==========================
-  // �����ؾ��� ��: ������ ���͸�
+  // ????????? ??: ?????? ?????
   // ==========================
 
 
