@@ -18,6 +18,7 @@
 }
 
 #My_Order_List {
+    border-bottom: 0px solid black !important;
     cursor: pointer;
 }
 

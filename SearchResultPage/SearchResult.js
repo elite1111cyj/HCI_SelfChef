@@ -60,13 +60,47 @@ function keySearched(searchedText) {
   return returnKeyList;
 }
 
+function catSearched(searchedText) {
+  var returnKeyList = new Array(); 
+  //list of keys that will be returned
+  firebase.database().ref('/groups').on('value', function(snapshot) {
+  if(snapshot.exists()){
+    var myValue = snapshot.val();
+    var keyList = Object.keys(myValue); //these are the keys in 'groups'
+    for (var i = 0; i < keyList.length; i++) {
+      var myGroup = myValue[keyList[i]];
+      //nameCompare: true means name contains searchedText
+      var nameCompare = myGroup.category==searchedText;
+      //tagCompare: true means at least one tag contains searchedText
+      var tagArray = myGroup.tag.split(" "); //array of tags (with #)
+      var tagCompare = false;
+      for(var k=0; k < tagArray.length; k++){
+        if(tagArray[k].toUpperCase().includes(searchedText.toUpperCase())){
+          tagCompare = true;
+          break;
+        }
+      }
+      if(nameCompare || tagCompare){
+        returnKeyList.push(keyList[i]);
+        //console.log("1",returnKeyList);
+      }
+    //console.log("2",returnKeyList)
+    }
+    //console.log("3",returnKeyList)
+    //return returnKeyList
+  }
+  });
+  //console.log("4",returnKeyList)
+  return returnKeyList
+}
+
+
 function firebaseLoad(searchedKey){
   $('<div class="loader"></div>').appendTo("#ongoingList");
   firebase.database().ref('/groups').on('value', function(snapshot) {
     var myValue = snapshot.val();
     var keyList = Object.keys(myValue);
     console.log("keyList", keyList); //this is the list of keys in 'groups'
-
     var itemsKey = searchedKey //this is the array of keys searched
     console.log(itemsKey.length);
     console.log(itemsKey);
@@ -117,6 +151,7 @@ function firebaseLoad(searchedKey){
 	         $( ".loader" ).remove();
   });
 }
+
 function clearPage() {
   $("#ongoingList").html("");
   $(".resultText").html("");
@@ -152,31 +187,36 @@ $(document).ready(function() {
     firebase.initializeApp({});
   }
 
-  var searchedKey = keySearched(""); //this is the array of keys searched: at the start, all keys
+  var searchedKey=new Array();  //this is the array of keys searched: at the start, all keys
 
   tempo = location.href.split("?", 2)[1];
   tempo1=tempo.split(":")
-  if(tempo1.length==1)
+  if(tempo1.length==1) //no search from mainpage
   {console.log("case1")
     now_ID=tempo
+    searchedKey= keySearched("");
+    firebaseLoad(searchedKey);
   }
-  else if(tempo1[1]=="key"){
+  else if(tempo1[1]=="key"){ //got key from mainpage
     now_ID=tempo1[0]
-    // document.getElementById("search").value=tempo1[2]
     searchedKey=keySearched(tempo1[2])
+    firebaseLoad(searchedKey);
   }
   else if (tempo1[1]=="category"){
     now_ID=tempo1[0]
-    category==tempo1[2]
-
+    searchedKey=catSearched(tempo1[2])
+    firebaseLoad(searchedKey);
   }
+
+
+
   document.getElementById("My_Name").innerHTML=now_ID
   
   
   
   //var searchedKey = keySearched("carrot"); //this is the array of keys searched
   
-  firebaseLoad(searchedKey); //load all they keys
+   //load all they keys
 
 
   $(document).on("mouseover", ".ongoingProduct", function() {
