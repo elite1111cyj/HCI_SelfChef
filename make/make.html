@@ -21,7 +21,7 @@
             <input type="text" placeholder="Hash Tags" id="tag"></input>
             <input type="text" placeholder="Product Link (optional)" id="url"></input>
             <input type="file" accept="img/*" id='imageholder'></input>
-            <img id='image' src="#" />
+            <img id='image' src="../src/noImage.jpg" />
             <select id='categorysearch' name='category'>
                 <option value='default'>Select category</option>
                 <option value='fruit'>fruit</option>
@@ -51,7 +51,9 @@
             <input type="text" placeholder="" id="setdate"></input>
             <input type="text" placeholder="ex) Eo-eun dong" id="setplace"></input>
         </div>
+        <div class="loadingarea">
         <button type='submit' id='submit' onclick='onclicked()'>Submit</button>
+        </div>
 
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>

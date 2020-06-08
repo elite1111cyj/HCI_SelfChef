@@ -24,8 +24,6 @@ function parseDate(input) {
 
 
 
-
-
 /*
 now_ID=location.href.split("?",2)[1];
 console.log(now_ID);
@@ -67,10 +65,10 @@ var preorderProList;
 // ==========================
 
 $(document).ready(function() {
-  
+
   document.getElementById("My_Name").innerHTML=now_ID
 
-  
+
   $('<div class="loader"></div>').appendTo("#ongoingList");
 
   firebase.initializeApp(firebaseConfig);

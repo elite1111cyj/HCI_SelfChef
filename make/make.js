@@ -16,6 +16,7 @@ var curfile;
 
 window.onload = function() {
     initialize()
+    $('<div class="loader"></div>').appendTo("#loadingarea");
 }
 
 function go_makenewgroup() {
@@ -77,6 +78,8 @@ function makeclicked() {
     //need to talk more about the DB structure..
     //this code is just pushing into the 'full' list. need to push into 'user' list too.
     //make sure that the pickup date is later than due date!
+
+    $('<div class="loader"></div>').appendTo("#loadingarea");
     var newKey = firebase.database().ref('/groups/').push();
     var storageRef = firebase.storage().ref(newKey.key);
     task = storageRef.put(curfile);
@@ -109,6 +112,7 @@ function makeclicked() {
             });
             var userKey = firebase.database().ref('/user/' + now_ID + '/make/').push();
             userKey.set({ value: newKey.key })
+            $( ".loader" ).remove();
             alert("You successfully made a new group buying!")
             close_makenewgroup();
         })
