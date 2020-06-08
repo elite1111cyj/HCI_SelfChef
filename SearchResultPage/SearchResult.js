@@ -113,7 +113,7 @@ function firebaseLoad(searchedKey){
 
     // case2 : There is something exist
     ans_list = [];
-    $('<div>There is '+itemsKey.length+' items nearby!</div>').appendTo(".resultText");
+    $('<div>There are '+itemsKey.length+' items nearby!</div>').appendTo(".resultText");
     for (var i = 0; i < itemsKey.length; i++) {
 	    //console.log(myValue); //this is the list of keys in 'groups'
 	    //console.log(myValue[itemsKey[i]]); //this is each item
