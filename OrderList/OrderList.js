@@ -154,8 +154,8 @@ $(document).ready(function() {
                 else { //if cur.complete is "true"
 
                     //add item according to firebase
-                    $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
-                        '<a class="ongoingProductLink" href=' + cur.url + '>' +
+                    $('<li class="ongoingProduct" id="' + snapshot.key + '"' + ' onclick=makedealsuccesspopup(this.id)>' +
+                        //'<a class="ongoingProductLink" href=' + cur.url + '>' +
                         '<dl>' +
                         '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
                         '<div class="progress-container">' +
