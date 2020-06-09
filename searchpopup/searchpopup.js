@@ -52,9 +52,9 @@ function makesearchpopup(pkey) {
         "<div id='searchurl'>default url</div>" +
         "</div>" +
         "<div id='control'>" +
-        "<input type='text' id='amount'></input>" +
-        "<input type='button' class='controller' id='up' onclick='up()'></input>" +
-        "<input type='button' class='controller' id='down' onclick='down()'></input>" +
+        "<input type='text' id='amount' value=1></input>" +
+        "<input type='button' class='controller' id='up' onclick='up()' value='+'></input>" +
+        "<input type='button' class='controller' id='down' onclick='down()' value='-'></input>" +
         "<input type='button' id='add' value='Add' onclick=addProduct('" + productKey + "')></input>" +
         "</div>"
     );
@@ -101,7 +101,7 @@ function getInfo(key) {
         $('#pickupplace').html(pickupplace)
         $('#price').html(price + '/' + unit)
         $('#date').html('End date: ' + enddate)
-        $('#url').html(url)
+        $('#searchurl').html(url)
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
         $('#progress').html(endamount);
@@ -120,15 +120,15 @@ function addProduct(key) {
         currentamount = currentamount + amount
         if (currentamount > endamount) {
             alert("Exceed the available amount")
-            var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
-            userKey.set({ value: key, amount: amount })
-            close_searchpopup();
         } else {
             ref.update({ currentamount: currentamount })
             if (currentamount == endamount) {
                 ref.update({ complete: 'true' })
             }
+            var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
+            userKey.set({ value: key, amount: amount })
             alert("You successfully joined a group buying!")
+            close_searchpopup();
         }
     })
 }
