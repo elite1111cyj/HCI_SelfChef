@@ -186,16 +186,41 @@ $(document).ready(function() {
 
     var n = this.parentNode.id; //the id is the key to delete; for now: exampleKey2
     console.log("delete", n);
-    var check = confirm("Are you sure you want to cancel " + n + "?");
+    nameofpurchase=this.parentNode.innerHTML.split("name\">",2)[1].split("<")[0]
+  
+    var check = confirm("Are you sure you want to cancel " + nameofpurchase + "?");
     if (check) {
+      console.log("affirmed")
       $("#" + n).remove();
       //remove item from firebase
-      firebase.database().ref("user").child(now_ID).child("join").child(n).remove();
+      console.log("user/"+now_ID+"/join/"+n)
+      firebase.database().ref('/user').child(now_ID).child("join").on('value', function(snapshot) {
+      var mySnapshot = snapshot.val();
+
+        if(mySnapshot){
+        var keyList=Object.keys(mySnapshot);
+        console.log(mySnapshot)
+        for(var i=0;i<keyList.length;i++) {
+          console.log(keyList[i])
+       
+          if (mySnapshot[keyList[i]]["value"]==n){
+            console.log(mySnapshot[keyList[i]]["value"])
+          firebase.database().ref('user/'+now_ID+"/join/"+keyList[i]).remove()
+        }
+        else {
+          console.log("passing",mySnapshot[keyList[i]]["value"])
+        }
+        }
+      }
+      })
+      //firebase.database().ref("user").child(now_ID).child("join").child(n).remove();
     }
     // ==========================
     // >>> Delete element in firebase db
     // ==========================
+  
   });
+
 
   //$(".ongoingProduct").mouseover(function(){$(this).css("box-shadow", "0px 0px 22px -6px gray");}); //
   //$(".ongoingProduct").mouseleave(function(){$(this).css("box-shadow", "0px 0px 0px 0px gray");});
