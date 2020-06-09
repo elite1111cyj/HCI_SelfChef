@@ -17,17 +17,17 @@
     <script src="../jquery/js/jquery-ui-1.10.0.custom.min.js"></script>
     <script src="./MainPage.js"></script>
 
-        <!-- [start]default upper bar! -->
-        <table id="default">
-            <tr>
-               <td><img id="logo" src="../src/logo3_1.png" onclick="go_mainpage()"></td> 
-                <td id="default_pad1"> </td>
-                <td id="Main_Page" onclick="go_mainpage()">Main Page</td>
-                <td id="My_Order_List" onclick="go_myorderlist()">My Order List</td>
-                <td id="My_Name">Name here</td>
-                <td id="default_pad2"></td>
-            </tr>
-        </table>
+    <!-- [start]default upper bar! -->
+    <table id="default">
+        <tr>
+            <td><img id="logo" src="../src/logo3_1.png" onclick="go_mainpage()"></td>
+            <td id="default_pad1"> </td>
+            <td id="Main_Page" onclick="go_mainpage()">Main Page</td>
+            <td id="My_Order_List" onclick="go_myorderlist()">My Order List</td>
+            <td id="My_Name">Name here</td>
+            <td id="default_pad2"></td>
+        </tr>
+    </table>
 
     <!-- [end]default upper bar! -->
 
@@ -49,9 +49,9 @@
             <h2>Category</h2>
             <table>
                 <tr>
-                    <td class="icon" onclick="fruit()"><img class="pic" id="fruit" src="MainPage/fruit.png" ><br>fruit</td>
+                    <td class="icon" onclick="fruit()"><img class="pic" id="fruit" src="MainPage/fruit.png"><br>fruit</td>
                     <td class="pad"> </td>
-                    <td class="icon" onclick="vegetable()"><img class="pic" src="MainPage/vegetable.png" ><br>vegetable</td>
+                    <td class="icon" onclick="vegetable()"><img class="pic" src="MainPage/vegetable.png"><br>vegetable</td>
                     <td class="pad"> </td>
                     <td class="icon" onclick="fish()"><img class="pic" src="MainPage/fish.png"> <br>fish</td>
                     <td class="pad"> </td>
@@ -85,13 +85,13 @@
             <img id='image' src="#" />
             <select id='categorysearch' name='category'>
                 <option value='default'>Select category</option>
-                <option value='fruit'>fruit</option>
-                <option value='bread'>bread</option>
-                <option value='beef'>beef</option>
+                <option value='vegetable'>fruit</option>
+                <option value='fish'>bread</option>
+                <option value='meat'>beef</option>
                 <option value='rice'>rice</option>
                 <option value='dairy'>dairy</option>
                 <option value='health'>health</option>
-                <option value='fish'>fish</option>
+                <option value='rice'>fish</option>
             </select>
             <div id='price'>
                 <div id='pricetext'>Price info: </div>
