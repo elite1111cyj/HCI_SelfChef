@@ -131,7 +131,7 @@ $(document).ready(function() {
                         '<dl>' +
                         '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
                         '<div class="progress-container">' +
-                        '<div class="progressbar" style="width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
+                        '<div class="progressbar" style="background-color: #556EE6; width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
                         '<dd class="descriptions">' +
                         '<div class="badges">' +
                         '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%' + '</p>' +
@@ -159,7 +159,7 @@ $(document).ready(function() {
                         '<dl>' +
                         '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
                         '<div class="progress-container">' +
-                        '<div class="progressbar" style="width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
+                        '<div class="progressbar" style="background-color: #556EE6; width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
                         '<dd class="descriptions">' +
                         '<div class="badges">' +
                         '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%' + '</p>' +
