@@ -114,7 +114,18 @@ function firebaseLoad(searchedKey) {
 
         // case2 : There is something exist
         ans_list = [];
-        $('<div>There are ' + itemsKey.length + ' items nearby!</div>').appendTo(".resultText");
+
+        //number of ongoing items
+        var numOngoingItems = 0;
+        for (var n = 0; n < itemsKey.length; n++) {
+            var curN = myValue[itemsKey[n]];
+            if (!curN.complete) {
+                numOngoingItems++;
+            }
+        }
+        $('<div>There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
+
+
         for (var i = 0; i < itemsKey.length; i++) {
             //console.log(myValue); //this is the list of keys in 'groups'
             //console.log(myValue[itemsKey[i]]); //this is each item
@@ -127,27 +138,29 @@ function firebaseLoad(searchedKey) {
             } else {
                 duedate += " days left";
             }
-            //add item according to firebase
-            $('<li class="ongoingProduct"' + 'onclick = "makesearchpopup(this.id)"' + 'id=' + itemsKey[i] + '>' +
-                //'<a class="ongoingProductLink" href=' + cur.url + '>' +
-                '<dl>' +
-                '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
-                '<div class="progress-container">' +
-                '<div class="progressbar" style="width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
-                '<dd class="descriptions">' +
-                '<div class="badges">' +
-                '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%' + '</p>' +
-                '<p class="progressPercent"><i class="fas fa-user"></i>' + cur.currentamount + ' joined' + '</p>' +
-                '<p class="progressNote">' + cur.enddate + '</p></div>' +
-                '<p class="progressNote">' + duedate + '</p></div>' +
-                '<div class="name">' + cur.name + '</div>' +
-                '<div class="location">' +
-                '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
-                '<div class="price-area">' +
-                '<div class="price-wrap">' +
-                '<span class="prev-cost">' + 'now the price is' + '</span>' +
-                '<span class="cost">' + price + '</span></div></dd></dl></a></li>').appendTo("#ongoingList");
-            //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
+            if (!cur.complete) {
+                //add item according to firebase
+                $('<li class="ongoingProduct"' + 'onclick = "makesearchpopup(this.id)"' + 'id=' + itemsKey[i] + '>' +
+                    //'<a class="ongoingProductLink" href=' + cur.url + '>' +
+                    '<dl>' +
+                    '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
+                    '<div class="progress-container">' +
+                    '<div class="progressbar" style="width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
+                    '<dd class="descriptions">' +
+                    '<div class="badges">' +
+                    '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%' + '</p>' +
+                    '<p class="progressPercent"><i class="fas fa-user"></i>' + cur.currentamount + ' joined' + '</p>' +
+                    '<p class="progressNote">' + cur.enddate + '</p></div>' +
+                    '<p class="progressNote">' + duedate + '</p></div>' +
+                    '<div class="name">' + cur.name + '</div>' +
+                    '<div class="location">' +
+                    '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
+                    '<div class="price-area">' +
+                    '<div class="price-wrap">' +
+                    '<span class="prev-cost">' + 'now the price is' + '</span>' +
+                    '<span class="cost">' + price + '</span></div></dd></dl></a></li>').appendTo("#ongoingList");
+                //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
+            } //end of if loop
         } //end of for loop
         $(".loader").remove();
     });

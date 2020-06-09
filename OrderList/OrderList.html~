@@ -175,7 +175,7 @@
 
           <h2>Previous</h2>
           <ul class="prevList" id="prevList">
-<!--            <li class="ongoingProduct">
+            <li class="ongoingProduct">
               <a class="ongoingProductLink" href="productpage.html">
                 <dl>
                   <div class="with-bg-size" style="background-image: url('src/img/carrot2.jpg');"></div>
@@ -203,7 +203,7 @@
                 </dl>
               </a>
             </li>
--->
+
 
 
           </ul>
