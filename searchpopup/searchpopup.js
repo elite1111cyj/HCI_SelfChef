@@ -120,15 +120,15 @@ function addProduct(key) {
         currentamount = currentamount + amount
         if (currentamount > endamount) {
             alert("Exceed the available amount")
-            var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
-            userKey.set({ value: key, amount: amount })
-            close_searchpopup();
         } else {
             ref.update({ currentamount: currentamount })
             if (currentamount == endamount) {
                 ref.update({ complete: 'true' })
             }
+            var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
+            userKey.set({ value: key, amount: amount })
             alert("You successfully joined a group buying!")
+            close_searchpopup();
         }
     })
 }
