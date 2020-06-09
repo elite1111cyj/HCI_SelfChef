@@ -98,7 +98,7 @@ function catSearched(searchedText) {
 
 function firebaseLoad(searchedKey) {
     $('<div class="loader"></div>').appendTo("#ongoingList");
-    firebase.database().ref('/groups').on('value', function(snapshot) {
+    firebase.database().ref('/groups').once('value', function(snapshot) {
         var myValue = snapshot.val();
         var keyList = Object.keys(myValue);
         console.log("keyList", keyList); //this is the list of keys in 'groups'
