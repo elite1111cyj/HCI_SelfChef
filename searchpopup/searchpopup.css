@@ -139,11 +139,13 @@
 #up {
     top: 0px;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 #down {
     top: 35px;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 #add {
@@ -155,4 +157,5 @@
     font-size: 32px;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 8px;
 }
