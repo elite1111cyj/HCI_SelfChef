@@ -74,7 +74,7 @@ $(document).ready(function() {
     $('<div class="loader"></div>').appendTo("#prevList");
 
     firebase.initializeApp(firebaseConfig);
-    firebase.database().ref('/user').child(now_ID).on('value', function(snapshot) {
+    firebase.database().ref('/user').child(now_ID).once('value', function(snapshot) {
         var mySnapshot = snapshot.val();
         var myMake = [];
         var myJoin = [];
