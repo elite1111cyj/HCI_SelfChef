@@ -2,6 +2,7 @@
 
 var searchInput;
 var searchedText;
+var lookingfor;
 
 function go_mainpage() {
     location.href = "../MainPage_all/MainPage.html?" + now_ID
@@ -125,7 +126,7 @@ function firebaseLoad(searchedKey) {
                 numOngoingItems++;
             }
         }
-        $('<div>Search for '+ searchedText +'.. There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
+        $('<div>Search for <div class="keywordHighlight">'+ lookingfor +'</div>.. There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
 
 
         for (var i = 0; i < itemsKey.length; i++) {
@@ -189,6 +190,7 @@ function searchAction() {
 var now_ID
 var category
 $(document).ready(function() {
+   $("#search").focus();
     var firebaseConfig = {
         apiKey: "AIzaSyBjFa6ITtLwyYNPwAt9YWZx0crJviZYj8g",
         authDomain: "cs374-d.firebaseapp.com",
@@ -214,12 +216,16 @@ $(document).ready(function() {
         searchedKey = keySearched("");
         firebaseLoad(searchedKey);
     } else if (tempo1[1] == "key") { //got key from mainpage
-        now_ID = tempo1[0]
-        searchedKey = keySearched(tempo1[2])
+        now_ID = tempo1[0];
+        searchedKey = keySearched(tempo1[2]);
+        lookingfor = tempo1[2];
+        $('.search').val(searchedKey);
+        console.log(">>>>");
+        console.log(tempo1[2]);
         firebaseLoad(searchedKey);
     } else if (tempo1[1] == "category") {
-        now_ID = tempo1[0]
-        searchedKey = catSearched(tempo1[2])
+        now_ID = tempo1[0];
+        searchedKey = catSearched(tempo1[2]);
         firebaseLoad(searchedKey);
     }
 
@@ -243,15 +249,15 @@ $(document).ready(function() {
 
 
     $("#button_search").click(function() { // click button event
-        console.log("search:btn");
+        location.href="../SearchResultPage/SearchResult.html?"+now_ID+":key:"+document.getElementById("search").value
+        /*console.log("search:btn");
         searchAction();
-        $("#search").focus();
+        $("#search").focus();*/
     });
     $("#search").keyup(function(e) { // enter event
         if (e.keyCode == 13 && this.value != '') {
-            console.log("search:enter");
-            searchAction();
-            $("#search").focus();
+          location.href="../SearchResultPage/SearchResult.html?"+now_ID+":key:"+document.getElementById("search").value
+
         }
     });
 

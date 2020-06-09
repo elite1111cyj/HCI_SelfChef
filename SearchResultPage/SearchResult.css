@@ -103,6 +103,14 @@
     border: none
 }
 
+.keywordHighlight{
+  font-size: 30px;
+  font-weight: bold;
+  color: #6E41E2;
+  display: inline;
+  width: 400px;
+}
+
 .icon {
     background-color: #B3B3B3;
     border-radius: 50%;
