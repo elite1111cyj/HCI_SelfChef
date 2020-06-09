@@ -126,8 +126,8 @@ $(document).ready(function() {
 
 
       //add item according to firebase
-      $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
-        '<a class="ongoingProductLink" href=' + cur.url + '>' +
+      $('<li class="ongoingProduct" id="' + snapshot.key + '"' + '>' +
+        //'<a class="ongoingProductLink" href=' + cur.url + '>' +
         '<dl>' +
         '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
         '<div class="progress-container">' +
@@ -154,8 +154,8 @@ $(document).ready(function() {
 		else{ //if cur.complete is "true"
 			
 	//add item according to firebase
-      $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
-        '<a class="ongoingProductLink" href=' + cur.url + '>' +
+      $('<li class="ongoingProduct" id="' + snapshot.key + '"' + 'onclick=makedealsuccesspopup(this.id)>' +
+        //'<a class="ongoingProductLink" href=' + cur.url + '>' +
         '<dl>' +
         '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
         '<div class="progress-container">' +
@@ -186,11 +186,11 @@ $(document).ready(function() {
 
     var n = this.parentNode.id; //the id is the key to delete; for now: exampleKey2
     console.log("delete", n);
-    var check = confirm("Are you sure to cancel " + n + "?");
+    var check = confirm("Are you sure you want to cancel " + n + "?");
     if (check) {
       $("#" + n).remove();
       //remove item from firebase
-      firebase.database().ref("user").child("KSW").child("join").child(n).remove();
+      firebase.database().ref("user").child(now_ID).child("join").child(n).remove();
     }
     // ==========================
     // >>> Delete element in firebase db
