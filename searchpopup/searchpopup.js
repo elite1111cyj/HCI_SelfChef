@@ -26,7 +26,7 @@ function makesearchpopup(pkey) {
     <button id='close' onclick='close_searchpopup()'>\
     </button>\
     <img id='productimg' />\
-    <div id='info'>\
+    <div id='infobox'>\
         <div id='productname'></div>\
         <div id='progress'></div>\
         <div id='bar'></div>\
