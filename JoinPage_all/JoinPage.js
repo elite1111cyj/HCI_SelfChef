@@ -11,7 +11,7 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 function move_to_create(){
-    location.href="../SignUpPage_all/SignUpPage.html"
+    location.href="../SignupPage_all/SignUpPage.html"
 }
 
 function check_info(){
