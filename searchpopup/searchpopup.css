@@ -94,7 +94,7 @@
     color: red;
 }
 
-#price {
+#searchprice {
     position: absolute;
     left: 0px;
     top: 250px;
@@ -102,7 +102,7 @@
     font-weight: normal;
 }
 
-#url {
+#searchurl {
     position: absolute;
     left: 0px;
     top: 300px;
