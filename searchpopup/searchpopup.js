@@ -53,8 +53,13 @@ function makesearchpopup(pkey) {
         "</div>" +
         "<div id='control'>" +
         "<input type='text' id='amount' value=1></input>" +
+<<<<<<< HEAD
         "<input type='button' class='controller' id='up' onclick='up()' value='▲'></input>" +
         "<input type='button' class='controller' id='down' onclick='down()' value='▼'></input>" +
+=======
+        "<input type='button' class='controller' id='up' onclick='up()' value='+'></input>" +
+        "<input type='button' class='controller' id='down' onclick='down()' value='-'></input>" +
+>>>>>>> 7bf17eeb576baf23b47aaf80494ebdfe8393070c
         "<input type='button' id='add' value='Add' onclick=addProduct('" + productKey + "')></input>" +
         "</div>"
     );

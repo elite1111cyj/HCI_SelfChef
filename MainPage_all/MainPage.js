@@ -45,3 +45,10 @@ function health(){
 function rice(){
     location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:rice"
 }
+
+$("#search").keyup(function(e) { // enter event
+    if (e.keyCode == 13 && this.value != '') {
+        console.log("search:enter");
+        go_search();
+    }
+});

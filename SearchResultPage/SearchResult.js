@@ -1,5 +1,7 @@
 //[start] upper bar//
 
+var searchInput;
+var searchedText;
 
 function go_mainpage() {
     location.href = "../MainPage_all/MainPage.html?" + now_ID
@@ -123,7 +125,7 @@ function firebaseLoad(searchedKey) {
                 numOngoingItems++;
             }
         }
-        $('<div>There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
+        $('<div>Search for '+ searchedText +'.. There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
 
 
         for (var i = 0; i < itemsKey.length; i++) {
@@ -173,8 +175,8 @@ function clearPage() {
 
 function searchAction() {
     var searchButton = document.getElementById("button_search");
-    var searchInput = document.getElementById("search");
-    var searchedText = searchInput.value; //this is the text searched
+    searchInput = document.getElementById("search");
+    searchedText = searchInput.value; //this is the text searched
     var returnedKeys = keySearched(searchedText); //return the keys that were searched
     //console.log(returnedKeys);
     clearPage(); //clear the page
