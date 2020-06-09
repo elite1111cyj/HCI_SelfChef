@@ -4,9 +4,9 @@
     height: 570px;
     width: 800px;
     left: 50%;
-    margin-left: -400px;
+    margin-left: -440px;
     top: 50%;
-    margin-top: -285px;
+    margin-top: -500px;
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
