@@ -21,28 +21,28 @@ function makesearchpopup(pkey) {
     popup = document.createElement('div')
     popup.setAttribute('id', 'searchpopup')
     document.body.appendChild(popup)
-    /*$('#searchpopup').append("\
-    <button id='close' onclick='close_searchpopup()'>\
-    </button>\
-    <img id='productimg' />\
-    <div id='infobox'>\
-        <div id='productname'></div>\
-        <div id='progress'></div>\
-        <div id='bar'></div>\
-        <div id='pickupplace'></div>\
-        <div id='date'>3 days left</div>\
-        <div id='searchprice'></div>\
-        <div id='searchurl'>default url</div>\
-    </div>\
-    <div id='control'>\
-        <input type='text' id='amount'></input>\
-        <input type='button' class='controller' id='up' onclick='up()'></input>\
-        <input type='button' class='controller' id='down' onclick='down()'></input>\
-        <input type='button' id='add' value='Add' onclick='addProduct(" + productKey + ")'></input>\
-    </div>*/
+        /*$('#searchpopup').append("\
+        <button id='close' onclick='close_searchpopup()'>\
+        </button>\
+        <img id='productimg' />\
+        <div id='infobox'>\
+            <div id='productname'></div>\
+            <div id='progress'></div>\
+            <div id='bar'></div>\
+            <div id='pickupplace'></div>\
+            <div id='date'>3 days left</div>\
+            <div id='searchprice'></div>\
+            <div id='searchurl'>default url</div>\
+        </div>\
+        <div id='control'>\
+            <input type='text' id='amount'></input>\
+            <input type='button' class='controller' id='up' onclick='up()'></input>\
+            <input type='button' class='controller' id='down' onclick='down()'></input>\
+            <input type='button' id='add' value='Add' onclick='addProduct(" + productKey + ")'></input>\
+        </div>*/
     $('#searchpopup').append("<button id='close' onclick='close_searchpopup()'></button>" +
-    "<img id='productimg' />" +
-    "<div id='infobox'>" +
+        "<img id='productimg' />" +
+        "<div id='infobox'>" +
         "<div id='productname'></div>" +
         "<div id='progress'></div>" +
         "<div id='bar'></div>" +
@@ -50,13 +50,13 @@ function makesearchpopup(pkey) {
         "<div id='date'>3 days left</div>" +
         "<div id='searchprice'></div>" +
         "<div id='searchurl'>default url</div>" +
-    "</div>" +
-    "<div id='control'>" +
+        "</div>" +
+        "<div id='control'>" +
         "<input type='text' id='amount'></input>" +
         "<input type='button' class='controller' id='up' onclick='up()'></input>" +
         "<input type='button' class='controller' id='down' onclick='down()'></input>" +
-        "<input type='button' id='add' value='Add' onclick=addProduct('"+productKey+"')></input>" +
-    "</div>"
+        "<input type='button' id='add' value='Add' onclick=addProduct('" + productKey + "')></input>" +
+        "</div>"
     );
 
     initialize()
@@ -111,8 +111,7 @@ function getInfo(key) {
 
 function addProduct(key) {
     var amount = Number($('#amount').val())
-    var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
-    userKey.set({ value: key, amount: amount })
+
     return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
         var myValue = snapshot.val();
         var myInfo = myValue[key];
@@ -121,6 +120,8 @@ function addProduct(key) {
         currentamount = currentamount + amount
         if (currentamount > endamount) {
             alert("Exceed the available amount")
+            var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
+            userKey.set({ value: key, amount: amount })
             close_searchpopup();
         } else {
             ref.update({ currentamount: currentamount })
