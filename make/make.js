@@ -96,6 +96,7 @@ function makeclicked() {
             var price = $('#priceper').val()
             var unit = $('#unit').val()
                 //need to check if there is any blank!
+
             newKey.set({
                 name: name,
                 tag: tag,
@@ -108,11 +109,12 @@ function makeclicked() {
                 category: category,
                 price: price,
                 unit: unit,
-                currentamount: 0
+                currentamount: 0,
+                complete: false
             });
             var userKey = firebase.database().ref('/user/' + now_ID + '/make/').push();
             userKey.set({ value: newKey.key })
-            $( ".loader" ).remove();
+            $(".loader").remove();
             alert("You successfully made a new group buying!")
             close_makenewgroup();
         })

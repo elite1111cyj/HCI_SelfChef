@@ -1,4 +1,5 @@
 // Your web app's Firebase configuration
+/*
 var firebaseConfig = {
     apiKey: "AIzaSyBjFa6ITtLwyYNPwAt9YWZx0crJviZYj8g",
     authDomain: "cs374-d.firebaseapp.com",
@@ -11,11 +12,9 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var storageRef = firebase.storage().ref('/images/');
-
+*/
 //test values
 //var productKey = '-M8ywY0Ui2yOOLRt-CT3'
-var now_ID = 'Hyejin'
-
 
 function makesearchpopup(pkey) {
     console.log('click')
@@ -109,7 +108,7 @@ function addProduct(key) {
         } else {
             ref.update({ currentamount: currentamount })
             if (currentamount == endamount) {
-                // move the key to previous category
+                ref.update({ complete: 'true' })
             }
             alert("You successfully joined a group buying!")
         }

@@ -128,8 +128,8 @@ function firebaseLoad(searchedKey) {
                 duedate += " days left";
             }
             //add item according to firebase
-            $('<li class="ongoingProduct" id=' + 'exampleKey2' + '>' +
-                '<a class="ongoingProductLink" href=' + cur.url + '>' +
+            $('<li class="ongoingProduct"' + 'onclick = "makesearchpopup(this.id)"' + 'id=' + itemsKey[i] + '>' +
+                //'<a class="ongoingProductLink" href=' + cur.url + '>' +
                 '<dl>' +
                 '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
                 '<div class="progress-container">' +
