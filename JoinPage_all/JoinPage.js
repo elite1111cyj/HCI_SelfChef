@@ -15,6 +15,7 @@ function move_to_create(){
 }
 
 function check_info(){
+    $('<div class="loader"></div>').appendTo(".loadingDiv");
     var typed_id=document.getElementById("write_id").value
     var typed_pw=document.getElementById("write_password").value
     if (!typed_id || !typed_pw){
@@ -26,8 +27,10 @@ function check_info(){
     else{
     return firebase.database().ref('/user/').once('value',function(snapshot){
         var myValue = snapshot.val();
+        $(".loader").remove();
         if(myValue[typed_id] && myValue[typed_id].password==typed_pw){
                 //now_ID=typed_id
+
                 get_id(typed_id)
                 location.href="../MainPage_all/MainPage.html?"+typed_id
         }
