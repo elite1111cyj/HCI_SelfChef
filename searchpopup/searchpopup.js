@@ -14,7 +14,6 @@ firebase.initializeApp(firebaseConfig);
 var storageRef = firebase.storage().ref('/images/');
 */
 //test values
-var productKey = null
 
 function makesearchpopup(pkey) {
     console.log('click')
@@ -39,7 +38,7 @@ function makesearchpopup(pkey) {
         <input type='text' id='amount'></input>\
         <input type='button' class='controller' id='up' onclick='up()'></input>\
         <input type='button' class='controller' id='down' onclick='down()'></input>\
-        <input type='button' id='add' value='Add' onclick='addProduct(" + "productKey" + ")'></input>\
+        <input type='button' id='add' value='Add' onclick='addProduct(" + productKey + ")'></input>\
     </div>\
     ")
     initialize()
