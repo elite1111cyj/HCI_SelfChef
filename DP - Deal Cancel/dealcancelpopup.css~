@@ -1,4 +1,4 @@
-#searchpopup {
+#dealcancelpopup {
     /* Rectangle */
     position: absolute;
     height: 570px;
@@ -26,6 +26,18 @@
     color: white;
 }
 
+.headerDealCancel {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+}
+
+.bodyDealCancel {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+}
+
+
 #productimg {
     position: absolute;
     left: 51px;
@@ -35,7 +47,7 @@
     background-color: black;
 }
 
-#infobox {
+#info {
     position: absolute;
     left: 400px;
     top: 60px;
@@ -94,7 +106,7 @@
     color: red;
 }
 
-#searchprice {
+#price {
     position: absolute;
     left: 0px;
     top: 250px;
@@ -102,7 +114,7 @@
     font-weight: normal;
 }
 
-#searchurl {
+#url {
     position: absolute;
     left: 0px;
     top: 300px;
@@ -138,12 +150,10 @@
 
 #up {
     top: 0px;
-    cursor: pointer;
 }
 
 #down {
     top: 35px;
-    cursor: pointer;
 }
 
 #add {
@@ -154,5 +164,4 @@
     background-color: #F3A45A;
     font-size: 32px;
     font-weight: bold;
-    cursor: pointer;
 }

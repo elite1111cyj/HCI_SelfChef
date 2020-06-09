@@ -12,10 +12,10 @@
 </head>
 
 <body>
-    <div id='click' onclick='makepopup()'>click me!</div>
+    <div id='click' onclick='go_makenewgroup()'>click me!</div>
     <div id='makepopup'>
         <div id='title'>Make a new Group Buying</div>
-        <button id='close' onclick='close()'></button>
+        <button id='close' onclick='close_makenewgroup()'></button>
         <div id='info'><b>Information</b>
             <input type="text" placeholder="Product Name" id="name"></input>
             <input type="text" placeholder="Hash Tags" id="tag"></input>
@@ -52,7 +52,7 @@
             <input type="text" placeholder="ex) Eo-eun dong" id="setplace"></input>
         </div>
         <div class="loadingarea">
-        <button type='submit' id='submit' onclick='onclicked()'>Submit</button>
+            <button type='submit' id='submit' onclick='makeclicked()'>Submit</button>
         </div>
 
     </div>

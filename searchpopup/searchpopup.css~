@@ -138,12 +138,10 @@
 
 #up {
     top: 0px;
-    cursor: pointer;
 }
 
 #down {
     top: 35px;
-    cursor: pointer;
 }
 
 #add {
@@ -154,5 +152,4 @@
     background-color: #F3A45A;
     font-size: 32px;
     font-weight: bold;
-    cursor: pointer;
 }
