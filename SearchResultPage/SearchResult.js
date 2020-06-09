@@ -223,8 +223,9 @@ $(document).ready(function() {
         console.log(">>>>");
         console.log(tempo1[2]);
         firebaseLoad(searchedKey);
-    } else if (tempo1[1] == "category") {
+    } else if (tempo1[1] == "category") { // category show
         now_ID = tempo1[0];
+        lookingfor = "Category: "+tempo1[2];
         searchedKey = catSearched(tempo1[2]);
         firebaseLoad(searchedKey);
     }
