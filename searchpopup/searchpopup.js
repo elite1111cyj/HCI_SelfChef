@@ -101,7 +101,7 @@ function getInfo(key) {
         $('#pickupplace').html(pickupplace)
         $('#price').html(price + '/' + unit)
         $('#date').html('End date: ' + enddate)
-        $('#url').html(url)
+        $('#searchurl').html(url)
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
         $('#progress').html(endamount);
