@@ -4,7 +4,7 @@ CS372 HCI Design Project
 20180095 Sangwoo Kim\
 20180526 Hyejin Lee\
 20180555 Youngjae Jang\
-20180731 Jihyeong Hong\
+20180731 Jihyeong Hong
 
 This service is for self-boarding students who want to group-buy food ingredients.
 Here, you can make a new group buying or join a group buying.
@@ -27,12 +27,12 @@ JoinPage_all includes the html, css and js file for this page.
 Also, to make a new account, SignUpPage_all folder includes files for the page.
 
 ### MainPage
-The main page of the website. Here, you can search a product or search by categories. Also, you can make a new group buying, too.
-MainPage_all includes html, css, and js file for this page. Also, for 'making new group buying' popup, make.css and make.js in make folder are connected to MainPage.html.
+The main page of the website. Here, you can search a product or search by categories. Furthermore, you can make a new group buying.
+MainPage_all includes html, css, and js file for this page. Also, for the 'making new group buying' popup, make.css and make.js in the 'make' folder are connected to MainPage.html.
 
 ### Search Result
 The page when the search result appears. SearchResultPage includes html, css, js files for this page. Since there are popups for adding group buying products, searchpopup.css, searchpopup.js in searchpopup folder are connected to Search Result.html. Also, as same as above, make.css and make.js are also connected. 
 
 ### OrderList
 This is the page for the users to see what group buyings they are participating in.
-OrderList includes html, css, js files for this page. make.css, make.js are connected as above, and since there are popups for the previous group buyings, *** are also connected to OrderList.html.
+OrderList includes html, css, js files for this page. make.css, make.js are connected as above, and since there are popups for the previous group buyings, dealsuccesspopup.css + dealsuccesspopup.js are also connected to OrderList.html.
