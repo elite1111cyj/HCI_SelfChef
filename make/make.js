@@ -75,10 +75,6 @@ function initialize() {
 
 function makeclicked() {
 
-    //need to talk more about the DB structure..
-    //this code is just pushing into the 'full' list. need to push into 'user' list too.
-    //make sure that the pickup date is later than due date!
-
     $('<div class="loader"></div>').appendTo("#loadingarea");
     var name = $("#name").val()
     var tag = $("#tag").val()
@@ -91,11 +87,11 @@ function makeclicked() {
     var price = $('#priceper').val()
     var unit = $('#unit').val()
     if (name == '') {
-        alert("You should fill in the 'name' field")
+        alert("You should fill in the 'Product name' field")
         return
     }
     if (tag == '') {
-        alert("You should fill in the 'tag' field")
+        alert("You should fill in the 'Hash Tag' field")
         return
     }
     if (url == '') {
@@ -105,14 +101,7 @@ function makeclicked() {
         alert("You should fill in at least one of 'end with date' or 'end with target amount'")
         return
     }
-    if (pickupdate == '') {
-        alert("You should fill in the pickup date")
-        return
-    }
-    if (pickupplace == '') {
-        alert("You should fill in the pickup place")
-        return
-    }
+
     if (category == 'default') {
         alert("You should choose the category")
         return
@@ -121,10 +110,48 @@ function makeclicked() {
         alert("You should fill in the price info")
         return
     }
+
+    function parseDate(input) {
+        var parts = input.split('-');
+        // new Date(year, month, day)
+        return new Date(parts[0], parts[1] - 1, parts[2]); // months are 0-based
+    }
+    var today = new Date();
+
+    var daysLeft = function(input, target) {
+        var inputDate = parseDate(input);
+        var timeDiff = inputDate.getTime() - target.getTime();
+        return Math.ceil(timeDiff / (1000 * 3600 * 24));
+    };
+
+    var duedate = daysLeft(enddate, today);
+    if (duedate < 0) {
+        alert("Due date should be same or later than today")
+        return
+    }
+
+    if (pickupdate == '') {
+        alert("You should fill in the pickup date")
+        return
+    }
+
+    var datediff = daysLeft(pickupdate, parseDate(enddate));
+    if (datediff < 0) {
+        alert("Pickup date should be same or later than the due date")
+        return
+    }
+
+    if (pickupplace == '') {
+        alert("You should fill in the pickup place")
+        return
+    }
+
     if (curfile == null) {
         alert("You should upload an image")
         return
     }
+
+
 
     var newKey = firebase.database().ref('/groups/').push();
     var storageRef = firebase.storage().ref(newKey.key);
