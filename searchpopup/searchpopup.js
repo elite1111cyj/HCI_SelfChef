@@ -93,14 +93,15 @@ function getInfo(key) {
         var imageurl = myInfo.imageurl
         var url = myInfo.url
         var currentamount = myInfo.currentamount
-
-        var w = (currentamount / endamount) * 500
-        console.log(w)
+        var w
+        if (endamount) { w = (currentamount / endamount) * 500 } else { w = 500 }
+        var datemsg
+        if (enddate) { datemsg = 'End date: ' + enddate } else { datemsg = 'No end date' }
 
         $('#productname').html(name)
         $('#pickupplace').html(pickupplace)
         $('#price').html(price + '/' + unit)
-        $('#date').html('End date: ' + enddate)
+        $('#date').html(datemsg)
         $('#searchurl').html(url)
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
