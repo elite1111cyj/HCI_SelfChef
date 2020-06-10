@@ -6,35 +6,35 @@ CS372 HCI Design Project
 20180555 Youngjae Jang\
 20180731 Jihyeong Hong
 
+This service is for self-boarding students who want to group-buy food ingredients.
+Here, you can make a new group buying or join a group buying.
+After group buying ends, we share the contact information (ex. open chat) of the host.
+
 ### Prototype
 [https://www.figma.com/proto/gO27wJeCxLrI2DBSasyXzz/HCI_DesignProject?node-id=1%3A8&scaling=min-zoom](https://www.figma.com/proto/gO27wJeCxLrI2DBSasyXzz/HCI_DesignProject?node-id=1%3A8&scaling=min-zoom)
 
-### Implementation Guide
+### User Guide
 [http://bitly.kr/HCISelfChef]
 The link directs you to the starting page of the prototype.
 1. If you access other pages without signing in or up, the ID will not be identified and The top most part will say 'undefined' or 'name here'.
 If you want to skip the signing up, add '?' followed by the user name at the tail of the url.
+2. Use test user (ID: 'test', PW: 'cs374') or you can also create a new account.
 
-## Destcription
-### JoinPage_all
-The first page of the prototype where ID and password are entered. Also connected to signup page to create new ID.
-Includes 'JoinPage.html' for skeleton, 'JoinPage.css' for style,'JoinPage.js' for connection to firebase and other html pages(MainPage and SignUpPage).
+## Page description
+### Join
+This is the first page. ID and password are entered here.
+JoinPage_all includes the html, css and js file for this page.
+Also, to make a new account, SignUpPage_all folder includes files for the page.
 
-### SignupPage_all
-The page used to create new ID.
-Includes 'SignUpPage.html' for skeleton, 'SignUpPage.css' for style, and 'SignUpPage.js' for connection to firebase and other html pages(MainPage).
+### MainPage
+The main page of the website. Here, you can search a product or search by categories. Furthermore, you can make a new group buying.
+MainPage_all includes html, css, and js file for this page. Also, for the 'making new group buying' popup, make.css and make.js in the 'make' folder are connected to MainPage.html.
 
-### MainPage_all
-The first page after user is identified. Includes search bar and categories.
-Includes 'MainPage.html' for skeleton, 'MainPage.css' for style, 'MainPage_all' for connection and information share with search result page, and 'MainPage' folder for icons used for categories.
-
-### SearchResultPage
-
-### searchpopup
-
-### make
-
-### dealsuccesspopup
+### Search Result
+The page when the search result appears. SearchResultPage includes html, css, js files for this page. Since there are popups for adding group buying products, searchpopup.css, searchpopup.js in searchpopup folder are connected to Search Result.html. Also, as same as above, make.css and make.js are also connected. 
 
 ### OrderList
-OrderList has 
+This is the page for the users to see what group buyings they are participating in.
+OrderList includes html, css, js files for this page. 
+OrderList.js gets the ordered items from FireBase DB and sort items by its status(ongoing/completed).
+make.css, make.js are connected as above, and since there are popups for the previous group buyings, dealsuccesspopup.css + dealsuccesspopup.js are also connected to OrderList.html.
