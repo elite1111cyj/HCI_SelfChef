@@ -35,4 +35,6 @@ The page when the search result appears. SearchResultPage includes html, css, js
 
 ### OrderList
 This is the page for the users to see what group buyings they are participating in.
-OrderList includes html, css, js files for this page. make.css, make.js are connected as above, and since there are popups for the previous group buyings, dealsuccesspopup.css + dealsuccesspopup.js are also connected to OrderList.html.
+OrderList includes html, css, js files for this page. 
+OrderList.js gets the ordered items from FireBase DB and sort items by its status(ongoing/completed).
+make.css, make.js are connected as above, and since there are popups for the previous group buyings, dealsuccesspopup.css + dealsuccesspopup.js are also connected to OrderList.html.
