@@ -78,7 +78,7 @@ $(document).ready(function() {
         var mySnapshot = snapshot.val();
         var myMake = [];
         var myJoin = [];
-        console.log(mySnapshot);
+
         if ('make' in mySnapshot) {
             myMake = mySnapshot.make;
         }
@@ -87,29 +87,25 @@ $(document).ready(function() {
         }
         //var myMake = mySnapshot.make;
         //var myJoin = mySnapshot.join;
-        console.log("myMake", myMake);
-        console.log("myJoin", myJoin);
+
         var keyListMake = Object.keys(myMake); //this is exampleKey, exampleKey3, ...
         var keyListJoin = Object.keys(myJoin);
-        console.log("keyListMake", keyListMake);
-        console.log("keyListJoin", keyListJoin);
+
         var keyList = []; //keyList is keyListMake + keyListJoin
         keyList = keyListMake.concat(keyListJoin);
-        console.log("keyList", keyList);
+
         ans_list = [];
         for (var i = 0; i < keyList.length; i++) {
-            console.log(keyList[i]);
             if (i < keyListMake.length) {
                 var groupKey = myMake[keyList[i]].value; //access groupKey under user
             } else {
                 var groupKey = myJoin[keyList[i]].value; //access groupKey under user
             }
-            console.log(groupKey);
             var groupRef = firebase.database().ref("groups").child(groupKey);
             groupRef.once('value', function(snapshot) {
                 //from here, youngjae
                 var cur = snapshot.val(); //keyList[i] is the key, cur is the object
-                console.log(cur);
+
 
                 var originPrice = parseFloat(cur.price);
                 var price = formatter.format(originPrice);
@@ -184,29 +180,46 @@ $(document).ready(function() {
     $(document).on("click", ".deleteBtn", function() { //del button click events
 
         var n = this.parentNode.id; //the id is the key to delete; for now: exampleKey2
-        console.log("delete", n);
         nameofpurchase = this.parentNode.innerHTML.split("name\">", 2)[1].split("<")[0]
 
         var check = confirm("Are you sure you want to cancel " + nameofpurchase + "?");
         if (check) {
-            console.log("affirmed")
             $("#" + n).remove();
             //remove item from firebase
-            console.log("user/" + now_ID + "/join/" + n)
             firebase.database().ref('/user').child(now_ID).child("join").on('value', function(snapshot) {
-                    var mySnapshot = snapshot.val();
+                var mySnapshot = snapshot.val();
 
-                    if (mySnapshot) {
-                        var keyList = Object.keys(mySnapshot);
-                        console.log(mySnapshot)
-                        for (var i = 0; i < keyList.length; i++) {
-                            console.log(keyList[i])
-
-                            if (mySnapshot[keyList[i]]["value"] == n) {
-                                console.log(mySnapshot[keyList[i]]["value"])
+                if (mySnapshot) {
+                    var keyList = Object.keys(mySnapshot);
+                    //console.log(mySnapshot)
+                    for (var i = 0; i < keyList.length; i++) {
+                        //console.log(keyList[i])
+                        if (mySnapshot[keyList[i]]["value"] == n) {
+                            //console.log(mySnapshot[keyList[i]]["value"])
+                            var buyamount = mySnapshot[keyList[i]]["amount"]
+                            var ref = firebase.database().ref('/groups/')
+                            ref.once('value').then(function(snapshot) {
+                                var myValue = snapshot.val();
+                                var myInfo = myValue[n];
+                                curamount = Number(myInfo.currentamount)
+                                firebase.database().ref('/groups/' + n).update({ currentamount: curamount - buyamount })
                                 firebase.database().ref('user/' + now_ID + "/join/" + keyList[i]).remove()
-                            } else {
-                                console.log("passing", mySnapshot[keyList[i]]["value"])
+                                return
+                            })
+                        } else {
+                            //console.log("passing", mySnapshot[keyList[i]]["value"]
+                        }
+                    }
+                }
+            })
+            firebase.database().ref('/user').child(now_ID).child('make').on('value', function(snapshot) {
+                    var sshot = snapshot.val();
+                    if (sshot) {
+                        var keyList = Object.keys(sshot);
+                        for (var i = 0; i < keyList.length; i++) {
+                            if (sshot[keyList[i]]["value"] == n) {
+                                firebase.database().ref('user/' + now_ID + "/make/" + keyList[i]).remove()
+                                firebase.database().ref('/groups/' + n).remove()
                             }
                         }
                     }
