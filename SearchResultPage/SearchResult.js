@@ -115,6 +115,7 @@ function firebaseLoad(searchedKey) {
                 '<p style="align:center; font-size:large; font-color:grey;margin:5px;">Why don\'t you make a new group?</p></div>').appendTo("#ongoingList");
         }
 
+
         // case2 : There is something exist
         ans_list = [];
 
@@ -125,6 +126,13 @@ function firebaseLoad(searchedKey) {
             if (!curN.complete) {
                 numOngoingItems++;
             }
+        }
+        if (itemsKey.length != 0 && numOngoingItems == 0) {
+            console.log("nothing to show");
+            $('<div class="nothing"><img id="hmm" src="../src/nothing.png" width="150px">' +
+                '<p style="align:center; font-size:x-large; margin:5px;">Nothing Found!<br></p>' +
+                '<p style="align:center; font-size:large; font-color:grey;margin:5px;">Why don\'t you make a new group?</p></div>').appendTo("#ongoingList");
+
         }
         $('<div>Search for <div class="keywordHighlight">' + lookingfor + '</div>.. There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
 
