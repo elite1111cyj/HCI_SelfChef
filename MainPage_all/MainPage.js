@@ -6,7 +6,29 @@ $(document).ready(function() {
 now_ID=location.href.split("?",2)[1]
 
 document.getElementById("My_Name").innerHTML = now_ID
-})
+
+var k=document.getElementById("search")
+k.onkeypress=function() {
+  if(event.keyCode==13)
+  {go_search()}
+
+
+}
+
+}) //ready end
+
+$(document).on('mouseenter','.icon', function(){
+    console.log("in")
+        $(this).closest("td").css({"background-color":'#a86cc1'})
+        })
+        
+    $(document).on('mouseleave','.icon', function(){
+        console.log("in")
+    $(this).closest("td").css({"background-color":'#eddbf4'})        
+    });
+    
+
+
 
 function go_mainpage() {
     location.href = "../MainPage_all/MainPage.html?" + now_ID
@@ -46,9 +68,4 @@ function rice(){
     location.href="../SearchResultPage/SearchResult.html?"+now_ID+":category:rice"
 }
 
-$("#search").keyup(function(e) { // enter event
-    if (e.keyCode == 13 && this.value != '') {
-        console.log("search:enter");
-        go_search();
-    }
-});
+

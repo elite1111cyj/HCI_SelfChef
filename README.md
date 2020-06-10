@@ -9,6 +9,11 @@ CS372 HCI Design Project
 ### Prototype
 [https://www.figma.com/proto/gO27wJeCxLrI2DBSasyXzz/HCI_DesignProject?node-id=1%3A8&scaling=min-zoom](https://www.figma.com/proto/gO27wJeCxLrI2DBSasyXzz/HCI_DesignProject?node-id=1%3A8&scaling=min-zoom)
 
+### Implementation Guide
+[http://bitly.kr/HCISelfChef]
+The link directs you to the starting page of the prototype.
+1. If you access other pages without signing in or up, the ID will not be identified and The top most part will say 'undefined' or 'name here'.
+If you want to skip the signing up, add '?' followed by the user name at the tail of the url.
 
 ## Destcription
 ### JoinPage_all
