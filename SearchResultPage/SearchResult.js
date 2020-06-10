@@ -136,12 +136,12 @@ function firebaseLoad(searchedKey) {
             var originPrice = parseFloat(cur.price);
             var price = formatter.format(originPrice);
             var duedate = daysLeft(cur.enddate);
-            if (duedate <= 0) {
+            if (duedate < 0) {
                 duedate = "Finished!";
                 firebase.database().ref('/groups/' + itemsKey[i]).update({ complete: true })
                     //console.log(itemsKey[i] + 'finished')
             } else {
-                duedate += " days left";
+                if (duedate == 0) { duedate = 'Today is the last day!' } else { duedate += " days left"; }
             }
             if (!cur.complete) {
                 //add item according to firebase

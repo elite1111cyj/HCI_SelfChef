@@ -125,8 +125,8 @@ function makeclicked() {
     };
 
     var duedate = daysLeft(enddate, today);
-    if (duedate <= 0) {
-        alert("Due date should be later than today")
+    if (duedate < 0) {
+        alert("Due date should be the same or later than today")
         return
     }
 
@@ -137,7 +137,7 @@ function makeclicked() {
 
     var datediff = daysLeft(pickupdate, parseDate(enddate));
     if (datediff < 0) {
-        alert("Pickup date should be same or later than the due date")
+        alert("Pickup date should be the same or later than the due date")
         return
     }
 
