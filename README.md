@@ -8,3 +8,19 @@ CS372 HCI Design Project
 
 ### Prototype
 [https://www.figma.com/proto/gO27wJeCxLrI2DBSasyXzz/HCI_DesignProject?node-id=1%3A8&scaling=min-zoom](https://www.figma.com/proto/gO27wJeCxLrI2DBSasyXzz/HCI_DesignProject?node-id=1%3A8&scaling=min-zoom)
+
+
+## Destcription
+### MainPage_all
+explanation
+
+### SearchResultPage
+
+### searchpopup
+
+### make
+
+### dealsuccesspopup
+
+### OrderList
+OrderList has 
