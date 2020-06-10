@@ -182,7 +182,7 @@ $(document).ready(function() {
         var n = this.parentNode.id; //the id is the key to delete; for now: exampleKey2
         nameofpurchase = this.parentNode.innerHTML.split("name\">", 2)[1].split("<")[0]
 
-        var check = confirm("Are you sure you want to cancel " + nameofpurchase + "?");
+        var check = confirm("Are you sure you want to cancel the deal on " + nameofpurchase + "?");
         if (check) {
             $("#" + n).remove();
             //remove item from firebase
