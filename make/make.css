@@ -1,6 +1,5 @@
-
 body {
-  font:14px/1.8 Arial, Helvetica, sans-serif;
+    font: 14px/1.8 Arial, Helvetica, sans-serif;
 }
 
 #makepopup {
@@ -17,7 +16,7 @@ body {
     /* Shadow */
     box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
     border-radius: 8px;
-    display: none;
+    /*display: none;*/
 }
 
 #title {
@@ -36,8 +35,10 @@ body {
 
 #close {
     background-image: url("../src/closeBtn.png");
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
     background-size: cover;
     width: 36px;
     height: 36px;
@@ -365,11 +366,13 @@ body {
 }
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #bfbfbf; /* gray */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 2s linear infinite;
-  margin-left: 100px;
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #bfbfbf;
+    /* gray */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin-left: 100px;
 }

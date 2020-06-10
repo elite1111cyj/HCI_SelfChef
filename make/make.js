@@ -15,18 +15,75 @@ var storageRef = firebase.storage().ref('/images/');
 var curfile = null;
 
 window.onload = function() {
-    initialize()
-    $('<div class="loader"></div>').appendTo("#loadingarea");
-}
-
+        initialize()
+        $('<div class="loader"></div>').appendTo("#loadingarea");
+    }
+    /*
+    function go_makenewgroup() {
+        console.log('popup')
+        document.getElementById("makepopup").style.display = 'inline'
+    }
+    */
 function go_makenewgroup() {
-    console.log('popup')
-    document.getElementById("makepopup").style.display = 'inline'
+    popup = document.createElement('div')
+    popup.setAttribute('id', 'makepopup')
+    document.body.appendChild(popup)
+    console.log("hey")
+    $('#makepopup').append(
+        "<div id='title'>Make a new Group Buying</div>" + "\
+    <button id='close' onclick='close_makenewgroup()'>\
+    </button>\
+    <div id='info'><b>Information</b>\
+        <input type='text' placeholder='Product Name' id='name'></input>\
+        <input type='text' placeholder='Hash Tags' id='tag'></input>\
+        <input type='text' placeholder='Product Link (optional)' id='url'></input>\
+        <input type='file' accept='img/*' id='imageholder'></input>\
+        <img id='image' src='#' />\
+        <select id='categorysearch' name='category'>\
+            <option value='default'>Select category</option>\
+            <option value='fruit'>fruit</option>\
+            <option value='vegetable'>vegetable</option>\
+            <option value='fish'>fish</option>\
+            <option value='meat'>meat</option>\
+            <option value='dairy'>dairy</option>\
+            <option value='health'>health</option>\
+            <option value='rice'>rice</option>\
+        </select>\
+        <div id='price'>\
+            <div id='pricetext'>Price info: </div>\
+            <input type='text' placeholder='price ex)6000 won' id='priceper'></input>\
+            <div id='slash'>/</div>\
+            <input type='text' placeholder='unit ex)kg' id='unit'></input>\
+        </div>\
+    </div>\
+    <div id='select'>\
+        <input type='checkbox' name='endselect' value='Date' id='dateselect' checked>\
+        <div id='dateselecttext'><b>Ends with due date</b></div>\
+        <input type='checkbox' name='endselect' value='Amount' id='amountselect'>\
+        <div id='amountselecttext'><b>Ends with num of target amount</b></div>\
+        <input type='text' placeholder='' id='dateselectinput'></input>\
+        <input type='text' placeholder='ex) 10' id='amountselectinput' disabled='true'></input>\
+    </div>\
+    <div id='set'>Set the pick up information\
+        <input type='text' placeholder='' id='setdate'></input>\
+        <input type='text' placeholder='ex) Eo-eun dong' id='setplace'></input>\
+    </div>\
+    <button type='submit' id='submit' onclick='makeclicked()'>Submit</button>\
+        ")
+    $("#imageholder").change(function() {
+        readURL(this);
+    });
+
+    var fileButton = document.getElementById("imageholder");
+
+    fileButton.addEventListener('change', function(e) {
+        curfile = e.target.files[0];
+    });
 }
 
 function close_makenewgroup() {
-    console.log('close')
-    document.getElementById("makepopup").style.display = 'none'
+    var element = document.getElementById('makepopup');
+    element.parentNode.removeChild(element);
 }
 
 $(function() {
@@ -37,6 +94,8 @@ $(function() {
         dateFormat: 'yy-mm-dd'
     });
 });
+
+
 
 $('#dateselect').change(function() {
     if ($(this).is(':checked')) {
@@ -156,8 +215,6 @@ function makeclicked() {
     task = storageRef.put(curfile);
     task.then(function() {
         storageRef.getDownloadURL().then(function(imageurl) {
-            //need to check if there is any blank!
-
             newKey.set({
                 name: name,
                 tag: tag,
@@ -192,18 +249,4 @@ function readURL(input) {
         }
         reader.readAsDataURL(input.files[0]);
     }
-}
-
-$("#imageholder").change(function() {
-    readURL(this);
-});
-
-var fileButton = document.getElementById("imageholder");
-
-fileButton.addEventListener('change', function(e) {
-    curfile = e.target.files[0];
-});
-
-function makepopup() {
-
 }
