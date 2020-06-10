@@ -116,24 +116,29 @@ function addProduct(key) {
         var userValue = snapshot.val();
         var makeList = userValue['make'];
         var joinList = userValue['join'];
-        var makeKeys = Object.keys(makeList);
-        var joinKeys = Object.keys(joinList);
-        for (var i = 0; i < makeKeys.length; i++) {
-            var productkey = makeKeys[i];
-            var productcode = makeList[productkey].value;
-            if (productcode == key) {
-                alert("You made this group buying")
-                return
+        if (makeList) {
+            var makeKeys = Object.keys(makeList);
+            for (var i = 0; i < makeKeys.length; i++) {
+                var productkey = makeKeys[i];
+                var productcode = makeList[productkey].value;
+                if (productcode == key) {
+                    alert("You made this group buying")
+                    return
+                }
             }
         }
-        for (var i = 0; i < joinKeys.length; i++) {
-            var productkey = joinKeys[i]
-            var productcode = joinList[productkey].value;
-            if (productcode == key) {
-                alert("You already joined this group buying")
-                return
+        if (joinList) {
+            var joinKeys = Object.keys(joinList);
+            for (var i = 0; i < joinKeys.length; i++) {
+                var productkey = joinKeys[i]
+                var productcode = joinList[productkey].value;
+                if (productcode == key) {
+                    alert("You already joined this group buying")
+                    return
+                }
             }
         }
+
         return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
             var myValue = snapshot.val();
             var myInfo = myValue[key];
