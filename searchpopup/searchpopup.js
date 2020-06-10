@@ -111,25 +111,47 @@ function getInfo(key) {
 
 function addProduct(key) {
     var amount = Number($('#amount').val())
-
-    return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
-        var myValue = snapshot.val();
-        var myInfo = myValue[key];
-        var currentamount = Number(myInfo.currentamount);
-        var ref = firebase.database().ref('/groups/' + key)
-        currentamount = currentamount + amount
-        if (currentamount > endamount) {
-            alert("Exceed the available amount")
-        } else {
-            ref.update({ currentamount: currentamount })
-            if (currentamount == endamount) {
-                ref.update({ complete: 'true' })
+    return firebase.database().ref('/user/' + now_ID).once('value').then(function(snapshot) {
+        var userValue = snapshot.val();
+        var makeList = userValue['make'];
+        var joinList = userValue['join'];
+        var makeKeys = Object.keys(makeList);
+        var joinKeys = Object.keys(joinList);
+        for (var i = 0; i < makeKeys.length; i++) {
+            var productkey = makeKeys[i];
+            var productcode = makeList[productkey].value;
+            if (productcode == key) {
+                alert("You made this group buying")
+                return
             }
-            var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
-            userKey.set({ value: key, amount: amount })
-            alert("You successfully joined a group buying!")
-            close_searchpopup();
         }
+        for (var i = 0; i < joinKeys.length; i++) {
+            var productkey = joinKeys[i]
+            var productcode = joinList[productkey].value;
+            if (productcode == key) {
+                alert("You already joined this group buying")
+                return
+            }
+        }
+        return firebase.database().ref('/groups/').once('value').then(function(snapshot) {
+            var myValue = snapshot.val();
+            var myInfo = myValue[key];
+            var currentamount = Number(myInfo.currentamount);
+            var ref = firebase.database().ref('/groups/' + key)
+            currentamount = currentamount + amount
+            if (currentamount > endamount) {
+                alert("Exceed the available amount")
+            } else {
+                ref.update({ currentamount: currentamount })
+                if (currentamount == endamount) {
+                    ref.update({ complete: 'true' })
+                }
+                var userKey = firebase.database().ref('/user/' + now_ID + '/join/').push();
+                userKey.set({ value: key, amount: amount })
+                alert("You successfully joined a group buying!")
+                close_searchpopup();
+            }
+        })
     })
 }
 
