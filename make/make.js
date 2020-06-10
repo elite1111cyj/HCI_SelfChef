@@ -125,8 +125,8 @@ function makeclicked() {
     };
 
     var duedate = daysLeft(enddate, today);
-    if (duedate < 0) {
-        alert("Due date should be same or later than today")
+    if (duedate <= 0) {
+        alert("Due date should be later than today")
         return
     }
 
@@ -150,8 +150,6 @@ function makeclicked() {
         alert("You should upload an image")
         return
     }
-
-
 
     var newKey = firebase.database().ref('/groups/').push();
     var storageRef = firebase.storage().ref(newKey.key);

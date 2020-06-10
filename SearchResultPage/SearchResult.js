@@ -104,10 +104,10 @@ function firebaseLoad(searchedKey) {
     firebase.database().ref('/groups').once('value', function(snapshot) {
         var myValue = snapshot.val();
         var keyList = Object.keys(myValue);
-        console.log("keyList", keyList); //this is the list of keys in 'groups'
+        //console.log("keyList", keyList); //this is the list of keys in 'groups'
         var itemsKey = searchedKey //this is the array of keys searched
-        console.log(itemsKey.length);
-        console.log(itemsKey);
+            //console.log(itemsKey.length);
+            //console.log(itemsKey);
         if (itemsKey.length == 0) { // case1: Nothing
             console.log("nothing to show");
             $('<div class="nothing"><img id="hmm" src="../src/nothing.png" width="150px">' +
@@ -126,7 +126,7 @@ function firebaseLoad(searchedKey) {
                 numOngoingItems++;
             }
         }
-        $('<div>Search for <div class="keywordHighlight">'+ lookingfor +'</div>.. There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
+        $('<div>Search for <div class="keywordHighlight">' + lookingfor + '</div>.. There are ' + numOngoingItems + ' items nearby!</div>').appendTo(".resultText");
 
 
         for (var i = 0; i < itemsKey.length; i++) {
@@ -138,6 +138,8 @@ function firebaseLoad(searchedKey) {
             var duedate = daysLeft(cur.enddate);
             if (duedate <= 0) {
                 duedate = "Finished!";
+                firebase.database().ref('/groups/' + itemsKey[i]).update({ complete: true })
+                    //console.log(itemsKey[i] + 'finished')
             } else {
                 duedate += " days left";
             }
@@ -190,7 +192,7 @@ function searchAction() {
 var now_ID
 var category
 $(document).ready(function() {
-   $("#search").focus();
+    $("#search").focus();
     var firebaseConfig = {
         apiKey: "AIzaSyBjFa6ITtLwyYNPwAt9YWZx0crJviZYj8g",
         authDomain: "cs374-d.firebaseapp.com",
@@ -211,7 +213,7 @@ $(document).ready(function() {
     tempo1 = tempo.split(":")
     if (tempo1.length == 1) //no search from mainpage
     {
-        console.log("case1")
+        //console.log("case1")
         now_ID = tempo
         searchedKey = keySearched("");
         firebaseLoad(searchedKey);
@@ -220,12 +222,12 @@ $(document).ready(function() {
         searchedKey = keySearched(tempo1[2]);
         lookingfor = tempo1[2];
         $('.search').val(searchedKey);
-        console.log(">>>>");
-        console.log(tempo1[2]);
+        //console.log(">>>>");
+        //console.log(tempo1[2]);
         firebaseLoad(searchedKey);
     } else if (tempo1[1] == "category") { // category show
         now_ID = tempo1[0];
-        lookingfor = "Category: "+tempo1[2];
+        lookingfor = "Category: " + tempo1[2];
         searchedKey = catSearched(tempo1[2]);
         firebaseLoad(searchedKey);
     }
@@ -250,14 +252,14 @@ $(document).ready(function() {
 
 
     $("#button_search").click(function() { // click button event
-        location.href="../SearchResultPage/SearchResult.html?"+now_ID+":key:"+document.getElementById("search").value
-        /*console.log("search:btn");
-        searchAction();
-        $("#search").focus();*/
+        location.href = "../SearchResultPage/SearchResult.html?" + now_ID + ":key:" + document.getElementById("search").value
+            /*console.log("search:btn");
+            searchAction();
+            $("#search").focus();*/
     });
     $("#search").keyup(function(e) { // enter event
         if (e.keyCode == 13 && this.value != '') {
-          location.href="../SearchResultPage/SearchResult.html?"+now_ID+":key:"+document.getElementById("search").value
+            location.href = "../SearchResultPage/SearchResult.html?" + now_ID + ":key:" + document.getElementById("search").value
 
         }
     });
