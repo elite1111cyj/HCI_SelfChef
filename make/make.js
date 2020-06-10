@@ -12,7 +12,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var storageRef = firebase.storage().ref('/images/');
-var curfile;
+var curfile = null;
 
 window.onload = function() {
     initialize()
@@ -80,22 +80,58 @@ function makeclicked() {
     //make sure that the pickup date is later than due date!
 
     $('<div class="loader"></div>').appendTo("#loadingarea");
+    var name = $("#name").val()
+    var tag = $("#tag").val()
+    var url = $("#url").val()
+    var enddate = $('#dateselectinput').val()
+    var endamount = $('#amountselectinput').val()
+    var pickupdate = $('#setdate').val()
+    var pickupplace = $('#setplace').val()
+    var category = $('#categorysearch').val()
+    var price = $('#priceper').val()
+    var unit = $('#unit').val()
+    if (name == '') {
+        alert("You should fill in the 'name' field")
+        return
+    }
+    if (tag == '') {
+        alert("You should fill in the 'tag' field")
+        return
+    }
+    if (url == '') {
+        url = 'No url provided'
+    }
+    if (enddate == '' && endamount == '') {
+        alert("You should fill in at least one of 'end with date' or 'end with target amount'")
+        return
+    }
+    if (pickupdate == '') {
+        alert("You should fill in the pickup date")
+        return
+    }
+    if (pickupplace == '') {
+        alert("You should fill in the pickup place")
+        return
+    }
+    if (category == 'default') {
+        alert("You should choose the category")
+        return
+    }
+    if (price == '' || unit == '') {
+        alert("You should fill in the price info")
+        return
+    }
+    if (curfile == null) {
+        alert("You should upload an image")
+        return
+    }
+
     var newKey = firebase.database().ref('/groups/').push();
     var storageRef = firebase.storage().ref(newKey.key);
     task = storageRef.put(curfile);
     task.then(function() {
         storageRef.getDownloadURL().then(function(imageurl) {
-            var name = $("#name").val()
-            var tag = $("#tag").val()
-            var url = $("#url").val()
-            var enddate = $('#dateselectinput').val()
-            var endamount = $('#amountselectinput').val()
-            var pickupdate = $('#setdate').val()
-            var pickupplace = $('#setplace').val()
-            var category = $('#categorysearch').val()
-            var price = $('#priceper').val()
-            var unit = $('#unit').val()
-                //need to check if there is any blank!
+            //need to check if there is any blank!
 
             newKey.set({
                 name: name,
@@ -119,6 +155,7 @@ function makeclicked() {
             close_makenewgroup();
         })
     })
+
 }
 
 function readURL(input) {
