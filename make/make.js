@@ -73,11 +73,19 @@ function go_makenewgroup() {
     $("#imageholder").change(function() {
         readURL(this);
     });
-
+    initialize()
     var fileButton = document.getElementById("imageholder");
 
     fileButton.addEventListener('change', function(e) {
         curfile = e.target.files[0];
+    });
+    $(function() {
+        $('#dateselectinput').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+        $('#setdate').datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
     });
 }
 
@@ -86,14 +94,7 @@ function close_makenewgroup() {
     element.parentNode.removeChild(element);
 }
 
-$(function() {
-    $('#dateselectinput').datepicker({
-        dateFormat: 'yy-mm-dd'
-    });
-    $('#setdate').datepicker({
-        dateFormat: 'yy-mm-dd'
-    });
-});
+
 
 
 
