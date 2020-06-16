@@ -100,7 +100,7 @@ function getInfo(key) {
 
         $('#productname').html(name)
         $('#pickupplace').html(pickupplace)
-        $('#price').html(price + '/' + unit)
+        $('#searchprice').html(price + '/' + unit)
         $('#date').html(datemsg)
         $('#searchurl').html(url)
         $('#productimg').attr('src', imageurl);
