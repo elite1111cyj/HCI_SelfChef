@@ -86,6 +86,20 @@ function go_makenewgroup() {
         $('#setdate').datepicker({
             dateFormat: 'yy-mm-dd'
         });
+        $('#dateselect').change(function() {
+            if ($(this).is(':checked')) {
+                $('#dateselectinput').attr('disabled', false);
+            } else {
+                $('#dateselectinput').attr('disabled', true);
+            }
+        });
+        $('#amountselect').change(function() {
+            if ($(this).is(':checked')) {
+                $('#amountselectinput').attr('disabled', false);
+            } else {
+                $('#amountselectinput').attr('disabled', true);
+            }
+        });
     });
 }
 
@@ -98,20 +112,7 @@ function close_makenewgroup() {
 
 
 
-$('#dateselect').change(function() {
-    if ($(this).is(':checked')) {
-        $('#dateselectinput').attr('disabled', false);
-    } else {
-        $('#dateselectinput').attr('disabled', true);
-    }
-});
-$('#amountselect').change(function() {
-    if ($(this).is(':checked')) {
-        $('#amountselectinput').attr('disabled', false);
-    } else {
-        $('#amountselectinput').attr('disabled', true);
-    }
-});
+
 
 
 function initialize() {
