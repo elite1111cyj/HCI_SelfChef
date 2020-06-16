@@ -203,11 +203,9 @@ $(document).ready(function() {
                                 var myInfo = myValue[n];
                                 curamount = Number(myInfo.currentamount)
                                 firebase.database().ref('/groups/' + n).update({ currentamount: curamount - buyamount })
-                                firebase.database().ref('user/' + now_ID + "/join/" + keyList[i]).remove()
-                                return
                             })
-                        } else {
-                            //console.log("passing", mySnapshot[keyList[i]]["value"]
+                            firebase.database().ref('user/' + now_ID + "/join/" + keyList[i]).remove()
+                            return
                         }
                     }
                 }
