@@ -105,8 +105,9 @@
 #searchurl {
     position: absolute;
     left: 0px;
-    top: 300px;
-    font-size: 24px;
+    top: 270px;
+    width: 400px;
+    font-size: 16px;
     font-weight: normal;
 }
 
