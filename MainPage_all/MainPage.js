@@ -17,6 +17,10 @@ k.onkeypress=function() {
 
 }) //ready end
 
+$(document).on("mouseover", ".search", function() {
+    $(".centerbar").css("box-shadow", "0px 0px 40px -6px gray");
+});
+
 $(document).on('mouseenter','.icon', function(){
     console.log("in")
         $(this).closest("td").css({"background-color":'#a86cc1'})
