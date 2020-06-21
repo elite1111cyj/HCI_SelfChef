@@ -38,9 +38,10 @@
 }
 
 #dotbogi {
-    height: 45px;
-    margin-right: 10px;
-    margin-left: 10px
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    filter: invert(40%);
 }
 
 #s_1 {
@@ -73,12 +74,29 @@
 
 #centerbar {
     border-collapse: collapse;
-    border: 1px solid black;
+    border: 0px solid #6E41E2;
+    display: inline-block;
     margin-bottom: 5%;
-    width: 50%;
+    width: 800px;
+    border-radius: 7px;
+    box-shadow: 0px 0px 22px -6px gray;
     /* position:absolute;
     left: 20%;
     top: 35% */
+}
+
+#button_search {
+    height: 45px;
+    font-size: 25px;
+    cursor: pointer;
+    border-radius: 7px;
+    background-color: #6E41E2;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 #button_makegb {
@@ -86,18 +104,19 @@
     font-size: 30px;
     color: white;
     background-color: #6E41E2;
-    border-radius: 4px;
+    font-size: 20px;
+    border: 0;
+    outline: 0;
+    border-radius: 7px;
     cursor: pointer;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-right: 30px;
 }
 
-#button_search {
-    height: 55px;
-    font-size: 25px;
-    cursor: pointer;
-}
 
 #search {
-    width: 100%;
+    width: 630px;
     height: 50px;
     font-size: 30px;
     border: none

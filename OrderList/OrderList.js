@@ -144,8 +144,6 @@ $(document).ready(function() {
                         '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
                     //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
 
-
-
                 } //end of "check if complete is false"
                 else { //if cur.complete is "true"
 

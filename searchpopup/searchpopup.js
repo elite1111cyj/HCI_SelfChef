@@ -99,10 +99,17 @@ function getInfo(key) {
         if (enddate) { datemsg = 'End date: ' + enddate } else { datemsg = 'No end date' }
 
         $('#productname').html(name)
+<<<<<<< HEAD
         $('#pickupplace').html(pickupplace)
         $('#searchprice').html(price + '/' + unit)
         $('#date').html(datemsg)
         $('#searchurl').html(url)
+=======
+        $('#pickupplace').html('<i class="fas fa-map-marker-alt"></i>  '+pickupplace)
+        $('#price').html(price + '/' + unit)
+        $('#date').html('<i class="fas fa-calendar-day"></i>  '+datemsg)
+        $('#searchurl').html('<a href='+url+' target="_blank">'+url+'</a>')
+>>>>>>> 0e058de8acba0316c443faf93ec1cc85b54512da
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
         $('#progress').html(endamount);
