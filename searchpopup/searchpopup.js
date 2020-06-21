@@ -48,6 +48,7 @@ function makesearchpopup(pkey) {
         "<div id='bar'></div>" +
         "<div id='pickupplace'></div>" +
         "<div id='date'>3 days left</div>" +
+        "<div id = 'pickupdate'></div>" +
         "<div id='searchprice'></div>" +
         "<div id='searchurl'>default url</div>" +
         "</div>" +
@@ -88,6 +89,7 @@ function getInfo(key) {
         var enddate = myInfo.enddate
         endamount = myInfo.endamount
         var pickupplace = myInfo.pickupplace
+        var pickupdate = myInfo.pickupdate
         var price = myInfo.price
         var unit = myInfo.unit
         var imageurl = myInfo.imageurl
@@ -96,12 +98,13 @@ function getInfo(key) {
         var w
         if (endamount) { w = (currentamount / endamount) * 500 } else { w = 500 }
         var datemsg
-        if (enddate) { datemsg = 'End date: ' + enddate } else { datemsg = 'No end date' }
+        if (enddate) { datemsg = 'Group buying ends at ' + enddate } else { datemsg = 'No end date' }
 
         $('#productname').html(name)
         $('#pickupplace').html('<i class="fas fa-map-marker-alt"></i>' + ' ' + pickupplace)
         $('#searchprice').html(price + '/' + unit)
         $('#date').html(datemsg)
+        $('#pickupdate').html('Pickup the product at ' + pickupdate)
         $('#searchurl').html(url)
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
