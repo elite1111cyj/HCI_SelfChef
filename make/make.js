@@ -34,7 +34,7 @@ function go_makenewgroup() {
     </button>\
     <div id='info'><b>Information</b>\
         <input type='text' placeholder='Product Name' id='name'></input>\
-        <input type='text' placeholder='Hash Tags' id='tag'></input>\
+        <input type='text' placeholder='Hash Tags ex) #fresh #onion #marketkurly' id='tag'></input>\
         <input type='text' placeholder='Product Link (optional)' id='url'></input>\
         <input type='file' accept='img/*' id='imageholder'></input>\
         <img id='image' src='#' />\

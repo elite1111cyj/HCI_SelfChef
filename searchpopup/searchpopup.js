@@ -99,7 +99,7 @@ function getInfo(key) {
         if (enddate) { datemsg = 'End date: ' + enddate } else { datemsg = 'No end date' }
 
         $('#productname').html(name)
-        $('#pickupplace').html(pickupplace)
+        $('#pickupplace').html('<i class="fas fa-map-marker-alt"></i>' + ' ' + pickupplace)
         $('#searchprice').html(price + '/' + unit)
         $('#date').html(datemsg)
         $('#searchurl').html(url)
