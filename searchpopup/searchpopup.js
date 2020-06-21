@@ -108,6 +108,8 @@ function getInfo(key) {
         if (url != 'No url provided') {
             $('#searchurl').attr('href', url)
             $('#searchurl').attr('target', '_blank')
+            $('#searchurl').css('color', 'gray')
+            $('#searchurl').css('text-decoration', 'underline')
         } else $('#searchurl').html('**No url for this product**')
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
