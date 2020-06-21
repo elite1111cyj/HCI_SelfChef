@@ -50,7 +50,7 @@ function makesearchpopup(pkey) {
         "<div id='date'>3 days left</div>" +
         "<div id = 'pickupdate'></div>" +
         "<div id='searchprice'></div>" +
-        "<div id='searchurl'>default url</div>" +
+        "<a id='searchurl'>Click here to see the detailed info</a>" +
         "</div>" +
         "<div id='control'>" +
         "<input type='text' id='amount' value=1></input>" +
@@ -105,7 +105,10 @@ function getInfo(key) {
         $('#searchprice').html(price + '/' + unit)
         $('#date').html(datemsg)
         $('#pickupdate').html('Pickup the product at ' + pickupdate)
-        $('#searchurl').html(url)
+        if (url != 'No url provided') {
+            $('#searchurl').attr('href', url)
+            $('#searchurl').attr('target', '_blank')
+        } else $('#searchurl').html('**No url for this product**')
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
         $('#progress').html(endamount);
