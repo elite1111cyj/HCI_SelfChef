@@ -28,7 +28,6 @@ function go_makenewgroup() {
     popup = document.createElement('div')
     popup.setAttribute('id', 'makepopup')
     document.body.appendChild(popup)
-    console.log("hey")
     $('#makepopup').append(
         "<div id='title'>Make a new Group Buying</div>" + "\
     <button id='close' onclick='close_makenewgroup()'>\
@@ -207,12 +206,33 @@ function makeclicked() {
         return
     }
 
+    var newKey = firebase.database().ref('/groups/').push();
+
     if (curfile == null) {
-        alert("You should upload an image")
+        imageurl = 'https://raw.githubusercontent.com/elite1111cyj/HCI_SelfChef/master/src/logo3.png'
+        newKey.set({
+            name: name,
+            tag: tag,
+            url: url,
+            enddate: enddate,
+            endamount: endamount,
+            pickupdate: pickupdate,
+            pickupplace: pickupplace,
+            imageurl: imageurl,
+            category: category,
+            price: price,
+            unit: unit,
+            currentamount: 0,
+            complete: false
+        });
+        var userKey = firebase.database().ref('/user/' + now_ID + '/make/').push();
+        userKey.set({ value: newKey.key })
+        $(".loader").remove();
+        alert("You successfully made a new group buying!")
+        close_makenewgroup();
         return
     }
 
-    var newKey = firebase.database().ref('/groups/').push();
     var storageRef = firebase.storage().ref(newKey.key);
     task = storageRef.put(curfile);
     task.then(function() {
