@@ -104,13 +104,16 @@ function getInfo(key) {
         $('#pickupplace').html('<i class="fas fa-map-marker-alt"></i>' + ' ' + pickupplace)
         $('#searchprice').html(price + '/' + unit)
         $('#date').html(datemsg)
-        $('#pickupdate').html('Pickup the product at ' + pickupdate)
+        $('#pickupdate').html('You should pickup the product at ' + pickupdate)
         if (url != 'No url provided') {
             $('#searchurl').attr('href', url)
             $('#searchurl').attr('target', '_blank')
             $('#searchurl').css('color', 'gray')
             $('#searchurl').css('text-decoration', 'underline')
-        } else $('#searchurl').html('**No url for this product**')
+        } else {
+            $('#searchurl').html('**No url for this product**')
+            $('#searchurl').css('color', 'gray')
+        }
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
         $('#progress').html(endamount);

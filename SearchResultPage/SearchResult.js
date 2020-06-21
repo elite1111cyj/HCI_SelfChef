@@ -147,7 +147,6 @@ function firebaseLoad(searchedKey) {
             if (duedate < 0) {
                 duedate = "Finished!";
                 firebase.database().ref('/groups/' + itemsKey[i]).update({ complete: true })
-                    //console.log(itemsKey[i] + 'finished')
             } else {
                 if (duedate == 0) { duedate = 'Today is the last day!' } else { duedate += " days left"; }
             }
