@@ -115,6 +115,7 @@ function close_makenewgroup() {
 
 
 function initialize() {
+    //curfile = "../src/noImage.jpg";
     function leadingZeros(n, digits) {
         var zero = '';
         n = n.toString();

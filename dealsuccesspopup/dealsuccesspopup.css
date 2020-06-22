@@ -17,7 +17,10 @@
 }
 
 #close {
-  background-color: #6E41E2;
+  background-image: url("../src/closeBtn.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 36px;
   height: 36px;
   border-radius: 18px;
