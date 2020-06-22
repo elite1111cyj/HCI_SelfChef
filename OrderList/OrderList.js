@@ -159,7 +159,7 @@ $(document).ready(function() {
                         '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '% &nbsp&nbsp' + '</p>' +
                         '<p class="progressPercent"><i class="fas fa-user"></i>&nbsp' + cur.currentamount + ' joined' + '</p>' +
                         '<p class="progressNote">' + cur.enddate + '</p></div>' +
-                        '<p class="progressNote">Complete!</p></div>' +
+                        '<p class="progressNote" style="color: #32CD32">Complete!</p></div>' +
                         '<div class="name">' + cur.name + '</div>' +
                         '<div class="location">' +
                         '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
