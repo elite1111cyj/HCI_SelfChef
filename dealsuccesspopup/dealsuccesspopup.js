@@ -32,8 +32,8 @@ function makedealsuccesspopup(pkey) {
     "<p class='bodyDealSuccess1'>2. Share link for group chat</pr><p><input id='textInput1' type='text' placeholder='Link'></p>" +
     "<p class='bodyDealSuccess1'>3. Share your bank account</pr>" +
     "<p><input id='textInput2' type='text' placeholder='Bank name'><input id='textInput3' type='text' placeholder='Account'></p>" +
-    "<p class='bodyDealSuccess1'>4. Fix the sharing place and time<button class='submitButton' id='submitBtn' onclick='submit()'>Submit</button></pr>" +
-    "<p><input id='textInput4' type='text' placeholder='Place'><input id='textInput5' type='text' placeholder='Time'></p>");
+    "<p class='bodyDealSuccess1'>4. Fix the sharing place and time</pr>" +
+    "<p><input id='textInput4' type='text' placeholder='Place'><input id='textInput5' type='text' placeholder='Time'><button class='submitButton' id='submitBtn' onclick='submit()'>Submit</button></p>");
 	
 	firebase.database().ref("groups").child(productKey).once('value', function(snapshot){
 		var myValue = snapshot.val();

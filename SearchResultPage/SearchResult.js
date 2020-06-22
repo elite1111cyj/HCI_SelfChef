@@ -160,8 +160,8 @@ function firebaseLoad(searchedKey) {
                     '<div class="progressbar" style="background-color: #556EE6; width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
                     '<dd class="descriptions">' +
                     '<div class="badges">' +
-                    '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%' + '</p>' +
-                    '<p class="progressPercent"><i class="fas fa-user"></i>' + cur.currentamount + ' joined' + '</p>' +
+                    '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '% &nbsp&nbsp' + '</p>' +
+                    '<p class="progressPercent"><i class="fas fa-user"></i>&nbsp' + cur.currentamount + ' joined' + '</p>' +
                     '<p class="progressNote">' + cur.enddate + '</p></div>' +
                     '<p class="progressNote">' + duedate + '</p></div>' +
                     '<div class="name">' + cur.name + '</div>' +
