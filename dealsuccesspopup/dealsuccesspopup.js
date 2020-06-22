@@ -30,9 +30,9 @@ function makedealsuccesspopup(pkey) {
     "<p class='bodyDealSuccess1'>1. Purchase product <button class='linkButton' id='linkBtn' onclick=link('"+ productKey +"')>The link you provided</button> </p>" +
     "<p class='bodyDealSuccess'>Make sure you buy the exact product, exact amount.<br>The participants are anticipating!</br></p>" +
     "<p class='bodyDealSuccess1'>2. Share link for group chat</pr>&nbsp<i class='fas fa-comments'></i><p><input id='textInput1' type='text' placeholder='Link'></p>" +
-    "<p class='bodyDealSuccess1'>3. Share your bank account</pr>&nbsp<i class='fas fa-money-check-alt'></i>" +
+    "<p class='bodyDealSuccess1'>3. Share your bank account</pr>&nbsp<i class='far fa-credit-card'></i>" +
     "<p><input id='textInput2' type='text' placeholder='Bank name'>&nbsp<input id='textInput3' type='text' placeholder='Account'></p>" +
-    "<p class='bodyDealSuccess1'>4. Fix the sharing place and time</pr> &nbsp<i class='fas fa-calendar-day'></i>" +
+    "<p class='bodyDealSuccess1'>4. Fix the sharing place and time</pr> &nbsp<i class='fas fa-clock'></i>" +
     "<p><input id='textInput4' type='text' placeholder='Place'>&nbsp<input id='textInput5' type='text' placeholder='Time'><button class='submitButton' id='submitBtn' onclick='submit()'>Submit</button></p>");
 	
 	firebase.database().ref("groups").child(productKey).once('value', function(snapshot){
