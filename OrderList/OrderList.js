@@ -119,54 +119,62 @@ $(document).ready(function() {
 
                 //check if cur.complete is "false"
                 if (!cur.complete) {
-
-
                     //add item according to firebase
+                    l_contents = '<dl>'
+                    if(cur.host == 'youngjae'){
+                        l_contents += '<div class="HostBadge"> Host&nbsp<i class="fas fa-user"></i> </div>'
+                    }
+
+                    l_contents += '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
+                    '<div class="progress-container">' +
+                    '<div class="progressbar" style="background-color: #556EE6; width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
+                    '<dd class="descriptions">' +
+                    '<div class="badges">' +
+                    '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '% &nbsp&nbsp' + '</p>' +
+                    '<p class="progressPercent"><i class="fas fa-user"></i>&nbsp' + cur.currentamount + ' joined' + '</p>' +
+                    '<p class="progressNote">' + cur.enddate + '</p></div>' +
+                    '<p class="progressNote" style="color: #32CD32">Complete!</p></div>' +
+                    '<div class="name">' + cur.name + '</div>' +
+                    '<div class="location">' +
+                    '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
+                    '<div class="price-area">' +
+                    '<div class="price-wrap">' +
+                    '<span class="prev-cost">' + 'your final price is' + '</span>' +
+                    '<span class="cost">' + price + '</span></div></dd></dl></a></li>';
+
                     $('<li class="ongoingProduct" id="' + snapshot.key + '"' + '>' +
                         //'<a class="ongoingProductLink" href=' + cur.url + '>' +
-                        '<dl>' +
-                        '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
-                        '<div class="progress-container">' +
-                        '<div class="progressbar" style="background-color: #556EE6; width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
-                        '<dd class="descriptions">' +
-                        '<div class="badges">' +
-                        '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%&nbsp&nbsp' + '</p>' +
-                        '<p class="progressPercent"><i class="fas fa-user"></i>&nbsp' + cur.currentamount + ' joined' + '</p>' +
-                        '<p class="progressNote">' + cur.enddate + '</p></div>' +
-                        '<p class="progressNote">' + duedate + '</p></div>' +
-                        '<div class="name">' + cur.name + '</div>' +
-                        '<div class="location">' +
-                        '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
-                        '<div class="price-area">' +
-                        '<div class="price-wrap">' +
-                        '<span class="prev-cost">' + 'now the price is' + '</span>' +
-                        '<span class="cost">' + price + '</span></div></dd></dl></a>' +
-                        '<div class="deleteBtn">Cancel</div></li>').appendTo("#ongoingList");
+                        l_contents).appendTo("#ongoingList");
                     //orderProList.push([cur.question, cur.input, cur.ans, cur.ox]);
 
                 } //end of "check if complete is false"
                 else { //if cur.complete is "true"
+                    l_contents = '<dl>'
+                    if(cur.host == 'youngjae'){
+                        l_contents += '<div class="InfoAsk"> Enter the Info! </div>'
+                    }
+
+                    l_contents += '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
+                    '<div class="progress-container">' +
+                    '<div class="progressbar" style="background-color: #556EE6; width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
+                    '<dd class="descriptions">' +
+                    '<div class="badges">' +
+                    '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '% &nbsp&nbsp' + '</p>' +
+                    '<p class="progressPercent"><i class="fas fa-user"></i>&nbsp' + cur.currentamount + ' joined' + '</p>' +
+                    '<p class="progressNote">' + cur.enddate + '</p></div>' +
+                    '<p class="progressNote" style="color: #32CD32">Complete!</p></div>' +
+                    '<div class="name">' + cur.name + '</div>' +
+                    '<div class="location">' +
+                    '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
+                    '<div class="price-area">' +
+                    '<div class="price-wrap">' +
+                    '<span class="prev-cost">' + 'your final price is' + '</span>' +
+                    '<span class="cost">' + price + '</span></div></dd></dl></a></li>';
 
                     //add item according to firebase
                     $('<li class="ongoingProduct" id="' + snapshot.key + '"' + ' onclick=makedealsuccesspopup(this.id)>' +
                         //'<a class="ongoingProductLink" href=' + cur.url + '>' +
-                        '<dl>' +
-                        '<div class="with-bg-size" style="background-image: url(' + cur.imageurl + ');"></div>' +
-                        '<div class="progress-container">' +
-                        '<div class="progressbar" style="background-color: #556EE6; width:' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '%"></div></div>' +
-                        '<dd class="descriptions">' +
-                        '<div class="badges">' +
-                        '<p class="progressPercent">' + ((cur.currentamount / cur.endamount) * 100).toFixed(1) + '% &nbsp&nbsp' + '</p>' +
-                        '<p class="progressPercent"><i class="fas fa-user"></i>&nbsp' + cur.currentamount + ' joined' + '</p>' +
-                        '<p class="progressNote">' + cur.enddate + '</p></div>' +
-                        '<p class="progressNote" style="color: #32CD32">Complete!</p></div>' +
-                        '<div class="name">' + cur.name + '</div>' +
-                        '<div class="location">' +
-                        '<i class="fas fa-map-marker-alt"></i>' + ' ' + cur.pickupplace + '</div>' +
-                        '<div class="price-area">' +
-                        '<div class="price-wrap">' +
-                        '<span class="prev-cost">' + 'your final price is' + '</span>' +
-                        '<span class="cost">' + price + '</span></div></dd></dl></a></li>').appendTo("#prevList");
+                        l_contents).appendTo("#prevList");
 
                 } //end of "if cur.complete is true"
 

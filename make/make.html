@@ -19,6 +19,7 @@
         <div id='info'><b>Information</b>
             <input type="text" placeholder="Product Name" id="name"></input>
             <input type="text" placeholder="Hash Tags" id="tag"></input>
+            <div class="tag-container"></div>
             <input type="text" placeholder="Product Link (optional)" id="url"></input>
             <input type="file" accept="img/*" id='imageholder'></input>
             <img id='image' src="../src/noImage.jpg" />
@@ -51,9 +52,9 @@
             <input type="text" placeholder="" id="setdate"></input>
             <input type="text" placeholder="ex) Eo-eun dong" id="setplace"></input>
         </div>
-        <div class="loadingarea">
-            <button type='submit' id='submit' onclick='makeclicked()'>Submit</button>
-        </div>
+        <div id="loadingarea"></div>
+        <button type='submit' id='submit' onclick='makeclicked()'>Submit</button>
+        
 
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase.js"></script>

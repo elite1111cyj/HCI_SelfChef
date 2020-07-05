@@ -13,11 +13,13 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var storageRef = firebase.storage().ref('/images/');
 var curfile = null;
+let input, hashtagArray, container, t;
 
 window.onload = function() {
         initialize()
         $('<div class="loader"></div>').appendTo("#loadingarea");
-    }
+
+}
     /*
     function go_makenewgroup() {
         console.log('popup')
@@ -67,6 +69,7 @@ function go_makenewgroup() {
         <input type='text' placeholder='' id='setdate'></input>\
         <input type='text' placeholder='ex) Eo-eun dong' id='setplace'></input>\
     </div>\
+    <div id='loadingarea'></div>\
     <button type='submit' id='submit' onclick='makeclicked()'>Submit</button>\
         ")
     $("#imageholder").change(function() {
@@ -109,13 +112,9 @@ function close_makenewgroup() {
 
 
 
-
-
-
-
-
 function initialize() {
     //curfile = "../src/noImage.jpg";
+    
     function leadingZeros(n, digits) {
         var zero = '';
         n = n.toString();
@@ -132,11 +131,11 @@ function initialize() {
 
     $('#dateselectinput').attr('placeholder', s)
     $('#setdate').attr('placeholder', s)
+
+
 }
 
 function makeclicked() {
-
-    $('<div class="loader"></div>').appendTo("#loadingarea");
     var name = $("#name").val()
     var tag = $("#tag").val()
     var url = $("#url").val()
@@ -207,12 +206,16 @@ function makeclicked() {
         return
     }
 
+    $('<div class="loader"></div>').appendTo("#loadingarea");
+    $('#submit').attr('disabled', true);
+
     var newKey = firebase.database().ref('/groups/').push();
 
     if (curfile == null) {
         imageurl = 'https://raw.githubusercontent.com/elite1111cyj/HCI_SelfChef/master/src/logo3.png'
         newKey.set({
             name: name,
+            host: now_ID,
             tag: tag,
             url: url,
             enddate: enddate,
@@ -230,6 +233,7 @@ function makeclicked() {
         userKey.set({ value: newKey.key })
         $(".loader").remove();
         alert("You successfully made a new group buying!")
+        $('#submit').attr('disabled', false);
         close_makenewgroup();
         return
     }
@@ -240,6 +244,7 @@ function makeclicked() {
         storageRef.getDownloadURL().then(function(imageurl) {
             newKey.set({
                 name: name,
+                host: now_ID,
                 tag: tag,
                 url: url,
                 enddate: enddate,
@@ -257,6 +262,7 @@ function makeclicked() {
             userKey.set({ value: newKey.key })
             $(".loader").remove();
             alert("You successfully made a new group buying!")
+            $('#submit').attr('disabled', false);
             close_makenewgroup();
         })
     })
@@ -273,3 +279,6 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+
+

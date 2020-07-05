@@ -207,3 +207,29 @@ dl{
 .ongoingProduct{
 	cursor: pointer;
 }
+
+.HostBadge{
+  position: absolute;
+  width: 100px;
+  height: 30px;
+  background-color: #DB524E;
+  border-radius: 7px 0 3px 0;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  display: inilne-block;
+  box-shadow: 10px 10px 22px -6px rgba(0,0,0,0.48);
+}
+
+.InfoAsk{
+  position: absolute;
+  width: 150px;
+  height: 30px;
+  background-color: #DB524E;
+  border-radius: 7px 0 3px 0;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  display: inilne-block;
+  box-shadow: 10px 10px 22px -6px rgba(0,0,0,0.48);
+}

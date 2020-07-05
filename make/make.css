@@ -369,14 +369,53 @@ body {
     cursor: pointer;
 }
 
-.loader {
-    border: 16px solid #f3f3f3;
-    /* Light grey */
-    border-top: 16px solid #bfbfbf;
-    /* gray */
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    animation: spin 2s linear infinite;
-    margin-left: 100px;
+#loadingarea {
+    /* Colors / Primary-Disabled */
+    border: 0;
+    outline: 0;
+    position: absolute;
+    height: 38px;
+    width: 90px;
+    left: 1000px;
+    bottom: 57px;
 }
+
+.loader {
+    border: 6px solid #c8baf0; /* Light grey */
+    border-top: 6px solid #6026cc; /* gray */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+.tag-container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+.tag{
+pointer-events: none;
+background-color: #242424;
+color: white;
+padding: 6px;
+margin: 5px;
+}
+
+.tag::before {
+pointer-events: all;
+display: inline-block;
+content: 'x';  
+height: 20px;
+width: 20px;
+margin-right: 6px;
+text-align: center;
+color: #ccc;
+background-color: #111;
+cursor: pointer;
+}
+  
