@@ -19,7 +19,7 @@ window.onload = function() {
         initialize()
         $('<div class="loader"></div>').appendTo("#loadingarea");
 
-}
+    }
     /*
     function go_makenewgroup() {
         console.log('popup')
@@ -27,6 +27,7 @@ window.onload = function() {
     }
     */
 function go_makenewgroup() {
+    $('#button_makegb').attr('disabled', true)
     popup = document.createElement('div')
     popup.setAttribute('id', 'makepopup')
     document.body.appendChild(popup)
@@ -108,13 +109,14 @@ function go_makenewgroup() {
 function close_makenewgroup() {
     var element = document.getElementById('makepopup');
     element.parentNode.removeChild(element);
+    $('#button_makegb').attr('disabled', false)
 }
 
 
 
 function initialize() {
     //curfile = "../src/noImage.jpg";
-    
+
     function leadingZeros(n, digits) {
         var zero = '';
         n = n.toString();
@@ -279,6 +281,3 @@ function readURL(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
-
-
