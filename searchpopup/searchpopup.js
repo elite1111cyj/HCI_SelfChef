@@ -116,8 +116,8 @@ function getInfo(key) {
         }
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
-        $('#progress').html(endamount);
-        $('#bar').html(currentamount);
+        $('#progress').html(endamount+'&nbsp &nbsp');
+        $('#bar').html('&nbsp &nbsp'+currentamount);
     })
 }
 
