@@ -223,7 +223,7 @@ body {
 #select {
     position: absolute;
     left: 76px;
-    top: 370px;
+    top: 365px;
 }
 
 #select_text {
@@ -252,7 +252,7 @@ body {
     width: 430px;
     height: 45px;
     left: 25px;
-    top: 40px;
+    top: 34px;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -263,7 +263,7 @@ body {
     width: 430px;
     height: 45px;
     left: 389px;
-    top: 40px;
+    top: 34px;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
