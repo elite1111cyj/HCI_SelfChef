@@ -45,8 +45,8 @@ body {
     position: absolute;
     right: 15px;
     top: 15px;
-    border:0;
-    outline:0;
+    border: 0;
+    outline: 0;
     cursor: pointer;
 }
 
@@ -78,7 +78,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -95,7 +95,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -112,7 +112,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -126,7 +126,7 @@ body {
     height: 200px;
     left: 750px;
     top: 10px;
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
 }
 
@@ -145,7 +145,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -179,7 +179,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -206,7 +206,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -263,7 +263,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -278,9 +278,9 @@ body {
     left: 364px;
     top: 40px;
     /* Colors / White */
-    background: #FFFFFF;
+    background: rgb(231, 231, 231);
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -308,7 +308,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -325,7 +325,7 @@ body {
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
-    box-shadow: 0px 4px 16px rgba(51, 51, 51, 0.08), 0px 4px 4px rgba(51, 51, 51, 0.04);
+    border-color: #ccc;
     border-radius: 4px;
     font-style: normal;
     font-weight: normal;
@@ -363,41 +363,133 @@ body {
 }
 
 .loader {
-    border: 6px solid #c8baf0; /* Light grey */
-    border-top: 6px solid #6026cc; /* gray */
+    border: 6px solid #c8baf0;
+    /* Light grey */
+    border-top: 6px solid #6026cc;
+    /* gray */
     border-radius: 50%;
     width: 20px;
     height: 20px;
     animation: spin 1s linear infinite;
 }
+
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 .tag-container {
     display: flex;
     flex-flow: row wrap;
-  }
-  
-.tag{
-pointer-events: none;
-background-color: #242424;
-color: white;
-padding: 6px;
-margin: 5px;
+}
+
+.tag {
+    pointer-events: none;
+    background-color: #242424;
+    color: white;
+    padding: 6px;
+    margin: 5px;
 }
 
 .tag::before {
-pointer-events: all;
-display: inline-block;
-content: 'x';  
-height: 20px;
-width: 20px;
-margin-right: 6px;
-text-align: center;
-color: #ccc;
-background-color: #111;
-cursor: pointer;
+    pointer-events: all;
+    display: inline-block;
+    content: 'x';
+    height: 20px;
+    width: 20px;
+    margin-right: 6px;
+    text-align: center;
+    color: #ccc;
+    background-color: #111;
+    cursor: pointer;
 }
-  
+
+.help-tip {
+    text-align: center;
+    position: relative;
+    background-color: #b4a5e9;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 22px;
+    cursor: default;
+}
+
+.help-tip:before {
+    content: '?';
+    font-weight: bold;
+    color: #fff;
+}
+
+.help-tip:hover p {
+    display: block;
+    transform-origin: 100% 0%;
+    -webkit-animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.help-tip p {
+    /* The tooltip */
+    display: none;
+    position: absolute;
+    left: 0px;
+    text-align: left;
+    background-color: #1E2021;
+    padding: 20px;
+    width: 300px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    right: -4px;
+    color: #FFF;
+    font-size: 13px;
+    line-height: 1.4;
+    z-index: 3;
+}
+
+.help-tip p:before {
+    /* The pointer of the tooltip */
+    content: '';
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-bottom-color: #1E2021;
+    right: 10px;
+    top: -12px;
+}
+
+.help-tip p:after {
+    /* Prevents the tooltip from being hidden */
+    width: 100%;
+    height: 40px;
+    content: '';
+    top: -40px;
+    left: 0;
+}
+
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    100% {
+        opacity: 100%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100%;
+    }
+}

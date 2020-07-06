@@ -92,15 +92,19 @@ function go_makenewgroup() {
         $('#dateselect').change(function() {
             if ($(this).is(':checked')) {
                 $('#dateselectinput').attr('disabled', false);
+                $('#dateselectinput').css('background', '#FFFFFF');
             } else {
                 $('#dateselectinput').attr('disabled', true);
+                $('#dateselectinput').css('background', 'rgb(231, 231, 231)');
             }
         });
         $('#amountselect').change(function() {
             if ($(this).is(':checked')) {
                 $('#amountselectinput').attr('disabled', false);
+                $('#amountselectinput').css('background', '#FFFFFF');
             } else {
                 $('#amountselectinput').attr('disabled', true);
+                $('#amountselectinput').css('background', 'rgb(231, 231, 231)');
             }
         });
     });
