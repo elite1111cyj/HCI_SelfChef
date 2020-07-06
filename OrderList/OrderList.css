@@ -11,6 +11,12 @@ li{
   list-style:none;
 }
 
+h2{
+  color: rgb(97, 97, 97);
+  display: inline;
+  margin: 0px;
+}
+
 ul{
   margin-left: 20px;
 }
@@ -204,8 +210,8 @@ dl{
   border-radius: 50%;
   width: 50px;
   height: 50px;
-  animation: spin 2s linear infinite;
-  margin-left: 100px;
+  animation: spin 1s linear infinite;
+  margin-left: 40%;
 }
 
 @keyframes spin {
@@ -228,6 +234,7 @@ dl{
   text-align: center;
   display: inilne-block;
   box-shadow: 10px 10px 22px -6px rgba(0,0,0,0.48);
+  z-index: 1;
 }
 
 .InfoAsk{
@@ -241,4 +248,91 @@ dl{
   text-align: center;
   display: inilne-block;
   box-shadow: 10px 10px 22px -6px rgba(0,0,0,0.48);
+  z-index: 1;
+}
+
+
+
+
+.help-tip{
+    text-align: center;
+    position: relative;
+    top: -27px;
+    left: 100px;
+    background-color: #b4a5e9;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 22px;
+    cursor: default;
+}
+
+.help-tip:before{
+    content:'?';
+    font-weight: bold;
+    color:#fff;
+}
+
+.help-tip:hover p{
+    display:block;
+    transform-origin: 100% 0%;
+
+    -webkit-animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.help-tip p{    /* The tooltip */
+    display: none;
+    position: absolute;
+    left: 0px;
+    text-align: left;
+    background-color: #1E2021;
+    padding: 20px;
+    width: 300px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    right: -4px;
+    color: #FFF;
+    font-size: 13px;
+    line-height: 1.4;
+    z-index: 3;
+}
+
+.help-tip p:before{ /* The pointer of the tooltip */
+    content: '';
+    width:0;
+    height: 0;
+    border:6px solid transparent;
+    border-bottom-color:#1E2021;
+    right:10px;
+    top:-12px;
+}
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+    width:100%;
+    height:40px;
+    content:'';
+    top:-40px;
+    left:0;
+}
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+    0% { 
+        opacity:0; 
+        transform: scale(0.6);
+    }
+
+    100% {
+        opacity:100%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
 }
