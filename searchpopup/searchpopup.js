@@ -116,8 +116,8 @@ function getInfo(key) {
         }
         $('#productimg').attr('src', imageurl);
         $('#bar').css('width', w);
-        $('#progress').html(endamount+'&nbsp &nbsp');
-        $('#bar').html('&nbsp &nbsp'+currentamount);
+        $('#progress').html(endamount + '&nbsp &nbsp');
+        $('#bar').html('&nbsp &nbsp' + currentamount);
     })
 }
 
@@ -133,7 +133,7 @@ function addProduct(key) {
                 var productkey = makeKeys[i];
                 var productcode = makeList[productkey].value;
                 if (productcode == key) {
-                    alert("You made this group buying")
+                    alert("You can't join a group buying you made")
                     return
                 }
             }

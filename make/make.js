@@ -37,7 +37,10 @@ function go_makenewgroup() {
     </button>\
     <div id='info'><b>Information</b>\
         <div id = 'info_help' class = 'help-tip'>\
-        <p>info_help</p>\
+        <p>Give the product information\
+        <br> - Hash tag: People can reach your group buying by searching for the hash tag you wrote\
+        <br> - Price info: Please set the unit of buying and the price per unit \
+        </p>\
         </div>\
         <input type='text' placeholder='Product Name' id='name'></input>\
         <input type='text' placeholder='Hash Tags ex) #fresh #onion #marketkurly' id='tag'></input>\
@@ -64,21 +67,27 @@ function go_makenewgroup() {
     <div id='select'>\
         <div id = 'select_text'>Set due date & target amount</div>\
         <div id = 'select_help' class = 'help-tip'>\
-        <p>select_help</p>\
+        <p>Set the due date or target amount.\
+            <br> If you choose the due date, it will automatically end after the date. Due date has to be same or later than tody. \
+            <br> If you chosse the target amount, it will automatically end if the target amount is reached.\
+            <br> You can choose both or only one\
+        </p>\
         </div>\
         <input type='checkbox' name='endselect' value='Date' id='dateselect' checked>\
         <div id='dateselecttext'><b>Ends with due date</b></div>\
         <input type='checkbox' name='endselect' value='Amount' id='amountselect'>\
         <div id='amountselecttext'><b>Ends with num of target amount</b></div>\
-        <input type='text' placeholder='' id='dateselectinput'></input>\
-        <input type='text' placeholder='ex) 10' id='amountselectinput' disabled='true'></input>\
+        <input type='text' placeholder='Due date' id='dateselectinput'></input>\
+        <input type='text' placeholder='Target amount ex) 10' id='amountselectinput' disabled='true'></input>\
     </div>\
     <div id='set'>Set the pick up information\
         <div id = 'set_help' class = 'help-tip'>\
-        <p>set_help</p>\
+        <p>Set the pick up information\
+        <br> You can later set the 'detailed' pickup place and time.\
+        </p>\
         </div>\
-        <input type='text' placeholder='' id='setdate'></input>\
-        <input type='text' placeholder='ex) Eo-eun dong' id='setplace'></input>\
+        <input type='text' placeholder='Pick up date' id='setdate'></input>\
+        <input type='text' placeholder='Pick up place ex) Eo-eun dong' id='setplace'></input>\
     </div>\
     <div id='loadingarea'></div>\
     <button type='submit' id='submit' onclick='makeclicked()'>Submit</button>\
