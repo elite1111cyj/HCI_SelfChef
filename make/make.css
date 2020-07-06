@@ -68,10 +68,16 @@ body {
     color: #000000;
 }
 
+#info_help {
+    position: absolute;
+    top: 13px;
+    left: 103px;
+}
+
 #name {
     /* Container */
     position: absolute;
-    height: 37px;
+    height: 34px;
     width: 688px;
     left: 0px;
     top: 50px;
@@ -88,10 +94,10 @@ body {
 
 #tag {
     position: absolute;
-    height: 37px;
+    height: 34px;
     width: 688px;
     left: 0px;
-    top: 110px;
+    top: 107px;
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
@@ -105,10 +111,10 @@ body {
 
 #url {
     position: absolute;
-    height: 37px;
+    height: 34px;
     width: 688px;
     left: 0px;
-    top: 170px;
+    top: 164px;
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
@@ -139,9 +145,9 @@ body {
 
 #categorysearch {
     position: absolute;
-    top: 230px;
+    top: 221px;
     left: 0px;
-    height: 37px;
+    height: 34px;
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
@@ -155,7 +161,7 @@ body {
 
 #price {
     position: absolute;
-    top: 230px;
+    top: 221px;
     left: 250px;
 }
 
@@ -174,7 +180,7 @@ body {
     position: absolute;
     top: 0px;
     left: 114px;
-    height: 37px;
+    height: 34px;
     width: 200px;
     /* Colors / White */
     background: #FFFFFF;
@@ -202,7 +208,7 @@ body {
     top: 0px;
     left: 348px;
     width: 90px;
-    height: 37px;
+    height: 34px;
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
@@ -217,13 +223,28 @@ body {
 #select {
     position: absolute;
     left: 76px;
-    top: 380px;
+    top: 370px;
+}
+
+#select_text {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 300px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#select_help {
+    top: 5px;
+    left: 255px;
 }
 
 #dateselect {
     position: absolute;
     left: 0px;
-    top: 10px;
+    top: 40px;
 }
 
 #dateselecttext {
@@ -231,7 +252,7 @@ body {
     width: 430px;
     height: 45px;
     left: 25px;
-    top: 10px;
+    top: 40px;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -242,7 +263,7 @@ body {
     width: 430px;
     height: 45px;
     left: 389px;
-    top: 10px;
+    top: 40px;
     font-style: normal;
     font-weight: bold;
     font-size: 18px;
@@ -251,15 +272,15 @@ body {
 #amountselect {
     position: absolute;
     left: 364px;
-    top: 10px;
+    top: 40px;
 }
 
 #dateselectinput {
     position: absolute;
-    height: 37px;
+    height: 34px;
     width: 324px;
     left: 0px;
-    top: 40px;
+    top: 70px;
     /* Colors / White */
     background: #FFFFFF;
     /* Shadow */
@@ -273,10 +294,10 @@ body {
 
 #amountselectinput {
     position: absolute;
-    height: 37px;
+    height: 34px;
     width: 324px;
     left: 364px;
-    top: 40px;
+    top: 70px;
     /* Colors / White */
     background: rgb(231, 231, 231);
     /* Shadow */
@@ -299,9 +320,15 @@ body {
     font-size: 18px;
 }
 
+#set_help {
+    position: absolute;
+    top: 5px;
+    left: 238px;
+}
+
 #setdate {
     position: absolute;
-    height: 37px;
+    height: 34px;
     width: 324px;
     left: 0px;
     top: 40px;
@@ -318,7 +345,7 @@ body {
 
 #setplace {
     position: absolute;
-    height: 37px;
+    height: 34px;
     width: 324px;
     left: 364px;
     top: 40px;

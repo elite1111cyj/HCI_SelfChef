@@ -36,6 +36,9 @@ function go_makenewgroup() {
     <button id='close' onclick='close_makenewgroup()'>\
     </button>\
     <div id='info'><b>Information</b>\
+        <div id = 'info_help' class = 'help-tip'>\
+        <p>info_help</p>\
+        </div>\
         <input type='text' placeholder='Product Name' id='name'></input>\
         <input type='text' placeholder='Hash Tags ex) #fresh #onion #marketkurly' id='tag'></input>\
         <input type='text' placeholder='Product Link (optional)' id='url'></input>\
@@ -59,6 +62,10 @@ function go_makenewgroup() {
         </div>\
     </div>\
     <div id='select'>\
+        <div id = 'select_text'>Set due date & target amount</div>\
+        <div id = 'select_help' class = 'help-tip'>\
+        <p>select_help</p>\
+        </div>\
         <input type='checkbox' name='endselect' value='Date' id='dateselect' checked>\
         <div id='dateselecttext'><b>Ends with due date</b></div>\
         <input type='checkbox' name='endselect' value='Amount' id='amountselect'>\
@@ -67,6 +74,9 @@ function go_makenewgroup() {
         <input type='text' placeholder='ex) 10' id='amountselectinput' disabled='true'></input>\
     </div>\
     <div id='set'>Set the pick up information\
+        <div id = 'set_help' class = 'help-tip'>\
+        <p>set_help</p>\
+        </div>\
         <input type='text' placeholder='' id='setdate'></input>\
         <input type='text' placeholder='ex) Eo-eun dong' id='setplace'></input>\
     </div>\
